@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"name": "Weissinger-Flight-Computer",
+			"path": "../Weissinger-Flight-Computer"
+		}
+	],
+	"settings": {}
+}
