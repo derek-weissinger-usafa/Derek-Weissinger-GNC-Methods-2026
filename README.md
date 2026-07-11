@@ -10,8 +10,8 @@ Course Website: [GNC Methods for Thrust Vector Control | USAFA Astro Independent
 
 - *Day Logs* are informal day-by-day logs for all work done. 
 
-- *Deliverables* are specific items intended to demonstrate work done to an instructor or outside reviewer
+- *Deliverables* are specific items intended to demonstrate work done to an instructor or outside reviewer.
 
-- *TestProject* is a PlatformIO project folder used for coding experiments
+- *TestProject* is a PlatformIO project folder used for coding experiments.
 
-- *Weissinger-Flight-Computer* is a PlatformIO project folder used for the flight computer
+- *Weissinger-Flight-Computer* is a PlatformIO project folder used for the flight computer.
