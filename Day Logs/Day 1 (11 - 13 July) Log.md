@@ -48,6 +48,8 @@ Approximate Time Spent: 3 hours
 
 ## 13 July
 
+#### Day 2 (cont.)
+
 - Skimmed MECH 632 Attitude Kinematics Slides up to Quaternions
 
 - 321 Passive DCM:
@@ -65,3 +67,19 @@ Approximate Time Spent: 3 hours
 - <img src="file:///C:/Users/C27Derek.Weissinger/AppData/Roaming/marktext/images/2026-07-13-09-30-24-image.png" title="" alt="" width="333">
 
 - Watched [Euler (gimbal lock) Explained](https://www.youtube.com/watch?v=zc8b2Jo7mno) for further intuition on Gimbal Lock, finally saw why gimbal lock only occurs for pitch in aerospace.
+
+
+
+#### Day 3
+
+- Took notes on Website Content and [Visualizing quaternions, an explorable video series](https://eater.net/quaternions), very complicated but I understand the concepts behind quaternions now.
+
+- Created QuatPropogation.mlx script; plotting a constant-rate pitch maneuver using quaternion Diff Eq. and RK4. Plot is linear as expected and quaternions show movement is only occuring in pitch axis. 2 problems:
+
+- ![](C:/Users/C27Derek.Weissinger/AppData/Roaming/marktext/images/2026-07-13-13-59-51-image.png)
+  
+  - Spike at 90 and -90, seemingly reversing pitch direction each time; perhaps some application of double cover?
+  
+  - Why does renormalizing have no effect, even for multi-axis omegas? is RK4 just that good?
+
+- Started work on quat2dcm.m; tried to hand-derive but just began to copy equation from textbook, we will reattack this again tomorrow.
