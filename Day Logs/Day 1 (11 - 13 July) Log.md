@@ -30,11 +30,11 @@
 
 - Took notes on [Understanding Sensor Fusion and Tracking, Part 1: What Is Sensor Fusion? - YouTube](https://www.youtube.com/watch?v=6qV3YjFppuc&list=PLn8PRpmsu08ryYoBpEKzoMOveSTyS-h4a), describing high-level concept and benefits of sensor fusion
 
-
+Approximate Time Spent: 4 hours
 
 ## 12 July
 
-- Read content on Euler Angles and DCMs on website (Day 2)
+- Read and took notes on Day 2 website content
 
 - Skimmed [DCM Tutorial – An Introduction to Orientation Kinematics – Starlino Electronics](https://www.starlino.com/dcm_tutorial.html) to better understand DCMs
 
@@ -43,3 +43,25 @@
 - Created euler2dcm.m MATLAB script; hand-derived 2D rotation matrices then debugged; Took absurdly long for me to realize that my hand-derived 2D matrices were for *active* rotations, not *passive* as is convention. Once fixed the script worked when compared to the built-in aerospace toolbox angle2dcm.
 
 - Created dcm2euler.m and put in initial error checking; Still need to program meat of the script.
+
+Approximate Time Spent: 3 hours
+
+## 13 July
+
+- Skimmed MECH 632 Attitude Kinematics Slides up to Quaternions
+
+- 321 Passive DCM:
+
+- ![](C:/Users/C27Derek.Weissinger/AppData/Roaming/marktext/images/2026-07-13-08-18-08-image.png)
+
+- Coded dcm2euler.m with above matrix
+
+- Did multiple test cases on euler2dcm.m and dcm2euler; confirmed them with aerospace toolbox functions as well.
+
+- Used euler2dcm.m to confirm the worked problem; found I defined my yaw coordinate system wrong in the worked problem and fixed it; uploaded to deliverables folder
+
+- Created plot demonstrating issues with DCM and euler angles once pitch > 90; uploaded to deliverables folder
+
+- <img src="file:///C:/Users/C27Derek.Weissinger/AppData/Roaming/marktext/images/2026-07-13-09-30-24-image.png" title="" alt="" width="333">
+
+- Watched [Euler (gimbal lock) Explained](https://www.youtube.com/watch?v=zc8b2Jo7mno) for further intuition on Gimbal Lock, finally saw why gimbal lock only occurs for pitch in aerospace.

@@ -36,23 +36,17 @@ I = [1 0 0; 0 1 0; 0 0 1];
 
 %Checks to make sure the matrix is orthogonal, and therefore valid rotation
 %matrix
-    if norm(inputmat * transpose(inputmat) - I) > 0.1
-        error("Rotation Matrix Invalid")
-    end
+if norm(rotationmat * transpose(rotationmat) - I) > 0.1
+    error("Rotation Matrix Invalid")
+end
 
-    if det(inputmat) - 1 > 0.0001
-        error("Rotation Matrix Invalid")
-    end
+if det(rotationmat) - 1 > 0.0001
+    error("Rotation Matrix Invalid")
+end
 
-    if norm(transpose(inputmat) - inv(inputmat)) > 0.1
-        error("Rotation Matrix Invalid")
-    end
+if norm(transpose(rotationmat) - inv(rotationmat)) > 0.1
+    error("Rotation Matrix Invalid")
+end
 
-%Calculate Angles, based from 3D DCM symbolically calculated in MATLAB
-
-    phi = rad2deg(atan2(inputmat(2,3), inputmat(3,3)));
-    theta = rad2deg(asin(-inputmat(1,3)));
-    psi = rad2deg(atan2(inputmat(1,2), inputmat(1,1)));
-
-
+phi =
 end

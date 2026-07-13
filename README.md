@@ -12,6 +12,8 @@ Course Website: [GNC Methods for Thrust Vector Control | USAFA Astro Independent
 
 - *Deliverables* are specific items intended to demonstrate work done to an instructor or outside reviewer.
 
+- *MATLAB and Simulink* contain MATLAB and Simulink files.
+
 - *TestProject* is a PlatformIO project folder used for coding experiments that are relevant to show work done.
 
 - *Weissinger-Flight-Computer* is a PlatformIO project folder used exclusively for the final flight computer software.
