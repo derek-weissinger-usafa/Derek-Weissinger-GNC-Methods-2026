@@ -95,3 +95,5 @@ Approximate Time Spent: 6.5 hours.
 #### Day 3
 
 #### Day 4
+
+- Wrote up 3DOF Equation of Motion deliverable and uploaded to repo.
