@@ -50,16 +50,16 @@ yaw = [[cosd(psi); -sind(psi); 0] [sind(psi); cosd(psi); 0] [0; 0; 1]];
 rotationmat = roll * pitch * yaw;
 
 %Checks to make sure the matrix is orthogonal
-if norm(rotationmat * transpose(rotationmat) - I) > 0.1
-    error("Rotation Matrix Invalid")
+if abs(norm(rotationmat * transpose(rotationmat) - I)) > 0.01
+    error("Rotation Matrix Invalid.")
 end
 
-if det(rotationmat) - 1 > 0.0001
-    error("Rotation Matrix Invalid")
+if abs(det(rotationmat) - 1) > 0.01
+    error("Rotation Matrix Invalid.")
 end
 
-if norm(transpose(rotationmat) - inv(rotationmat)) > 0.1
-    error("Rotation Matrix Invalid")
+if abs(norm(transpose(rotationmat) - inv(rotationmat))) > 0.01
+    error("Rotation Matrix Invalid.")
 end
 
 %If matrix is good, return it.

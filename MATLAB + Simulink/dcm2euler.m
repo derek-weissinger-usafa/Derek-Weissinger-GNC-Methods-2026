@@ -27,25 +27,23 @@ function [phi, theta, psi] =  dcm2euler(inputmat)
 %   N/A
 %
 % References:
-%   Starlino DCM Tutorial; Accessed online
-%   Rotation Matrix Wikipedia Article; Used to check work 
-%
+%   AFIT MECH 653 Lesson 2 Attitude Kinematics Lecture Notes, Slide 17
 %==========================================================================
 %Define Identity Matrix
 I = [1 0 0; 0 1 0; 0 0 1];
 
 %Checks to make sure the matrix is orthogonal, and therefore valid rotation
 %matrix
-    if norm(inputmat * transpose(inputmat) - I) > 0.1
-        error("Rotation Matrix Invalid")
+    if abs(norm(inputmat * transpose(inputmat) - I)) > 0.01
+        error("Rotation Matrix Invalid.")
     end
 
-    if det(inputmat) - 1 > 0.0001
-        error("Rotation Matrix Invalid")
+    if abs(det(inputmat) - 1) > 0.01
+        error("Rotation Matrix Invalid.")
     end
 
-    if norm(transpose(inputmat) - inv(inputmat)) > 0.1
-        error("Rotation Matrix Invalid")
+    if abs(norm(transpose(inputmat) - inv(inputmat))) > 0.01
+        error("Rotation Matrix Invalid.")
     end
 
 %Calculate Angles, based from 3D DCM symbolically calculated in MATLAB
@@ -54,5 +52,11 @@ I = [1 0 0; 0 1 0; 0 0 1];
     theta = rad2deg(asin(-inputmat(1,3)));
     psi = rad2deg(atan2(inputmat(1,2), inputmat(1,1)));
 
+%Prefer positive phi and psi to express pitch > 90
+    if phi < 0 && psi < 0
+        phi = 180 + phi;
+        theta = 180 - theta;
+        psi = 180 + psi;
+    end
 
 end

@@ -30,7 +30,7 @@ function outputmat =  quat2dcm(quat)
 %
 %==========================================================================
 
-%Define 3x3 Identity Matrix
+%Define Identity Matrix
 I = [1 0 0; 0 1 0; 0 0 1];
 
 %Check for valid unit quaternion
@@ -48,14 +48,23 @@ q1 = quat(2);
 q2 = quat(3);
 q3 = quat(4);
 
+%Found in Wie 335
 outputmat = [1 - 2*(q2^2 + q3^2) 2*(q1*q2 + q3*q0) 2*(q1*q3 - q2*q0);
-             2*]
+             2*(q2*q1 - q3*q0) 1 - 2*(q1^2 + q3^2) 2*(q2*q3 + q1*q0);
+             2*(q3*q1 + q2*q0) 2*(q3*q2 - q1*q0) 1 - 2*(q1^2 + q2^2)];
 
-%Shortcut for eq. found in Wie 335
-% vector_comp = quat(2:4);
-% Q = [0 -q3 q2; q3 0 -q1; -q2 q1 0];
-% 
-% outputmat = (q0^2 - dot(vector_comp, vector_comp)) * I + 2
+%Checks to make sure the matrix is orthogonal
+if abs(norm(outputmat * transpose(outputmat) - I)) > 0.01
+    error("Rotation Matrix Invalid.")
+end
+
+if abs(det(outputmat) - 1) > 0.01
+    error("Rotation Matrix Invalid.")
+end
+
+if abs(norm(transpose(outputmat) - inv(outputmat))) > 0.01
+    error("Rotation Matrix Invalid.")
+end
 
 
 end

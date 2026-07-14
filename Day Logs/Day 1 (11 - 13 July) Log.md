@@ -68,13 +68,11 @@ Approximate Time Spent: 3 hours
 
 - Watched [Euler (gimbal lock) Explained](https://www.youtube.com/watch?v=zc8b2Jo7mno) for further intuition on Gimbal Lock, finally saw why gimbal lock only occurs for pitch in aerospace.
 
-
-
 #### Day 3
 
 - Took notes on Website Content and [Visualizing quaternions, an explorable video series](https://eater.net/quaternions), very complicated but I understand the concepts behind quaternions now.
 
-- Created QuatPropogation.mlx script; plotting a constant-rate pitch maneuver using quaternion Diff Eq. and RK4. Plot is linear as expected and quaternions show movement is only occuring in pitch axis. 2 problems:
+- Created QuatPropagation.mlx script; plotting a constant-rate pitch maneuver using quaternion Diff Eq. and RK4. Plot is linear as expected and quaternions show movement is only occuring in pitch axis. 2 problems:
 
 - ![](C:/Users/C27Derek.Weissinger/AppData/Roaming/marktext/images/2026-07-13-13-59-51-image.png)
   
@@ -82,4 +80,18 @@ Approximate Time Spent: 3 hours
   
   - Why does renormalizing have no effect, even for multi-axis omegas? is RK4 just that good?
 
-- Started work on quat2dcm.m; tried to hand-derive but just began to copy equation from textbook, we will reattack this again tomorrow.
+- Started work on quat2dcm.m and dcm2quat.m; tried to hand-derive but just began to copy equation from textbook. They appear to be good; they can self-reproduce any given dcm.
+
+- It appears my dcm2euler.m is wrong or spitting out equivalent, but different euler angles for I got [phi2, theta2, psi2] = [120, -20, -160] from [300, 200, 20]. When I applied dcm2euler to QuatPropagation.mlx, I got wildly wrong and inconsistent answers.
+
+- Created quatmult.m and confirmed it correct with built-in function.
+
+- My verdict: I don't think it is a good idea to get too in the weeds debugging matlab scripts, as this is ultimately what MATLAB's built-in functions are for. I know I have a sufficient understanding to be able to use these in an engineering context, so I believe I can move on to the next day. I should go over the quaternion propagation with Lt Col Harris as those errors may be conceptual.
+
+Approximate Time Spent: 6.5 hours.
+
+## 14 July
+
+#### Day 3
+
+#### Day 4
