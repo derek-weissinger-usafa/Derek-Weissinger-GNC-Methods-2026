@@ -88,12 +88,23 @@ Approximate Time Spent: 3 hours
 
 - My verdict: I don't think it is a good idea to get too in the weeds debugging matlab scripts, as this is ultimately what MATLAB's built-in functions are for. I know I have a sufficient understanding to be able to use these in an engineering context, so I believe I can move on to the next day. I should go over the quaternion propagation with Lt Col Harris as those errors may be conceptual.
 
-Approximate Time Spent: 6.5 hours.
+Approximate Time Spent: 7 hours.
 
 ## 14 July
 
 #### Day 3
 
+- Worked with Col Harris on quat. propagation script: The inversions were caused by gimbal lock and the 2 quaternions were actually different, just infinitesimally so.
+
 #### Day 4
 
-- Wrote up 3DOF Equation of Motion deliverable and uploaded to repo.
+- Wrote up 3DOF Equations of Motion deliverable, expressed as 3 second derivatives, and uploaded to repo.
+- Created vehicle_params.m and downloaded F15 thrust curve as .csv
+
+#### Day 5
+
+- Went through Simulink Onramp tutorial
+
+- Created 3DOF Plant model, still need to validate it but initial testing looks promising!
+
+Approximate Time Spent: 5.5 hours.
