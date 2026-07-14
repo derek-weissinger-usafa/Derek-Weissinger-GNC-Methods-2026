@@ -107,4 +107,12 @@ Approximate Time Spent: 7 hours.
 
 - Created 3DOF Plant model, still need to validate it but initial testing looks promising!
 
-Approximate Time Spent: 5.5 hours.
+- Validated 3DoF Model and uploaded to Deliverables Folder.
+  
+  - Not sure how to do the instability demonstration
+
+#### Day 6
+
+- Skimmed the reading for Day 6 on the website.
+
+Approximate Time Spent: 6 hours.
