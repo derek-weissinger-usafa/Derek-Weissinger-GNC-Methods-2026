@@ -22,7 +22,7 @@ See *MATLAB and Simulink FIles/Open_Loop_3DOF_Plant.slx*.
 
 - $\theta$ and $\omega_n$ remain constant 0, showing no torque was applied.
 
-- Using the above numbers for total impulse and mass.
+- Using the above numbers for total impulse, mass, and the gravitational constant, we can hand calculate maximum $V_n = J_t/m + gt \approx 56 \frac{m}{s}$, which is confirmed by our plot of Vxn. 
 
 #### Verification 2:  $\delta = 2\degree$
 

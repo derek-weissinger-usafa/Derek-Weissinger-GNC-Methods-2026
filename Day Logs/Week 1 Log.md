@@ -116,3 +116,13 @@ Approximate Time Spent: 7 hours.
 - Skimmed the reading for Day 6 on the website.
 
 Approximate Time Spent: 6 hours.
+
+## 15 July
+
+- Took notes on website's Day 6 reading
+
+- Created PID controller in Simulink
+
+- Tuned the controller for the various test cases given by the website
+
+- Created and submitted Day 6 Deliverable
