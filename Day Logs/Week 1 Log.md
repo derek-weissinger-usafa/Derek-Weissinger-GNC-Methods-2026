@@ -125,4 +125,8 @@ Approximate Time Spent: 6 hours.
 
 - Tuned the controller for the various test cases given by the website
 
-- Created and submitted Day 6 Deliverable
+- Created and submitted Day 6 Deliverabley
+
+- Took notes on [Understanding PID Control](https://www.youtube.com/playlist?list=PLn8PRpmsu08pQBgjxYFXSsODEF3Jqmm-y), videos 2-4.
+
+Approximate time spent: 5.5 hours.
