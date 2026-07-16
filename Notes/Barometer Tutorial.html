@@ -1,0 +1,6572 @@
+<!DOCTYPE html>
+<!-- saved from url=(0108)https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all -->
+<html lang="en-US" prefix="og: http://ogp.me/ns#"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">.turbo-progress-bar {
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: #0076ff;
+  z-index: 2147483647;
+  transition:
+    width 300ms ease-out,
+    opacity 150ms 150ms ease-in;
+  transform: translate3d(0, 0, 0);
+}
+</style>
+  
+  <link rel="mask-icon" href="https://learn.adafruit.com/assets/adafruit_favicon-fa25640e.svg" color="#000000">
+  <link rel="icon" type="image/x-icon" href="https://learn.adafruit.com/assets/favicon-5362a6c7.ico">
+
+    
+
+    
+
+
+
+<meta name="guide-title" content="Adafruit BME280 Humidity + Barometric Pressure + Temperature Sensor Breakout">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@adafruit">
+<meta name="twitter:title" content="Adafruit BME280 Humidity + Barometric Pressure + Temperature Sensor Breakout">
+<meta name="twitter:description" content="Build your next weather and enviromental sensing system">
+<meta name="twitter:image:src" content="https://cdn-learn.adafruit.com/guides/images/000/001/089/medium800/BME280_top_angle.jpg">
+<meta name="twitter:domain" content="https://learn.adafruit.com">
+
+<meta property="og:site_name" content="Adafruit Learning System">
+<meta property="og:title" content="Adafruit BME280 Humidity + Barometric Pressure + Temperature Sensor Breakout">
+<meta property="og:description" content="Bosch has stepped up their game with their new BME280 sensor, an environmental sensor with temperature, barometric pressure and humidity! This sensor is great for all sorts of weather/environmental...">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://cdn-learn.adafruit.com/guides/images/000/001/089/medium800/BME280_top_angle.jpg">
+
+
+<script async="" src="./Barometer Tutorial_files/gtm.js.download"></script><script type="application/ld+json" nonce="">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "headline": "Adafruit BME280 Humidity + Barometric Pressure + Temperature Sensor Breakout",
+    "description": "Bosch has stepped up their game with their new BME280 sensor, an environmental sensor with temperature, barometric pressure and humidity! This sensor is great for all sorts of weather/environmental...",
+    "image": "https://cdn-learn.adafruit.com/guides/images/000/001/089/medium800/BME280_top_angle.jpg",
+    "url": "https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout/downloads",
+    "publisher": "Adafruit",
+    "datePublished": "2015-07-24T18:07:39-04:00",
+    "author": {
+      "@type": "Person",
+      "name": "lady ada"
+    }
+  }
+</script>
+
+
+  
+
+  <meta name="csrf-param" content="authenticity_token">
+
+  <meta name="shop-uri" content="https://www.adafruit.com">
+  <link rel="alternate" type="application/atom+xml" title="ATOM" href="https://learn.adafruit.com/feed">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://learn.adafruit.com/feed.rss">
+  <link rel="stylesheet" href="./Barometer Tutorial_files/application-986bcefc.css" data-turbo-track="reload" media="screen">
+  <link rel="preload" href="https://cdn-shop.adafruit.com/fonts/proximanova/proximanova-light-webfont.woff2" as="font" type="font/woff2" crossorigin="">
+  <link rel="preload" href="https://cdn-shop.adafruit.com/fonts/proximanova/proximanova-regular-webfont.woff2" as="font" type="font/woff2" crossorigin="">
+  <link rel="preload" href="https://cdn-shop.adafruit.com/fonts/proximanova/proximanova-semibold-webfont.woff2" as="font" type="font/woff2" crossorigin="">
+  <script nonce="">
+  var dataLayer = [];
+  function gtag(){dataLayer.push(arguments);}
+</script>
+
+  <!-- Google Tag Manager -->
+  <script nonce="">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PRPXBQ6');</script>
+  <!-- End Google Tag Manager -->
+
+  <script nonce="">
+    gtag('js', new Date());
+  </script>
+
+    <script nonce="">
+    gtag("event", "view_item_list", {
+      item_list_id: "1089:6047",
+      item_list_name: "adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout/downloads",
+      items: [
+  {
+    "item_id": "2652",
+    "item_name": "Adafruit BME280 I2C or SPI Temperature Humidity Pressure Sensor",
+    "affiliation": "Featured Product"
+  }
+]
+    });
+
+  </script>
+
+
+  <meta name="viewport" content="initial-scale=1, viewport-fit=cover">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"> -->
+
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  <script type="application/ld+json" nonce="">
+    {
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      "url": "https://learn.adafruit.com/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://learn.adafruit.com/search?q={search_term}",
+        "query-input": "required name=search_term"
+      }
+    }
+  </script>
+    <script src="./Barometer Tutorial_files/application-fa024637.js.download" data-turbo-track="reload" type="module" nonce=""></script>
+<style>
+            .flipX video::-webkit-media-text-track-display {
+                transform: matrix(-1, 0, 0, 1, 0, 0) !important;
+            }
+            .flipXY video::-webkit-media-text-track-display {
+                transform: matrix(-1, 0, 0, -1, 0, 0) !important;
+            }
+            .flipXYX video::-webkit-media-text-track-display {
+                transform: matrix(1, 0, 0, -1, 0, 0) !important;
+            }</style><style>
+            @keyframes blinkWarning {
+                0% { color: red; }
+                100% { color: white; }
+            }
+            @-webkit-keyframes blinkWarning {
+                0% { color: red; }
+                100% { color: white; }
+            }
+            .blinkWarning {
+                -webkit-animation: blinkWarning 1s linear infinite;
+                -moz-animation: blinkWarning 1s linear infinite;
+                animation: blinkWarning 1s linear infinite;
+            }</style><title>Overview | Adafruit BME280 Humidity + Barometric Pressure + Temperature Sensor Breakout | Adafruit Learning System</title><link rel="canonical" href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout/overview"><meta property="og:url" content="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout/overview"><script type="application/ld+json" nonce="">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "headline": "Adafruit BME280 Humidity + Barometric Pressure + Temperature Sensor Breakout",
+    "description": "Bosch has stepped up their game with their new BME280 sensor, an environmental sensor with temperature, barometric pressure and humidity! This sensor is great for all sorts of weather/environmental...",
+    "image": "https://cdn-learn.adafruit.com/guides/images/000/001/089/medium800/BME280_top_angle.jpg",
+    "url": "https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout/overview",
+    "publisher": "Adafruit",
+    "datePublished": "2015-07-24T18:07:39-04:00",
+    "author": {
+      "@type": "Person",
+      "name": "lady ada"
+    }
+  }
+</script><script nonce="">
+    gtag("event", "view_item_list", {
+      item_list_id: "1089:6042",
+      item_list_name: "adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout/overview",
+      items: [
+  {
+    "item_id": "2652",
+    "item_name": "Adafruit BME280 I2C or SPI Temperature Humidity Pressure Sensor",
+    "affiliation": "Featured Product"
+  }
+]
+    });
+
+  </script><meta name="csrf-token" content="ZTDzXzDjmY8sukgB17IeFGyFpPXqzXCAfK3oY011PbZyrTpJOYj7VjTP9_N0KGBWJKvHGtPTsGnqGJxjakIoxA"></head>
+
+<body class="application pages show production  " data-rails-env="production">
+    <!-- Google Tag Manager (noscript) -->
+  
+  <!-- End Google Tag Manager (noscript) -->
+
+  <div id="outer-wrapper">
+    <div id="inner-wrapper">
+      
+      <nav class="skip-links" aria-label="Skip links">
+  <ul>
+    <li><a data-turbo="false" href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#main-content-container">Skip to main content</a></li>
+      <li><a data-turbo="false" href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#article-body">Skip to article content</a></li>
+
+  </ul>
+</nav>
+
+
+        <div id="messaging-wrapper" class="messages-container" data-load="https://www.adafruit.com/api/multi_message.php"></div>
+
+
+      <header id="adafruit-header" aria-label="Adafruit header">
+  <div id="small-header">
+  <div class="first-row">
+      <nav aria-label="Adafruit applications menu">
+    <ul class="application-links">
+      <li><a aria-label="Adafruit Shop" href="https://www.adafruit.com/">Shop</a></li>
+      <li class="selected"><a aria-label="Adafruit Learning System" href="https://learn.adafruit.com/">Learn</a></li>
+      <li><a aria-label="Adafruit Blog" href="https://blog.adafruit.com/">Blog</a></li>
+      <li><a aria-label="Adafruit Forums and Support" href="https://forums.adafruit.com/">Forums</a></li>
+      <li><a aria-label="Adafruit IO, the internet of things" href="https://io.adafruit.com/">IO</a></li>
+      <li><a aria-label="Adafruit Youtube Videos" href="https://www.youtube.com/adafruit/live">LIVE!</a></li>
+
+        <li><a aria-label="Adafruit product box subscription" href="https://www.adabox.com/">AdaBox</a></li>
+    </ul>
+  </nav>
+
+  </div>
+
+  <div class="second-row">
+    <div class="row-content">
+      <div id="mobile-header-logo">
+        <a href="https://learn.adafruit.com/">
+        <img id="small-logo" height="50" width="50" alt="Adafruit Logo" src="./Barometer Tutorial_files/adafruit_logo_small.png">
+</a>      </div>
+
+      <button id="mobile-menu-button" class="c-hamburger c-hamburger--htx">
+        <span>toggle menu</span>
+      </button>
+
+      <div id="mobile-search-wrapper">
+        <form action="https://learn.adafruit.com/search" method="get">
+          <label for="mobile-search" style="display:none;">Search</label>
+
+          <input id="mobile-search" type="text" name="q" autocomplete="off" data-app-id="W9DMM4OTH0" data-app-key="28a76a2b87be38db12283ebda329425a" data-app-index="learn_guides_production" data-app-uri="https://learn.adafruit.com">
+
+          <button type="submit" aria-label="Submit search"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+
+      <a id="mobile-header-cart" href="https://www.adafruit.com/shopping_cart">
+        <span class="small-cart-count" aria-live="polite">0</span>
+        <i class="fa fa-shopping-cart"></i>
+</a>
+    </div>
+  </div>
+
+  <nav id="small-header-nav">
+    <div id="small-menu">
+      <ul>
+          <li class="account-info">
+            <a href="https://learn.adafruit.com/users/sign_in">Sign In</a> | <a href="https://accounts.adafruit.com/">Create Account</a>
+          </li>
+        <li><a href="https://adafruit-playground.com/">Playground</a></li>
+          <li><a href="https://learn.adafruit.com/guides/latest">New Guides</a></li>
+          <li><a href="https://learn.adafruit.com/groups">Series</a></li>
+          <li><a href="https://www.adafruit.com/wishlists">Wishlists</a></li>
+          <li>
+            <a class="random-guide-link" aria-label="View a Random Guide" href="https://learn.adafruit.com/guides/random">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+<g>
+  <g>
+    <path fill="currentColor" d="M478.578,244.475H278.047c-3.81,0-7.42,0.78-10.829,1.961l56.305-56.305c6.306-6.306,9.759-14.706,9.759-23.64
+      c0-8.935-3.454-17.335-9.759-23.64L190.282,9.609c-12.589-12.611-34.692-12.611-47.281,0L9.759,142.85
+      C3.454,149.156,0,157.556,0,166.491s3.454,17.335,9.759,23.64l133.242,133.242c6.306,6.306,14.683,9.759,23.64,9.759
+      c8.957,0,17.335-3.454,23.64-9.759l56.305-56.305c-1.181,3.409-1.961,7.019-1.961,10.829v200.531
+      c0,18.427,14.995,33.422,33.422,33.422h200.531c18.427,0,33.422-14.995,33.422-33.422V277.897
+      C512,259.47,497.005,244.475,478.578,244.475z M182.394,271.368c-4.345,4.345-10.049,6.506-15.753,6.506
+      s-11.408-2.161-15.753-6.506c-8.712-8.69-8.712-22.816,0-31.506c8.69-8.712,22.816-8.712,31.506,0
+      C191.106,248.552,191.106,262.679,182.394,271.368z M182.394,182.244c-4.345,4.345-10.049,6.506-15.753,6.506
+      c-5.704,0-11.408-2.161-15.753-6.506c-8.712-8.69-8.712-22.816,0-31.506c8.69-8.712,22.816-8.712,31.506,0
+      C191.106,159.428,191.106,173.554,182.394,182.244z M182.394,93.119c-4.345,4.345-10.049,6.506-15.753,6.506
+      c-5.704,0-11.408-2.161-15.753-6.506c-8.712-8.69-8.712-22.816,0-31.506c8.69-8.712,22.816-8.712,31.506,0
+      C191.106,70.303,191.106,84.429,182.394,93.119z M311.469,467.287c-12.277,0-22.281-9.982-22.281-22.281
+      c0-12.299,10.004-22.281,22.281-22.281c12.277,0,22.281,9.982,22.281,22.281C333.75,457.305,323.746,467.287,311.469,467.287z
+       M311.469,333.6c-12.277,0-22.281-9.982-22.281-22.281c0-12.299,10.004-22.281,22.281-22.281c12.277,0,22.281,9.982,22.281,22.281
+      C333.75,323.618,323.746,333.6,311.469,333.6z M378.313,400.444c-12.277,0-22.281-9.982-22.281-22.281
+      c0-12.299,10.004-22.281,22.281-22.281s22.281,9.982,22.281,22.281C400.594,390.462,390.59,400.444,378.313,400.444z
+       M445.156,467.287c-12.277,0-22.281-9.982-22.281-22.281c0-12.299,10.004-22.281,22.281-22.281s22.281,9.982,22.281,22.281
+      C467.438,457.305,457.433,467.287,445.156,467.287z M445.156,333.6c-12.277,0-22.281-9.982-22.281-22.281
+      c0-12.299,10.004-22.281,22.281-22.281s22.281,9.982,22.281,22.281C467.438,323.618,457.433,333.6,445.156,333.6z"></path>
+  </g>
+</g>
+</svg>
+</a>
+          </li>
+      </ul>
+    </div>
+
+    <div id="mobile-search-results"></div>
+  </nav>
+</div>
+
+
+  <div id="large-header">
+    <nav class="first-row" aria-label="Adafruit main site">
+      <div class="row-content">
+          <nav aria-label="Adafruit applications menu">
+    <ul class="application-links">
+      <li><a aria-label="Adafruit Shop" href="https://www.adafruit.com/">Shop</a></li>
+      <li class="selected"><a aria-label="Adafruit Learning System" href="https://learn.adafruit.com/">Learn</a></li>
+      <li><a aria-label="Adafruit Blog" href="https://blog.adafruit.com/">Blog</a></li>
+      <li><a aria-label="Adafruit Forums and Support" href="https://forums.adafruit.com/">Forums</a></li>
+      <li><a aria-label="Adafruit IO, the internet of things" href="https://io.adafruit.com/">IO</a></li>
+      <li><a aria-label="Adafruit Youtube Videos" href="https://www.youtube.com/adafruit/live">LIVE!</a></li>
+
+        <li><a aria-label="Adafruit product box subscription" href="https://www.adabox.com/">AdaBox</a></li>
+    </ul>
+  </nav>
+
+
+        <div id="account">
+            <span class="sign-out"><a href="https://learn.adafruit.com/users/sign_in">Sign In</a></span>
+          <div class="cart">
+            <a aria-label="Shopping Cart, 0 items" aria-live="polite" href="https://www.adafruit.com/shopping_cart"><i class="fa fa-shopping-cart"></i> 0</a>          </div>
+        </div>
+      </div>
+    </nav>
+
+    <nav class="second-row" aria-label="Adafruit Learn application">
+      <div class="row-content">
+        <div class="left-content">
+          <div id="logo">
+            <a title="Adafruit Learning System" href="https://learn.adafruit.com/">
+              <img alt="Adafruit Logo" src="./Barometer Tutorial_files/logo_2x.png">
+</a>          </div>
+          <ul class="main-nav-links">
+            <li class="dropdown with-overlay">
+              <button class="dropdown-label nav-link" aria-haspopup="true" aria-expanded="false">Explore &amp; Learn</button>
+              <div class="dropdown-container">
+                <div class="dropdown-content" tabindex="-1">
+                    <div class="flyout">
+      <div class="three-panels">
+        <div class="first-column">
+          <div class="content-header">
+            <span class="title">Learn Categories</span>
+          </div>
+          <div class="categories">
+            <ul>
+                <li>
+                  <a href="https://learn.adafruit.com/category/3d-printing">3D Printing</a>
+                </li>
+                <li>
+                  <a href="https://learn.adafruit.com/category/adabox">AdaBox</a>
+                </li>
+                <li>
+                  <a href="https://learn.adafruit.com/category/adafruit-products">Adafruit Products</a>
+                </li>
+                <li>
+                  <a href="https://learn.adafruit.com/category/arduino">Arduino Compatibles</a>
+                </li>
+                <li>
+                  <a href="https://learn.adafruit.com/category/breakout-boards">Breakout Boards</a>
+                </li>
+                <li>
+                  <a href="https://learn.adafruit.com/category/circuit-playground">Circuit Playground</a>
+                </li>
+                <li>
+                  <a href="https://learn.adafruit.com/category/circuitpython">CircuitPython</a>
+                </li>
+                <li>
+                  <a href="https://learn.adafruit.com/category/clue">CLUE</a>
+                </li>
+                <li>
+                  <a href="https://learn.adafruit.com/category/community-support">Community Support</a>
+                </li>
+                <li>
+                  <a href="https://learn.adafruit.com/category/components">Components</a>
+                </li>
+                <li>
+                  <a href="https://learn.adafruit.com/category/crickit">Crickit</a>
+                </li>
+                <li>
+                  <a href="https://learn.adafruit.com/category/customer-projects">Customer &amp; Partner Projects</a>
+                </li>
+                <li>
+                  <a href="https://learn.adafruit.com/category/development-boards">Development Boards</a>
+                </li>
+                <li>
+                  <a href="https://learn.adafruit.com/category/educators">Educators</a>
+                </li>
+                <li>
+                  <a href="https://learn.adafruit.com/category/el">EL Wire/Tape/Panel</a>
+                </li>
+                <li>
+                  <a href="https://learn.adafruit.com/category/feather">Feather</a>
+                </li>
+                <li>
+                  <a href="https://learn.adafruit.com/category/gaming-1">Gaming</a>
+                </li>
+            </ul>
+            <ul>
+                  <li>
+                    <a href="https://learn.adafruit.com/category/hacks">Hacks</a>
+                  </li>
+                  <li>
+                    <a href="https://learn.adafruit.com/category/internet-of-things-iot">Internet of Things - IOT</a>
+                  </li>
+                  <li>
+                    <a href="https://learn.adafruit.com/category/lcds-and-displays">LCDs &amp; Displays</a>
+                  </li>
+                  <li>
+                    <a href="https://learn.adafruit.com/category/leds">LEDs</a>
+                  </li>
+                  <li>
+                    <a href="https://learn.adafruit.com/category/machine-learning">Machine Learning</a>
+                  </li>
+                  <li>
+                    <a href="https://learn.adafruit.com/category/makecode">MakeCode</a>
+                  </li>
+                  <li>
+                    <a href="https://learn.adafruit.com/category/maker-business">Maker Business</a>
+                  </li>
+                  <li>
+                    <a href="https://learn.adafruit.com/category/micro-bit">micro:bit</a>
+                  </li>
+                  <li>
+                    <a href="https://learn.adafruit.com/category/microcontrollers">Microcontrollers</a>
+                  </li>
+                  <li>
+                    <a href="https://learn.adafruit.com/category/programming">Programming</a>
+                  </li>
+                  <li>
+                    <a href="https://learn.adafruit.com/category/raspberry-pi">Raspberry Pi</a>
+                  </li>
+                  <li>
+                    <a href="https://learn.adafruit.com/category/robotics">Robotics &amp; CNC</a>
+                  </li>
+                  <li>
+                    <a href="https://learn.adafruit.com/category/sensors">Sensors</a>
+                  </li>
+                  <li>
+                    <a href="https://learn.adafruit.com/category/stemma">STEMMA</a>
+                  </li>
+                  <li>
+                    <a href="https://learn.adafruit.com/category/tools">Tools</a>
+                  </li>
+                  <li>
+                    <a href="https://learn.adafruit.com/category/trellis">Trellis</a>
+                  </li>
+                  <li>
+                    <a href="https://learn.adafruit.com/category/wearables">Wearables</a>
+                  </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="middle-column">
+        </div>
+
+        <div class="last-column hide-md">
+          <section class="image-content-card">
+  <img loading="lazy" aria-hidden="true" alt="Explore, Groups to get your gears turning" src="./Barometer Tutorial_files/stemma-690676c3.jpg">
+
+  <div class="text">
+    <div class="main">
+      <span>Explore</span>
+    </div>
+
+    <div class="tagline">
+      <span>Groups to get your gears turning</span>
+    </div>
+  </div>
+
+  <div class="button">
+    <a title="Groups to get your gears turning, Explore" href="https://learn.adafruit.com/explore">Explore Groups</a>
+  </div>
+</section>
+
+      </div>
+    </div>
+  </div>
+
+                </div>
+              </div>
+            </li>
+
+            <li class="nav-link">
+              <a class="new-guides-link" href="https://learn.adafruit.com/guides/latest">New Guides</a>
+            </li>
+            <li class="nav-link">
+              <a href="https://adafruit-playground.com/">Playground</a>
+            </li>
+            <li class="nav-link">
+              <a class="random-guide-link" aria-label="View a Random Guide" href="https://learn.adafruit.com/guides/random">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+<g>
+  <g>
+    <path fill="currentColor" d="M478.578,244.475H278.047c-3.81,0-7.42,0.78-10.829,1.961l56.305-56.305c6.306-6.306,9.759-14.706,9.759-23.64
+      c0-8.935-3.454-17.335-9.759-23.64L190.282,9.609c-12.589-12.611-34.692-12.611-47.281,0L9.759,142.85
+      C3.454,149.156,0,157.556,0,166.491s3.454,17.335,9.759,23.64l133.242,133.242c6.306,6.306,14.683,9.759,23.64,9.759
+      c8.957,0,17.335-3.454,23.64-9.759l56.305-56.305c-1.181,3.409-1.961,7.019-1.961,10.829v200.531
+      c0,18.427,14.995,33.422,33.422,33.422h200.531c18.427,0,33.422-14.995,33.422-33.422V277.897
+      C512,259.47,497.005,244.475,478.578,244.475z M182.394,271.368c-4.345,4.345-10.049,6.506-15.753,6.506
+      s-11.408-2.161-15.753-6.506c-8.712-8.69-8.712-22.816,0-31.506c8.69-8.712,22.816-8.712,31.506,0
+      C191.106,248.552,191.106,262.679,182.394,271.368z M182.394,182.244c-4.345,4.345-10.049,6.506-15.753,6.506
+      c-5.704,0-11.408-2.161-15.753-6.506c-8.712-8.69-8.712-22.816,0-31.506c8.69-8.712,22.816-8.712,31.506,0
+      C191.106,159.428,191.106,173.554,182.394,182.244z M182.394,93.119c-4.345,4.345-10.049,6.506-15.753,6.506
+      c-5.704,0-11.408-2.161-15.753-6.506c-8.712-8.69-8.712-22.816,0-31.506c8.69-8.712,22.816-8.712,31.506,0
+      C191.106,70.303,191.106,84.429,182.394,93.119z M311.469,467.287c-12.277,0-22.281-9.982-22.281-22.281
+      c0-12.299,10.004-22.281,22.281-22.281c12.277,0,22.281,9.982,22.281,22.281C333.75,457.305,323.746,467.287,311.469,467.287z
+       M311.469,333.6c-12.277,0-22.281-9.982-22.281-22.281c0-12.299,10.004-22.281,22.281-22.281c12.277,0,22.281,9.982,22.281,22.281
+      C333.75,323.618,323.746,333.6,311.469,333.6z M378.313,400.444c-12.277,0-22.281-9.982-22.281-22.281
+      c0-12.299,10.004-22.281,22.281-22.281s22.281,9.982,22.281,22.281C400.594,390.462,390.59,400.444,378.313,400.444z
+       M445.156,467.287c-12.277,0-22.281-9.982-22.281-22.281c0-12.299,10.004-22.281,22.281-22.281s22.281,9.982,22.281,22.281
+      C467.438,457.305,457.433,467.287,445.156,467.287z M445.156,333.6c-12.277,0-22.281-9.982-22.281-22.281
+      c0-12.299,10.004-22.281,22.281-22.281s22.281,9.982,22.281,22.281C467.438,323.618,457.433,333.6,445.156,333.6z"></path>
+  </g>
+</g>
+</svg>
+</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="right-content">
+            <div class="search-wrapper">
+              <div id="search-info" data-page="" data-app-id="W9DMM4OTH0" data-app-key="28a76a2b87be38db12283ebda329425a" data-app-index="learn_guides_production" data-app-uri="https://learn.adafruit.com"></div>
+              <div id="search"><div class="ais-SearchBox"><form action="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all" role="search" class="ais-SearchBox-form" novalidate=""><input class="ais-SearchBox-input" type="search" placeholder="" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" maxlength="512" aria-label="Search"><button class="ais-SearchBox-submit" type="submit" title="Submit the search query" hidden=""><svg class="ais-SearchBox-submitIcon" width="10" height="10" viewBox="0 0 40 40" aria-hidden="true"><path d="M26.804 29.01c-2.832 2.34-6.465 3.746-10.426 3.746C7.333 32.756 0 25.424 0 16.378 0 7.333 7.333 0 16.378 0c9.046 0 16.378 7.333 16.378 16.378 0 3.96-1.406 7.594-3.746 10.426l10.534 10.534c.607.607.61 1.59-.004 2.202-.61.61-1.597.61-2.202.004L26.804 29.01zm-10.426.627c7.323 0 13.26-5.936 13.26-13.26 0-7.32-5.937-13.257-13.26-13.257C9.056 3.12 3.12 9.056 3.12 16.378c0 7.323 5.936 13.26 13.258 13.26z"></path></svg></button><button class="ais-SearchBox-reset" type="reset" title="Clear the search query" hidden=""><svg class="ais-SearchBox-resetIcon" viewBox="0 0 20 20" width="10" height="10" aria-hidden="true"><path d="M8.114 10L.944 2.83 0 1.885 1.886 0l.943.943L10 8.113l7.17-7.17.944-.943L20 1.886l-.943.943-7.17 7.17 7.17 7.17.943.944L18.114 20l-.943-.943-7.17-7.17-7.17 7.17-.944.943L0 18.114l.943-.943L8.113 10z"></path></svg></button><span class="ais-SearchBox-loadingIndicator" hidden=""><svg aria-label="Results are loading" class="ais-SearchBox-loadingIcon" width="16" height="16" viewBox="0 0 38 38" stroke="#444" aria-hidden="true"><g fill="none" fill-rule="evenodd"><g transform="translate(1 1)" stroke-width="2"><circle stroke-opacity=".5" cx="18" cy="18" r="18"></circle><path d="M36 18c0-9.94-8.06-18-18-18"><animatetransform attributeName="transform" type="rotate" from="0 18 18" to="360 18 18" dur="1s" repeatCount="indefinite"></animatetransform></path></g></g></svg></span></form></div></div>
+              <i class="fa fa-search"></i>
+            </div>
+        </div>
+
+      </div>
+    </nav>
+  </div>
+</header>
+
+      <turbo-frame id="flash"></turbo-frame>
+      <main id="main-content">
+        <div id="main-content-container" tabindex="-1">
+
+            <div class="toolbar-primary ">
+    <div class="content">
+      <div class="left-content">
+        <div class="breadcrumbs" aria-label="Breadcrumbs">
+          <a href="https://learn.adafruit.com/"><i class="fa fa-home" role="img" title="Learn home"></i></a>
+
+            <i class="fa fa-chevron-right separator"></i>
+            Adafruit BME280 Humidity + Barometric Pressure + Temperature Sensor Breakout
+        </div>
+      </div>
+
+      <div class="right-content">
+        
+      </div>
+    </div>
+  </div>
+
+
+          
+
+
+
+<article id="content-wrapper" lang="en" class="single-page" data-page-id="6042" data-guide-id="1089">
+
+  
+
+  <header aria-label="Guide information" class="title-header">
+  <h1 class="title">Adafruit BME280 Humidity + Barometric Pressure + Temperature Sensor Breakout</h1>
+  <p>Build your next weather and enviromental sensing system</p>
+  <div class="details">
+      <img alt="Image for user adafruit2" class="user-image hoverZoomLink" src="./Barometer Tutorial_files/3f7ca151e1f7f7dead8b2db60aa744c1.png">
+
+      <div class="metadata">
+          <div class="byline">
+    by
+    <a aria-label="Guide author" data-turbo="false" href="https://learn.adafruit.com/u/adafruit2">lady ada</a>
+
+      and
+
+      <span class="dropdown floating-dropdown">
+        <button class="dropdown-icon" title="Guide contributors" aria-haspopup="true" aria-expanded="false">
+          3 other contributors
+        </button>
+        <div class="dropdown-container">
+          <div class="dropdown-content" tabindex="-1">
+            <strong>Contributors:</strong>
+
+            <ul>
+                <li>
+                  <a data-turbo="false" href="https://learn.adafruit.com/u/jerryn">Gerald Needell</a>
+                </li>
+                <li>
+                  <a data-turbo="false" href="https://learn.adafruit.com/u/eherrada">Eva Herrada</a>
+                </li>
+                <li>
+                  <a data-turbo="false" href="https://learn.adafruit.com/u/jposada202020">Jose Montoya</a>
+                </li>
+            </ul>
+          </div>
+        </div>
+      </span>
+  </div>
+
+        <div class="updated">
+            published July 24, 2015, last edited January 22, 2025<br>
+    last major update July 20, 2022
+
+        </div>
+        <div class="small">
+          posted in <a href="https://learn.adafruit.com/category/adafruit-products">Adafruit Products</a>
+  <a href="https://learn.adafruit.com/category/sensors">Sensors</a>/
+<a href="https://learn.adafruit.com/category/weather">Weather</a>
+<a href="https://learn.adafruit.com/category/breakout-boards">Breakout Boards</a>
+
+        </div>
+      </div>
+  </div>
+
+  <div class="buttons">
+
+    <span id="guide-favorite" class="button">
+  <span data-controller="modals">
+    <a data-action="click-&gt;modals#show" class="bg-btn-secondary" aria-label="Select to Save this guide." href="https://learn.adafruit.com/guides/1089/favorites">
+      <i class="fa fa-bookmark-o"></i> Save
+</a>    <div class="dialog-container modal" id="favorites-modal" data-modals-target="modal" aria-labelledby="dialog-title" aria-hidden="true" aria-modal="true" tabindex="-1" role="dialog">
+  <div class="dialog-overlay" data-a11y-dialog-hide=""></div>
+  <div class="dialog-content dialog-small">
+    <div class="dialog-header">
+      <div>
+      <h5 class="dialog-title">New Favorite</h5>
+      </div>
+      <a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#" class="dialog-close" data-a11y-dialog-hide="favorites-modal" aria-label="Close this dialog window">×</a>
+    </div>
+    <div class="dialog-body">
+        <p>Please <a href="https://accounts.adafruit.com/users/sign_in">sign in</a> to include this guide in your list of favorites.</p>
+        <p>You will be redirected back to this guide once you <a href="https://accounts.adafruit.com/users/sign_in">sign in</a>, and can then save this guide as one of your favorites.</p>
+    </div>
+    <div class="dialog-footer">
+      <a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#" class="dialog-close" data-a11y-dialog-hide="favorites-modal" aria-label="Close this dialog window">Close</a>
+    </div>
+  </div><!-- /.modal-content -->
+</div><!-- /.modal -->
+
+  </span>
+</span>
+
+
+    <span class="button">
+  <a class="bg-btn-secondary remote-modal" data-remote="true" data-method="get" href="https://learn.adafruit.com/guides/1089/user_page_associations/new">
+    <i class="fa fa-link"></i> Link Note
+</a></span>
+
+
+
+      <a class="bg-btn-secondary button" href="https://cdn-learn.adafruit.com/downloads/pdf/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout.pdf">
+          <i class="fa fa-download"></i> Download
+</a>
+  </div>
+</header>
+
+
+  <div class="left-sidebar-layout" role="region" aria-label="Page content">
+    <div class="sidebar">
+  <nav aria-label="Guide navigation">
+      <div class="data-group">
+        <ul class="nested-page-list" aria-label="Guide pages">
+           <li class="parent" data-controller="collapse">
+
+      <a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#overview" class="active published" aria-current="page">Overview</a>
+
+
+</li>
+ <li class="parent" data-controller="collapse">
+
+      <a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#pinouts" class=" published">Pinouts</a>
+
+
+</li>
+ <li class="parent" data-controller="collapse">
+
+      <a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#assembly" class=" published">Assembly</a>
+
+
+</li>
+ <li class="parent" data-controller="collapse">
+
+      <a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#arduino-test" class=" published">Arduino Test</a>
+
+
+</li>
+ <li class="parent" data-controller="collapse">
+    <button name="button" type="button" data-action="click-&gt;collapse#toggle" aria-label="Toggle child pages" aria-controls="page-10836-children" aria-expanded="false" class="collapsed-icon collapsed"></button>
+
+      <a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#python-circuitpython-test" class=" published">Python &amp; CircuitPython Test</a>
+
+
+        <ul id="page-10836-children" class="collapse  page-child nav" data-collapse-target="content">
+          	<li class="published">
+
+		  <a href="https://circuitpython.readthedocs.io/projects/bme280/en/latest/" class="published">Python Docs <i class="fa fa-external-link"></i></a>
+
+</li>
+
+</ul></li>
+ <li class="parent" data-controller="collapse">
+
+      <a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#wippersnapper" class=" published">WipperSnapper</a>
+
+
+</li>
+ <li class="parent" data-controller="collapse">
+
+      <a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#f-a-q" class=" published">F.A.Q.</a>
+
+
+</li>
+ <li class="parent" data-controller="collapse">
+
+      <a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#downloads" class=" published">Downloads</a>
+
+
+</li>
+
+        </ul>
+
+        <div class="single-page-spacer"></div>
+        <ul class="nested-page-list" aria-label="Guide resources">
+          <li>
+                <a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout">Multiple pages</a>
+          </li>
+          <li>
+                <div id="feedback_page_6042">
+      <a data-turbo-stream="true" class="feedback-link" title="Feedback? Corrections?" rel="nofollow" href="https://learn.adafruit.com/feedback/new?page_id=6042">
+            Feedback?  Corrections?
+</a>    </div>
+
+          </li>
+          <li>
+            <a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout.md?view=all">Text View</a>
+          </li>
+        </ul>
+      </div>
+
+    
+
+
+      <section class="list-with-header">
+        <div class="list-header">
+          Featured Products
+          <span class="view-all">
+              <a class="featured-products-link" href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout/featured_products">view all</a>
+          </span>
+        </div>
+
+        <ul class="small-product-list">
+          
+
+  <li class="small-product-content-card">
+    <input type="hidden" name="product_analytics_2652" id="product_analytics_2652" value="{
+  &quot;item_list_id&quot;: 4537,
+  &quot;item_list_name&quot;: &quot;llm-agent-embodiment-kit&quot;,
+  &quot;items&quot;: {
+    &quot;item_id&quot;: 2652,
+    &quot;item_name&quot;: &quot;Adafruit BME280 I2C or SPI Temperature Humidity Pressure Sensor&quot;,
+    &quot;affiliation&quot;: &quot;Featured Product&quot;
+  }
+}" class="product-json">
+
+    <div class="product-image">
+        <img class="image-preview product-asset" src="./Barometer Tutorial_files/2652-04.jpg" loading="lazy" alt="small, rectangle-shaped, BME280 temperature humidity pressure sensor breakout board.">
+
+    </div>
+
+    <div class="product-details">
+      <div>
+        <a class="product-title" href="https://www.adafruit.com/product/2652">Adafruit BME280 I2C or SPI Temperature Humidity Pressure Sensor</a>
+      </div>
+
+        <div class="product-price">$14.95</div>
+
+      <a id="2652-product" class="product-buy btn-primary " data-pid="2652" data-qty="1" data-name="Adafruit BME280 I2C or SPI Temperature Humidity Pressure Sensor" target="_blank" aria-live="polite" rel="noopener noreferrer" href="https://www.adafruit.com/product/2652">Add  to Cart</a>
+    </div>
+  </li>
+
+        </ul>
+      </section>
+
+  </nav>
+</div>
+
+
+    <div class="right-content" id="article-body" tabindex="-1">
+
+      <div class="badges headline-badges">
+      <div class="badge favorites-count " title="Saves" aria-label="This many users have saved this guide">
+        119
+      </div>
+
+
+    <div class="badge skill-level" title="Skill Level" aria-label="Guide skill level">
+      Intermediate
+    </div>
+
+    <div class="badge skill-level" title="Guide Type" aria-label="Guide type">
+      Product guide
+    </div>
+
+  <turbo-frame id="display_reactions"></turbo-frame>
+</div>
+
+
+            <h2>
+              <span id="overview">Overview</span>
+            </h2>
+
+            <section class="page-content">
+                <div class="" role="region" aria-label="Page content">
+        <figure class="element image-element">
+    <a href="https://learn.adafruit.com/assets/97111">
+        <img class="97111-asset" srcset="https://cdn-learn.adafruit.com/assets/assets/000/097/111/small360/adafruit_products_BME280_top_angle.jpg?1605717573 360w,
+               https://cdn-learn.adafruit.com/assets/assets/000/097/111/medium640/adafruit_products_BME280_top_angle.jpg?1605717573 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/097/111/medium800/adafruit_products_BME280_top_angle.jpg?1605717573 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/097/111/large1024/adafruit_products_BME280_top_angle.jpg?1605717573 1024w" sizes="(max-width: 360px) 360px, (max-width: 640px) 640px, (max-width: 800px) 800px, 1024px" src="./Barometer Tutorial_files/adafruit_products_BME280_top_angle.jpg" loading="lazy" alt="">
+</a>  </figure>
+
+      <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <p>Bosch has stepped up their game with their new BME280 sensor, an environmental sensor with temperature, barometric pressure <em>and</em> humidity! This sensor is great for all sorts of weather/environmental sensing and can even be used in both I2C and SPI!</p>
+<p>This precision sensor from Bosch is the best low-cost sensing solution for measuring humidity with ±3% accuracy, barometric pressure with&nbsp;±1 hPa absolute accuraccy, and temperature with ±1.0°C accuracy. Because pressure changes with altitude, and the pressure measurements are so good, you can also use it as an altimeter with&nbsp; ±1 meter accuracy!</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+        <figure class="element image-element">
+    <a href="https://learn.adafruit.com/assets/97112">
+        <img class="97112-asset" srcset="https://cdn-learn.adafruit.com/assets/assets/000/097/112/small360/adafruit_products_BME280_top_header.jpg?1605717609 360w,
+               https://cdn-learn.adafruit.com/assets/assets/000/097/112/medium640/adafruit_products_BME280_top_header.jpg?1605717609 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/097/112/medium800/adafruit_products_BME280_top_header.jpg?1605717609 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/097/112/large1024/adafruit_products_BME280_top_header.jpg?1605717609 1024w" sizes="(max-width: 360px) 360px, (max-width: 640px) 640px, (max-width: 800px) 800px, 1024px" src="./Barometer Tutorial_files/adafruit_products_BME280_top_header.jpg" loading="lazy" alt="">
+</a>  </figure>
+
+      <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      <p>The BME280 is the next-generation of sensors from Bosch, and is the upgrade to the BMP085/BMP180/BMP183 - with a low altitude noise of 0.25m and the same fast conversion time. It has the same specifications, but can use either I2C <em>or</em> SPI. For simple easy wiring, go with I2C. If you want to connect a bunch of sensors without worrying about I2C address collisions, go with SPI.</p>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+        <figure class="element image-element">
+    <a href="https://learn.adafruit.com/assets/97114">
+        <img class="97114-asset" srcset="https://cdn-learn.adafruit.com/assets/assets/000/097/114/small360/adafruit_products_BME280_bottom.jpg?1605717636 360w,
+               https://cdn-learn.adafruit.com/assets/assets/000/097/114/medium640/adafruit_products_BME280_bottom.jpg?1605717636 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/097/114/medium800/adafruit_products_BME280_bottom.jpg?1605717636 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/097/114/large1024/adafruit_products_BME280_bottom.jpg?1605717636 1024w" sizes="(max-width: 360px) 360px, (max-width: 640px) 640px, (max-width: 800px) 800px, 1024px" src="./Barometer Tutorial_files/adafruit_products_BME280_bottom.jpg" loading="lazy" alt="">
+</a>  </figure>
+
+      <div class="text-element">
+  
+  
+  
+  
+        <p>Nice sensor right? So we made it easy for you to get right into your next project. The surface-mount sensor is soldered onto a PCB and comes with a 3.3V regulator and level shifting so you can use it with a 3V or 5V logic microcontroller without worry. </p>
+      
+
+
+
+</div>
+
+        <figure class="element image-element">
+    <a href="https://learn.adafruit.com/assets/97113">
+        <img class="97113-asset" srcset="https://cdn-learn.adafruit.com/assets/assets/000/097/113/small360/adafruit_products_BME280_STEMMA_side.jpg?1605717625 360w,
+               https://cdn-learn.adafruit.com/assets/assets/000/097/113/medium640/adafruit_products_BME280_STEMMA_side.jpg?1605717625 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/097/113/medium800/adafruit_products_BME280_STEMMA_side.jpg?1605717625 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/097/113/large1024/adafruit_products_BME280_STEMMA_side.jpg?1605717625 1024w" sizes="(max-width: 360px) 360px, (max-width: 640px) 640px, (max-width: 800px) 800px, 1024px" src="./Barometer Tutorial_files/adafruit_products_BME280_STEMMA_side.jpg" loading="lazy" alt="">
+</a>  </figure>
+
+      <div class="text-element">
+  
+  
+  
+        <p>The breakout is made in the<a title="STEMMA QT form factor" href="https://www.adafruit.com/?q=stemma%20qt%20sensor">&nbsp;<strong>STEMMA QT</strong>&nbsp;form factor</a>, making them easy to interface with. The&nbsp;<a href="https://learn.adafruit.com/introducing-adafruit-stemma-qt/what-is-stemma-qt">STEMMA QT connectors</a>&nbsp;on either side are compatible with the&nbsp;<a href="https://www.sparkfun.com/qwiic">SparkFun Qwiic</a>&nbsp;I2C connectors. This allows you to make solderless connections between your development board and the BME280 or to chain it with a wide range of other sensors and accessories using a&nbsp;<a href="https://www.adafruit.com/?q=stemma%20qt%20cable"><strong>compatible cable</strong></a>.</p>
+      
+
+
+</div>
+
+      <div class="alert-element alert-info" role="note">
+  <span class="alert-icon" aria-hidden="true"><svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M25 50a25 25 0 1 0 0-50 25 25 0 0 0 0 50zm0-37.5a2.338 2.338 0 0 1 2.344 2.344V25.78A2.338 2.338 0 0 1 25 28.125a2.338 2.338 0 0 1-2.344-2.344V14.844A2.338 2.338 0 0 1 25 12.5zm-3.125 21.875a3.125 3.125 0 1 1 6.25 0 3.125 3.125 0 0 1-6.25 0z" fill="currentColor"></path>
+</svg>
+</span>
+  <span class="visually-hidden">Text emphasized with a blue exclamation: </span>
+  <span class="alert-content">There are two versions of this board - the STEMMA QT version shown above, and the original header-only version shown below. Code works the same on both!</span>
+</div>
+
+        <figure class="element image-element">
+    <a href="https://learn.adafruit.com/assets/26679">
+        <img class="26679-asset" srcset="https://cdn-learn.adafruit.com/assets/assets/000/026/679/small360/sensors_2652_kit_ORIG.jpg?1437768025 360w,
+               https://cdn-learn.adafruit.com/assets/assets/000/026/679/medium640/sensors_2652_kit_ORIG.jpg?1437768025 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/026/679/medium800/sensors_2652_kit_ORIG.jpg?1437768025 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/026/679/large1024/sensors_2652_kit_ORIG.jpg?1437768025 1024w" sizes="(max-width: 360px) 360px, (max-width: 640px) 640px, (max-width: 800px) 800px, 1024px" src="./Barometer Tutorial_files/sensors_2652_kit_ORIG.jpg" loading="lazy" alt="">
+</a>  </figure>
+
+  </div>
+
+
+              <div class="page-last-updated">
+  <p>Page last edited March 08, 2024</p>
+  <p>Text editor powered by <a href="https://www.tiny.cloud/">tinymce</a>.</p>
+</div>
+
+            </section>
+            <h2>
+              <span id="pinouts">Pinouts</span>
+            </h2>
+
+            <section class="page-content">
+                <div class="" role="region" aria-label="Page content">
+        <figure class="element image-element">
+    <a href="https://learn.adafruit.com/assets/97115">
+        <img class="97115-asset" srcset="https://cdn-learn.adafruit.com/assets/assets/000/097/115/small360/adafruit_products_BME280_pinouts.jpg?1605717746 360w,
+               https://cdn-learn.adafruit.com/assets/assets/000/097/115/medium640/adafruit_products_BME280_pinouts.jpg?1605717746 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/097/115/medium800/adafruit_products_BME280_pinouts.jpg?1605717746 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/097/115/large1024/adafruit_products_BME280_pinouts.jpg?1605717746 1024w" sizes="(max-width: 360px) 360px, (max-width: 640px) 640px, (max-width: 800px) 800px, 1024px" src="./Barometer Tutorial_files/adafruit_products_BME280_pinouts.jpg" loading="lazy" alt="">
+</a>  </figure>
+
+        <figure class="element image-element">
+    <a href="https://learn.adafruit.com/assets/26680">
+        <img class="26680-asset" srcset="https://cdn-learn.adafruit.com/assets/assets/000/026/680/small360/sensors_pinout.jpg?1437768166 360w,
+               https://cdn-learn.adafruit.com/assets/assets/000/026/680/medium640/sensors_pinout.jpg?1437768166 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/026/680/medium800/sensors_pinout.jpg?1437768166 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/026/680/large1024/sensors_pinout.jpg?1437768166 1024w" sizes="(max-width: 360px) 360px, (max-width: 640px) 640px, (max-width: 800px) 800px, 1024px" src="./Barometer Tutorial_files/sensors_pinout.jpg" loading="lazy" alt="">
+</a>  </figure>
+
+      <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h2>
+<div class="anchor-anchor">
+<a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#power-pins-2958088" class="anchor-link"><span class="fa fa-link"></span></a><span id="power-pins-2958088" class="anchor-link-target"></span>
+</div>Power Pins:</h2>
+<ul>
+<li>
+<strong>Vin</strong> - this is the power pin. Since the sensor chip uses 3 VDC, we have included a voltage regulator on board that will take 3-5VDC and safely convert it down. To power the board, give it the same power as the logic level of your microcontroller - e.g. for a 5V micro like Arduino, use 5V</li>
+<li>
+<strong>3Vo</strong> - this is the 3.3V output from the voltage regulator, you can grab up to 100mA from this if you like</li>
+<li>
+<strong>GND</strong> - common ground for power and logic</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+      <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+        <h1>
+<div class="anchor-anchor">
+<a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#spi-logic-pins-2958089" class="anchor-link"><span class="fa fa-link"></span></a><span id="spi-logic-pins-2958089" class="anchor-link-target"></span>
+</div>SPI Logic pins:</h1>
+<p>All pins going into the breakout have level shifting circuitry to make them 3-5V logic level safe. Use whatever logic level is on <strong>Vin!</strong></p>
+<ul>
+<li>
+<strong>SCK</strong> - This is the <strong>S</strong>PI <strong>C</strong>loc<strong>k</strong> pin, its an input to the chip</li>
+<li>
+<strong>SDO</strong> - this is the <strong>S</strong>erial <strong>D</strong>ata <strong>O</strong>ut / <strong>M</strong>icrocontroller <strong>I</strong>n <strong>S</strong>ensor <strong>O</strong>ut&nbsp;pin, for data sent from the BMP183 to your processor</li>
+<li>
+<strong>SDI</strong> - this is the <strong>S</strong>erial <strong>D</strong>ata <strong>I</strong>n / <strong>M</strong>icrocontroller <strong>O</strong>ut <strong>S</strong>ensor <strong>I</strong>n&nbsp;pin, for data sent from your processor to the BME280</li>
+<li>
+<strong>CS</strong> - this is the <strong>C</strong>hip <strong>S</strong>elect pin, drop it low to start an SPI transaction. Its an input to the chip</li>
+</ul>
+<p>If you want to connect multiple BME280's to one microcontroller, have them share the SDI, SDO and SCK pins. Then assign each one a unique CS pin.</p>
+      
+
+
+
+
+
+
+
+
+
+</div>
+
+      <div class="text-element">
+  
+  
+  
+        <h2>
+<div class="anchor-anchor">
+<a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#i2c-logic-pins-2958090" class="anchor-link"><span class="fa fa-link"></span></a><span id="i2c-logic-pins-2958090" class="anchor-link-target"></span>
+</div>I2C Logic pins:</h2>
+<ul>
+<li>
+<strong>SCK </strong>- this is <em>also </em>the I2C clock pin, connect to your microcontrollers I2C clock line.</li>
+<li>
+<strong>SDI </strong>- this is <em>also</em> the I2C data pin, connect to your microcontrollers I2C data line.</li>
+<li class="li2">
+<span class="s2"><a href="https://learn.adafruit.com/introducing-adafruit-stemma-qt"><span class="s3"><strong>STEMMA QT</strong></span></a></span><span class="s1"><strong>&nbsp;- </strong>These connectors allow you to connectors to dev boards with&nbsp;<strong>STEMMA QT</strong> connectors or to other things with&nbsp;<a href="https://www.adafruit.com/?q=JST%20SH%204"><span class="s4">various associated accessories</span></a></span>
+</li>
+</ul>
+<p>Leave the other pins disconnected.</p>
+      
+
+
+</div>
+
+      <div class="text-element">
+  
+        <h2>
+<div class="anchor-anchor">
+<a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#i2c-address-3153810" class="anchor-link"><span class="fa fa-link"></span></a><span id="i2c-address-3153810" class="anchor-link-target"></span>
+</div>I2C Address</h2>
+<p><span>By default, the I2C address is <strong>0x77.</strong> &nbsp;If you add a jumper from <strong>SDO</strong> to <strong>GND</strong> with a wire, or by soldering the <strong>ADDR</strong> jumper on the back closed, the address will change to <strong>0x76</strong>. This non-default address will need to be specified in user code. See library docs for specifics.<br></span></p>
+      
+</div>
+
+      <div class="alert-element alert-danger" role="note">
+  <span class="alert-icon" aria-hidden="true"><svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M25 50a25 25 0 1 0 0-50 25 25 0 0 0 0 50zm0-37.5a2.338 2.338 0 0 1 2.344 2.344V25.78A2.338 2.338 0 0 1 25 28.125a2.338 2.338 0 0 1-2.344-2.344V14.844A2.338 2.338 0 0 1 25 12.5zm-3.125 21.875a3.125 3.125 0 1 1 6.25 0 3.125 3.125 0 0 1-6.25 0z" fill="currentColor"></path>
+</svg>
+</span>
+  <span class="visually-hidden">Text emphasized with a red exclamation: </span>
+  <span class="alert-content">Don't forget to update your user code to also specify the non-default I2C address if it is used.</span>
+</div>
+
+  </div>
+
+
+              <div class="page-last-updated">
+  <p>Page last edited March 08, 2024</p>
+  <p>Text editor powered by <a href="https://www.tiny.cloud/">tinymce</a>.</p>
+</div>
+
+            </section>
+            <h2>
+              <span id="assembly">Assembly</span>
+            </h2>
+
+            <section class="page-content">
+                <div class="" role="region" aria-label="Page content">
+      <div class="alert-element alert-info" role="note">
+  <span class="alert-icon" aria-hidden="true"><svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M25 50a25 25 0 1 0 0-50 25 25 0 0 0 0 50zm0-37.5a2.338 2.338 0 0 1 2.344 2.344V25.78A2.338 2.338 0 0 1 25 28.125a2.338 2.338 0 0 1-2.344-2.344V14.844A2.338 2.338 0 0 1 25 12.5zm-3.125 21.875a3.125 3.125 0 1 1 6.25 0 3.125 3.125 0 0 1-6.25 0z" fill="currentColor"></path>
+</svg>
+</span>
+  <span class="visually-hidden">Text emphasized with a blue exclamation: </span>
+  <span class="alert-content">Your board may look a little different - the assembly process is the same!</span>
+</div>
+
+        <figure class="element image-element">
+    <a href="https://learn.adafruit.com/assets/26681">
+        <img class="26681-asset" srcset="https://cdn-learn.adafruit.com/assets/assets/000/026/681/small360/sensors_2652_kit_ORIG.jpg?1437769737 360w,
+               https://cdn-learn.adafruit.com/assets/assets/000/026/681/medium640/sensors_2652_kit_ORIG.jpg?1437769737 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/026/681/medium800/sensors_2652_kit_ORIG.jpg?1437769737 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/026/681/large1024/sensors_2652_kit_ORIG.jpg?1437769737 1024w" sizes="(max-width: 360px) 360px, (max-width: 640px) 640px, (max-width: 800px) 800px, 1024px" src="./Barometer Tutorial_files/sensors_2652_kit_ORIG(1).jpg" loading="lazy" alt="">
+</a>  </figure>
+
+      <div class="side-element">
+    <div class="side-images">
+      <div class="anchor-anchor">
+        <a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#step-2958092" class="anchor-link"><span class="fa fa-link"></span></a>
+      </div>
+      <span id="step-2958092" class="anchor-link-target"></span>
+      <a class="side-image-link" href="https://learn.adafruit.com/assets/26682">
+    <img class="26682-asset medium-side-image" src="./Barometer Tutorial_files/sensors_header.jpg" alt="sensors_header.jpg" loading="lazy">
+</a>
+
+    </div>
+  <div class="side-text"><div class="text"><h2>Prepare the header strip:</h2>
+<p>Cut the strip to length if necessary. It will be easier to solder if you insert it into a breadboard - <strong>long pins down</strong></p></div></div>
+</div>
+
+      <div class="side-element">
+    <div class="side-images">
+      <div class="anchor-anchor">
+        <a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#step-2958093" class="anchor-link"><span class="fa fa-link"></span></a>
+      </div>
+      <span id="step-2958093" class="anchor-link-target"></span>
+      <a class="side-image-link" href="https://learn.adafruit.com/assets/26683">
+    <img class="26683-asset medium-side-image" src="./Barometer Tutorial_files/sensors_place.jpg" alt="sensors_place.jpg" loading="lazy">
+</a>
+
+    </div>
+  <div class="side-text"><div class="text"><h2>Add the breakout board:</h2>
+<p>Place the breakout board over the pins so that the short pins poke through the breakout pads</p></div></div>
+</div>
+
+      <div class="side-element">
+    <div class="side-images">
+      <div class="anchor-anchor">
+        <a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#step-2958094" class="anchor-link"><span class="fa fa-link"></span></a>
+      </div>
+      <span id="step-2958094" class="anchor-link-target"></span>
+      <a class="side-image-link" href="https://learn.adafruit.com/assets/26684">
+    <img class="26684-asset medium-side-image" src="./Barometer Tutorial_files/sensors_solder1.jpg" alt="sensors_solder1.jpg" loading="lazy">
+</a>
+  <div class="image-gallery">
+      <div class="small-side">
+        <a href="https://learn.adafruit.com/assets/26684">
+            <img class="26684-asset small-side-image" src="./Barometer Tutorial_files/sensors_solder1.jpg" alt="sensors_solder1.jpg" loading="lazy">
+</a>      </div>
+      <div class="small-side">
+        <a href="https://learn.adafruit.com/assets/26685">
+            <img class="26685-asset small-side-image" src="./Barometer Tutorial_files/sensors_solder2.jpg" alt="sensors_solder2.jpg" loading="lazy">
+</a>      </div>
+  </div>
+
+    </div>
+  <div class="side-text"><div class="text"><h2>And Solder!</h2>
+<p>Be sure to solder all pins for reliable electrical contact.<br><br><em>(For tips on soldering, be sure to check out our </em><a href="http://learn.adafruit.com/adafruit-guide-excellent-soldering"><em>Guide to Excellent Soldering</em></a><em>).</em></p></div></div>
+</div>
+
+      <div class="side-element">
+    <div class="side-images">
+      <div class="anchor-anchor">
+        <a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#step-2958095" class="anchor-link"><span class="fa fa-link"></span></a>
+      </div>
+      <span id="step-2958095" class="anchor-link-target"></span>
+      <a class="side-image-link" href="https://learn.adafruit.com/assets/26686">
+    <img class="26686-asset medium-side-image" src="./Barometer Tutorial_files/sensors_done.jpg" alt="sensors_done.jpg" loading="lazy">
+</a>
+
+    </div>
+  <div class="side-text"><div class="text"><p>You're done! Check your solder joints visually and continue onto the next steps</p></div></div>
+</div>
+
+  </div>
+
+
+              <div class="page-last-updated">
+  <p>Page last edited March 08, 2024</p>
+  <p>Text editor powered by <a href="https://www.tiny.cloud/">tinymce</a>.</p>
+</div>
+
+            </section>
+            <h2>
+              <span id="arduino-test">Arduino Test</span>
+            </h2>
+
+            <section class="page-content">
+                <div class="" role="region" aria-label="Page content">
+      <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    
+      
+      
+      
+      <p>You can easily wire this breakout to any microcontroller, we'll be using an Arduino. For another kind of microcontroller, as long as you have 4 available pins it is possible to 'bit-bang SPI' or you can use two I2C pins, but usually those pins are fixed in hardware. Just check out the library, then port the code.</p>
+    
+    
+    
+    
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+</div>
+
+      <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+        <h1>
+<div class="anchor-anchor">
+<a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#i2c-wiring-2958097" class="anchor-link"><span class="fa fa-link"></span></a><span id="i2c-wiring-2958097" class="anchor-link-target"></span>
+</div>I2C Wiring</h1>
+<p>Use this wiring if you want to connect via I2C interface</p>
+      
+
+
+
+
+
+
+
+
+</div>
+
+      <div class="side-element">
+    <div class="side-images">
+      <div class="anchor-anchor">
+        <a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#step-3077862" class="anchor-link"><span class="fa fa-link"></span></a>
+      </div>
+      <span id="step-3077862" class="anchor-link-target"></span>
+      <a class="side-image-link" href="https://learn.adafruit.com/assets/97118">
+    <img class="97118-asset medium-side-image" src="./Barometer Tutorial_files/adafruit_products_BME280_arduino_I2C_STEMMA_bb.jpg" alt="adafruit_products_BME280_arduino_I2C_STEMMA_bb.jpg" loading="lazy">
+</a>
+  <div class="image-gallery">
+      <div class="small-side">
+        <a href="https://learn.adafruit.com/assets/97118">
+            <img class="97118-asset small-side-image" src="./Barometer Tutorial_files/adafruit_products_BME280_arduino_I2C_STEMMA_bb.jpg" alt="adafruit_products_BME280_arduino_I2C_STEMMA_bb.jpg" loading="lazy">
+</a>      </div>
+      <div class="small-side">
+        <a href="https://learn.adafruit.com/assets/97119">
+            <img class="97119-asset small-side-image" src="./Barometer Tutorial_files/adafruit_products_BME280_arduino_I2C_breadboard_bb.jpg" alt="adafruit_products_BME280_arduino_I2C_breadboard_bb.jpg" loading="lazy">
+</a>      </div>
+      <div class="small-side">
+        <a href="https://learn.adafruit.com/assets/97120">
+            <img class="97120-asset small-side-image" src="./Barometer Tutorial_files/adafruit_products_BME280_arduino_I2C_original.jpg" alt="adafruit_products_BME280_arduino_I2C_original.jpg" loading="lazy">
+</a>      </div>
+  </div>
+
+    </div>
+  <div class="side-text"><div class="text"><ul>
+<li>Connect <strong>Vin</strong> to the power supply, 3-5V is fine. Use the same voltage that the microcontroller logic is based off of. For most Arduinos, that is 5V</li>
+<li>Connect <strong>GND </strong>to common power/data ground</li>
+<li>Connect the <strong>SCK</strong> pin to the I2C clock <strong>SCL</strong> pin on your Arduino. On an UNO &amp; '328 based Arduino, this is also known as <strong>A5</strong>, on a Mega it is also known as <strong>digital 21</strong> and on a Leonardo/Micro, <strong>digital 3</strong>
+</li>
+<li>Connect the <strong>SDI</strong> pin to the I2C data <strong>SDA </strong>pin on your Arduino. On an UNO &amp; '328 based Arduino, this is also known as <strong>A4</strong>, on a Mega it is also known as <strong>digital 20</strong> and on a Leonardo/Micro, <strong>digital 2</strong>
+</li>
+</ul>
+<p>By default, the i2c address is 0x77. &nbsp;If you add a jumper from SDO to GND, the address will change to 0x76.</p>
+<p>In you are having intermittent issues with I2C <strong>on the original non-STEMMA version of the board</strong>, try also jumpering CS to Vin.</p></div></div>
+</div>
+
+      <div class="text-element">
+  
+        <h1>
+<div class="anchor-anchor">
+<a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#spi-wiring-2958099" class="anchor-link"><span class="fa fa-link"></span></a><span id="spi-wiring-2958099" class="anchor-link-target"></span>
+</div>SPI Wiring</h1>
+<p>Since this is a SPI-capable sensor, we can use hardware or 'software' SPI. To make wiring identical on all Arduinos, we'll begin with 'software' SPI. The following pins should be used:</p>
+      
+</div>
+
+      <div class="side-element">
+    <div class="side-images">
+      <div class="anchor-anchor">
+        <a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#step-3077863" class="anchor-link"><span class="fa fa-link"></span></a>
+      </div>
+      <span id="step-3077863" class="anchor-link-target"></span>
+      <a class="side-image-link" href="https://learn.adafruit.com/assets/97121">
+    <img class="97121-asset medium-side-image" src="./Barometer Tutorial_files/adafruit_products_BME280_arduino_SPI_bb.jpg" alt="adafruit_products_BME280_arduino_SPI_bb.jpg" loading="lazy">
+</a>
+  <div class="image-gallery">
+      <div class="small-side">
+        <a href="https://learn.adafruit.com/assets/97121">
+            <img class="97121-asset small-side-image" src="./Barometer Tutorial_files/adafruit_products_BME280_arduino_SPI_bb.jpg" alt="adafruit_products_BME280_arduino_SPI_bb.jpg" loading="lazy">
+</a>      </div>
+      <div class="small-side">
+        <a href="https://learn.adafruit.com/assets/97122">
+            <img class="97122-asset small-side-image" src="./Barometer Tutorial_files/adafruit_products_BME280_arduino_SPI_original.jpg" alt="adafruit_products_BME280_arduino_SPI_original.jpg" loading="lazy">
+</a>      </div>
+  </div>
+
+    </div>
+  <div class="side-text"><div class="text"><ul>
+<li>Connect <strong>Vin</strong> to the power supply, 3V or 5V is fine. Use the same voltage that the microcontroller logic is based off of. For most Arduinos, that is 5V</li>
+<li>Connect <strong>GND </strong>to common power/data ground</li>
+<li>Connect the <strong>SCK</strong> pin to <strong>Digital #13</strong> but any pin can be used later</li>
+<li>Connect the <strong>SDO</strong> pin to <strong>Digital #12</strong> but any pin can be used later</li>
+<li>Connect the <strong>SDI</strong> pin to <strong>Digital #11</strong> but any pin can be used later</li>
+<li>Connect the <strong>CS</strong> pin <strong>Digital #10</strong> but any pin can be used later</li>
+</ul>
+<p>Later on, once we get it working, we can adjust the library to use hardware SPI if you desire, or change the pins to other</p></div></div>
+</div>
+
+      <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <h1>
+<div class="anchor-anchor">
+<a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#install-adafruit-bme280-library-2958101" class="anchor-link"><span class="fa fa-link"></span></a><span id="install-adafruit-bme280-library-2958101" class="anchor-link-target"></span>
+</div>Install Adafruit_BME280 library</h1>
+<p>To begin reading sensor data, you will need to <a title="Link: https://github.com/adafruit/Adafruit_BME280_Library" href="https://github.com/adafruit/Adafruit_BME280_Library">install the Adafruit_BME280 library (code on our github repository)</a>. It is available from the Arduino library manager so we recommend using that.</p>
+<p>From the IDE open up the library manager...</p>
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+</div>
+
+        <figure class="element image-element">
+    <a href="https://learn.adafruit.com/assets/48076">
+        <img class="48076-asset" srcset="https://cdn-learn.adafruit.com/assets/assets/000/048/076/small360/adafruit_products_manage_libraries.png?1510170449 360w,
+               https://cdn-learn.adafruit.com/assets/assets/000/048/076/medium640/adafruit_products_manage_libraries.png?1510170449 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/048/076/medium800/adafruit_products_manage_libraries.png?1510170449 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/048/076/large1024/adafruit_products_manage_libraries.png?1510170449 1024w" sizes="(max-width: 360px) 360px, (max-width: 640px) 640px, (max-width: 800px) 800px, 1024px" src="./Barometer Tutorial_files/adafruit_products_manage_libraries.png" loading="lazy" alt="">
+</a>  </figure>
+
+      <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <p>And type in <strong>adafruit bme280</strong> to locate the library. Click <strong>Install</strong></p>
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+</div>
+
+        <figure class="element image-element">
+    <a href="https://learn.adafruit.com/assets/48077">
+        <img class="48077-asset" srcset="https://cdn-learn.adafruit.com/assets/assets/000/048/077/small360/adafruit_products_bme2.png?1510170505 360w,
+               https://cdn-learn.adafruit.com/assets/assets/000/048/077/medium640/adafruit_products_bme2.png?1510170505 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/048/077/medium800/adafruit_products_bme2.png?1510170505 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/048/077/large1024/adafruit_products_bme2.png?1510170505 1024w" sizes="(max-width: 360px) 360px, (max-width: 640px) 640px, (max-width: 800px) 800px, 1024px" src="./Barometer Tutorial_files/adafruit_products_bme2.png" loading="lazy" alt="">
+</a>  </figure>
+
+      <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    <p>Also add the <strong>Adafruit Unified Sensor</strong> library</p>
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+</div>
+
+        <figure class="element image-element">
+    <a href="https://learn.adafruit.com/assets/62533">
+        <img class="62533-asset" srcset="https://cdn-learn.adafruit.com/assets/assets/000/062/533/small360/adafruit_products_adafruitsensor.png?1537890987 360w,
+               https://cdn-learn.adafruit.com/assets/assets/000/062/533/medium640/adafruit_products_adafruitsensor.png?1537890987 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/062/533/medium800/adafruit_products_adafruitsensor.png?1537890987 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/062/533/large1024/adafruit_products_adafruitsensor.png?1537890987 1024w" sizes="(max-width: 360px) 360px, (max-width: 640px) 640px, (max-width: 800px) 800px, 1024px" src="./Barometer Tutorial_files/adafruit_products_adafruitsensor.png" loading="lazy" alt="">
+</a>  </figure>
+
+      <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <p>We also have a great tutorial on Arduino library installation at:<br><a title="Link: http://learn.adafruit.com/adafruit-all-about-arduino-libraries-install-use" href="http://learn.adafruit.com/adafruit-all-about-arduino-libraries-install-use">http://learn.adafruit.com/adafruit-all-about-arduino-libraries-install-use</a></p>
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+</div>
+
+      <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <h1>
+<div class="anchor-anchor">
+<a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#load-demo-2958106" class="anchor-link"><span class="fa fa-link"></span></a><span id="load-demo-2958106" class="anchor-link-target"></span>
+</div>Load Demo</h1>
+<p>Open up <strong>File-&gt;Examples-&gt;Adafruit_BME280</strong><strong>-&gt;bmp280test </strong>and upload to your Arduino wired up to the sensor</p>
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+</div>
+
+        <figure class="element image-element">
+    <a href="https://learn.adafruit.com/assets/26689">
+        <img class="26689-asset" srcset="https://cdn-learn.adafruit.com/assets/assets/000/026/689/small360/sensors_dem.png?1437770876 360w,
+               https://cdn-learn.adafruit.com/assets/assets/000/026/689/medium640/sensors_dem.png?1437770876 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/026/689/medium800/sensors_dem.png?1437770876 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/026/689/large1024/sensors_dem.png?1437770876 1024w" sizes="(max-width: 360px) 360px, (max-width: 640px) 640px, (max-width: 800px) 800px, 1024px" src="./Barometer Tutorial_files/sensors_dem.png" loading="lazy" alt="">
+</a>  </figure>
+
+      <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <p>Depending on whether you are using I2C or SPI, change the pin names and comment or uncomment the following lines.</p>
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+</div>
+
+      <div class="code-element" aria-label="Code element">
+  <div class="download-code ">
+        <a data-turbo="false" class="download-button" href="https://learn.adafruit.com/elements/2958109/download">
+          <i class="fa fa-cloud"></i> Download File
+</a>    <div class="code-copy-container">
+      <a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#" class="code-copy-button"><i class="fa fa-clipboard"></i> Copy Code</a>
+    </div>
+  </div>
+  <pre class="code-text-only" style="display: none;">#define BME_SCK 13
+#define BME_MISO 12
+#define BME_MOSI 11 
+#define BME_CS 10
+
+Adafruit_BME280 bme; // I2C
+//Adafruit_BME280 bme(BME_CS); // hardware SPI
+//Adafruit_BME280 bme(BME_CS, BME_MOSI, BME_MISO,  BME_SCK);</pre>
+  <div class="code-preview-container has-line-numbers">
+    <pre class="line-number-gutter" aria-hidden="true">1
+2
+3
+4
+5
+6
+7
+8</pre>
+    <pre class="prettyprint hljs language-cpp"><span class="hljs-meta">#<span class="hljs-keyword">define</span> BME_SCK 13</span>
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> BME_MISO 12</span>
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> BME_MOSI 11 </span>
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> BME_CS 10</span>
+
+Adafruit_BME280 bme; <span class="hljs-comment">// I2C</span>
+<span class="hljs-comment">//Adafruit_BME280 bme(BME_CS); // hardware SPI</span>
+<span class="hljs-comment">//Adafruit_BME280 bme(BME_CS, BME_MOSI, BME_MISO,  BME_SCK);</span></pre>
+  </div>
+  <div class="code-bottom-bar">
+  </div>
+</div>
+
+      <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <p>Once uploaded to your Arduino, open up the serial console at 9600 baud speed to see data being printed out</p>
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+</div>
+
+        <figure class="element image-element">
+    <a href="https://learn.adafruit.com/assets/27557">
+        <img class="27557-asset" srcset="https://cdn-learn.adafruit.com/assets/assets/000/027/557/small360/sensors_Screen_Shot_2015-09-01_at_07.22.17.png?1441085060 360w,
+               https://cdn-learn.adafruit.com/assets/assets/000/027/557/medium640/sensors_Screen_Shot_2015-09-01_at_07.22.17.png?1441085060 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/027/557/medium800/sensors_Screen_Shot_2015-09-01_at_07.22.17.png?1441085060 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/027/557/large1024/sensors_Screen_Shot_2015-09-01_at_07.22.17.png?1441085060 1024w" sizes="(max-width: 360px) 360px, (max-width: 640px) 640px, (max-width: 800px) 800px, 1024px" src="./Barometer Tutorial_files/sensors_Screen_Shot_2015-09-01_at_07.22.17.png" loading="lazy" alt="">
+</a>  </figure>
+
+      <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <p><strong>Temperature</strong> is calculated in degrees C, you can convert this to F by using the classic F = C * 9/5 + 32 equation.<br><br><strong>Pressure</strong> is returned in the SI units of <strong>Pascals</strong>. 100 Pascals = 1 hPa = 1 millibar. Often times barometric pressure is reported in millibar or inches-mercury. For future reference 1 pascal =0.000295333727 inches of mercury, or 1 inch Hg = 3386.39 Pascal. So if you take the pascal value of say 100734 and divide by 3386.39 you'll get 29.72 inches-Hg.<br><br>You can also calculate Altitude. <strong>However, you can only really do a good accurate job of calculating altitude if you know the hPa pressure at sea level for your location and day!</strong> The sensor is quite precise but if you do not have the data updated for the current day then it can be difficult to get more accurate than 10 meters.</p>
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+</div>
+
+      <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    
+      
+      
+      
+      <h1>
+<div class="anchor-anchor">
+<a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#library-reference-2958113" class="anchor-link"><span class="fa fa-link"></span></a><span id="library-reference-2958113" class="anchor-link-target"></span>
+</div>Library Reference</h1>
+<p>You can start out by creating a BME280 object with either software SPI (where all four pins can be any I/O) using</p>
+    
+    
+    
+    
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+</div>
+
+      <div class="code-element" aria-label="Code element">
+  <div class="download-code ">
+    <div class="code-copy-container">
+      <a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#" class="code-copy-button"><i class="fa fa-clipboard"></i> Copy Code</a>
+    </div>
+  </div>
+  <pre class="code-text-only" style="display: none;">Adafruit_BME280 bme(BME_CS, BME_MOSI, BME_MISO,  BME_SCK);</pre>
+  <div class="code-preview-container has-line-numbers">
+    <pre class="line-number-gutter" aria-hidden="true">1</pre>
+    <pre class="prettyprint hljs language-cpp"><span class="hljs-function">Adafruit_BME280 <span class="hljs-title">bme</span><span class="hljs-params">(BME_CS, BME_MOSI, BME_MISO,  BME_SCK)</span></span>;</pre>
+  </div>
+  <div class="code-bottom-bar">
+  </div>
+</div>
+
+      <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    
+      
+      
+      
+      <p>Or you can use hardware SPI. With hardware SPI you <em>must</em> use the hardware SPI pins for your Arduino - and each arduino type has different pins! <a href="http://arduino.cc/en/Reference/SPI">Check the SPI reference to see what pins to use.</a><br>In this case, you can use any CS pin, but the other three pins are fixed</p>
+    
+    
+    
+    
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+</div>
+
+      <div class="code-element" aria-label="Code element">
+  <div class="download-code ">
+    <div class="code-copy-container">
+      <a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#" class="code-copy-button"><i class="fa fa-clipboard"></i> Copy Code</a>
+    </div>
+  </div>
+  <pre class="code-text-only" style="display: none;">Adafruit_BME280 bme(BME_CS); // hardware SPI</pre>
+  <div class="code-preview-container has-line-numbers">
+    <pre class="line-number-gutter" aria-hidden="true">1</pre>
+    <pre class="prettyprint hljs language-cpp"><span class="hljs-function">Adafruit_BME280 <span class="hljs-title">bme</span><span class="hljs-params">(BME_CS)</span></span>; <span class="hljs-comment">// hardware SPI</span></pre>
+  </div>
+  <div class="code-bottom-bar">
+  </div>
+</div>
+
+      <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    
+      
+      
+      
+      <p>or I2C using the default I2C bus, no pins are assigned</p>
+    
+    
+    
+    
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+</div>
+
+      <div class="code-element" aria-label="Code element">
+  <div class="download-code ">
+    <div class="code-copy-container">
+      <a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#" class="code-copy-button"><i class="fa fa-clipboard"></i> Copy Code</a>
+    </div>
+  </div>
+  <pre class="code-text-only" style="display: none;">Adafruit_BME280 bme; // I2C</pre>
+  <div class="code-preview-container has-line-numbers">
+    <pre class="line-number-gutter" aria-hidden="true">1</pre>
+    <pre class="prettyprint hljs language-cpp">Adafruit_BME280 bme; <span class="hljs-comment">// I2C</span></pre>
+  </div>
+  <div class="code-bottom-bar">
+  </div>
+</div>
+
+      <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    
+      
+      
+      
+      <p>Once started, you can initialize the sensor with</p>
+    
+    
+    
+    
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+</div>
+
+      <div class="code-element" aria-label="Code element">
+  <div class="download-code ">
+    <div class="code-copy-container">
+      <a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#" class="code-copy-button"><i class="fa fa-clipboard"></i> Copy Code</a>
+    </div>
+  </div>
+  <pre class="code-text-only" style="display: none;">  if (!bme.begin()) {  
+    Serial.println("Could not find a valid BME280 sensor, check wiring!");
+    while (1);
+  }</pre>
+  <div class="code-preview-container has-line-numbers">
+    <pre class="line-number-gutter" aria-hidden="true">1
+2
+3
+4</pre>
+    <pre class="prettyprint hljs language-ruby">  <span class="hljs-keyword">if</span> (!bme.<span class="hljs-keyword">begin</span>()) {  
+    Serial.println(<span class="hljs-string">"Could not find a valid BME280 sensor, check wiring!"</span>);
+    <span class="hljs-keyword">while</span> (<span class="hljs-number">1</span>);
+  }</pre>
+  </div>
+  <div class="code-bottom-bar">
+  </div>
+</div>
+
+      <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    
+      
+      
+      
+      <p><strong>begin()</strong> will return True if the sensor was found, and False if not. If you get a False value back, check your wiring!</p>
+<p><br> Reading humidity, temperature and pressure is easy, just call:</p>
+    
+    
+    
+    
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+</div>
+
+      <div class="code-element" aria-label="Code element">
+  <div class="download-code ">
+    <div class="code-copy-container">
+      <a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#" class="code-copy-button"><i class="fa fa-clipboard"></i> Copy Code</a>
+    </div>
+  </div>
+  <pre class="code-text-only" style="display: none;">bme.readTemperature()
+bme.readPressure()
+bme.readHumidity()</pre>
+  <div class="code-preview-container has-line-numbers">
+    <pre class="line-number-gutter" aria-hidden="true">1
+2
+3</pre>
+    <pre class="prettyprint hljs language-scss">bme<span class="hljs-selector-class">.readTemperature</span>()
+bme<span class="hljs-selector-class">.readPressure</span>()
+bme<span class="hljs-selector-class">.readHumidity</span>()</pre>
+  </div>
+  <div class="code-bottom-bar">
+  </div>
+</div>
+
+      <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    
+      
+      
+      
+      <p>Temperature is always a floating point, in Centigrade. Pressure is a 32 bit integer with the pressure in Pascals. You may need to convert to a different value to match it with your weather report. Humidity is in % Relative Humidity</p>
+<p>It's also possible to turn the BME280 into an altimeter. If you know the pressure at sea level, the library can calculate the current barometric pressure into altitude</p>
+    
+    
+    
+    
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+</div>
+
+      <div class="code-element" aria-label="Code element">
+  <div class="download-code ">
+    <div class="code-copy-container">
+      <a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#" class="code-copy-button"><i class="fa fa-clipboard"></i> Copy Code</a>
+    </div>
+  </div>
+  <pre class="code-text-only" style="display: none;">bmp.readAltitude(seaLevelPressure)</pre>
+  <div class="code-preview-container has-line-numbers">
+    <pre class="line-number-gutter" aria-hidden="true">1</pre>
+    <pre class="prettyprint hljs language-scss">bmp<span class="hljs-selector-class">.readAltitude</span>(seaLevelPressure)</pre>
+  </div>
+  <div class="code-bottom-bar">
+  </div>
+</div>
+
+      <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    
+      
+      
+      
+      <p><strong>However, you can only really do a good accurate job of calculating altitude if you know the hPa pressure at sea level for your location and day!</strong> The sensor is quite precise but if you do not have the data updated for the current day then it can be difficult to get more accurate than 10 meters.<br><br>Pass in the current sea level pressure in <strong>hPa</strong> - so the value will be somewhere around ~1000. You can also test with the generic 1013.25 value.</p>
+    
+    
+    
+    
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+</div>
+
+  </div>
+
+
+              <div class="page-last-updated">
+  <p>Page last edited March 08, 2024</p>
+  <p>Text editor powered by <a href="https://www.tiny.cloud/">tinymce</a>.</p>
+</div>
+
+            </section>
+            <h2>
+              <span id="python-circuitpython-test">Python &amp; CircuitPython Test</span>
+            </h2>
+
+            <section class="page-content">
+                <div class="" role="region" aria-label="Page content">
+      <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <p>It's easy to use the BME280 sensor with Python or CircuitPython and the <a href="https://github.com/adafruit/Adafruit_CircuitPython_BME280">Adafruit CircuitPython BME280</a> module.&nbsp; This module allows you to easily write Python code that reads the humidity, temperature, pressure, and more from the sensor.</p>
+<p>You can use this sensor with any CircuitPython microcontroller board or with a computer that has GPIO and Python <a href="https://learn.adafruit.com/circuitpython-on-raspberrypi-linux">thanks to Adafruit_Blinka, our CircuitPython-for-Python compatibility library</a>.</p>
+<h1>
+<div class="anchor-anchor">
+<a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#circuitpython-microcontroller-wiring-2958126" class="anchor-link"><span class="fa fa-link"></span></a><span id="circuitpython-microcontroller-wiring-2958126" class="anchor-link-target"></span>
+</div>CircuitPython Microcontroller Wiring</h1>
+<p>First wire up a BME280 to your board exactly as shown on the previous pages for Arduino.&nbsp; You can use either I2C or SPI wiring, although it's recommended to use I2C for simplicity.&nbsp; Here's an example of wiring a Feather M0 to the sensor with I2C:</p>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+      <div class="side-element">
+    <div class="side-images">
+      <div class="anchor-anchor">
+        <a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#step-2994998" class="anchor-link"><span class="fa fa-link"></span></a>
+      </div>
+      <span id="step-2994998" class="anchor-link-target"></span>
+      <a class="side-image-link" href="https://learn.adafruit.com/assets/97123">
+    <img class="97123-asset medium-side-image" src="./Barometer Tutorial_files/adafruit_products_BME280_Feather_I2C_STEMMA_bb.jpg" alt="adafruit_products_BME280_Feather_I2C_STEMMA_bb.jpg" loading="lazy">
+</a>
+  <div class="image-gallery">
+      <div class="small-side">
+        <a href="https://learn.adafruit.com/assets/97123">
+            <img class="97123-asset small-side-image" src="./Barometer Tutorial_files/adafruit_products_BME280_Feather_I2C_STEMMA_bb.jpg" alt="adafruit_products_BME280_Feather_I2C_STEMMA_bb.jpg" loading="lazy">
+</a>      </div>
+      <div class="small-side">
+        <a href="https://learn.adafruit.com/assets/97124">
+            <img class="97124-asset small-side-image" src="./Barometer Tutorial_files/adafruit_products_BME280_Feather_I2C_breadboard_bb.jpg" alt="adafruit_products_BME280_Feather_I2C_breadboard_bb.jpg" loading="lazy">
+</a>      </div>
+      <div class="small-side">
+        <a href="https://learn.adafruit.com/assets/97125">
+            <img class="97125-asset small-side-image" src="./Barometer Tutorial_files/adafruit_products_BME280_Feather_I2C_original.png" alt="adafruit_products_BME280_Feather_I2C_original.png" loading="lazy">
+</a>      </div>
+  </div>
+
+    </div>
+  <div class="side-text"><div class="text"><ul>
+<li>
+<strong>Board 3V</strong> to <strong>sensor VIN</strong>
+</li>
+<li>
+<strong>Board GND</strong> to <strong>sensor GND</strong>
+</li>
+<li>
+<strong>Board SCL</strong> to <strong>sensor SCK</strong>
+</li>
+<li>
+<strong>Board SDA</strong> to <strong>sensor SDI</strong>
+</li>
+</ul></div></div>
+</div>
+
+      <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      <p>And an example of a Feather M0 wired with hardware SPI:</p>
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+      <div class="side-element">
+    <div class="side-images">
+      <div class="anchor-anchor">
+        <a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#step-2994999" class="anchor-link"><span class="fa fa-link"></span></a>
+      </div>
+      <span id="step-2994999" class="anchor-link-target"></span>
+      <a class="side-image-link" href="https://learn.adafruit.com/assets/97126">
+    <img class="97126-asset medium-side-image" src="./Barometer Tutorial_files/adafruit_products_BME280_Feather_SPI_bb.jpg" alt="adafruit_products_BME280_Feather_SPI_bb.jpg" loading="lazy">
+</a>
+  <div class="image-gallery">
+      <div class="small-side">
+        <a href="https://learn.adafruit.com/assets/97126">
+            <img class="97126-asset small-side-image" src="./Barometer Tutorial_files/adafruit_products_BME280_Feather_SPI_bb.jpg" alt="adafruit_products_BME280_Feather_SPI_bb.jpg" loading="lazy">
+</a>      </div>
+      <div class="small-side">
+        <a href="https://learn.adafruit.com/assets/97127">
+            <img class="97127-asset small-side-image" src="./Barometer Tutorial_files/adafruit_products_BME280_Feather_SPI_original.png" alt="adafruit_products_BME280_Feather_SPI_original.png" loading="lazy">
+</a>      </div>
+  </div>
+
+    </div>
+  <div class="side-text"><div class="text"><ul>
+<li>
+<strong>Board 3V</strong>&nbsp;to&nbsp;<strong>sensor VIN</strong>
+</li>
+<li>
+<strong>Board GND</strong>&nbsp;to&nbsp;<strong>sensor GND</strong>
+</li>
+<li>
+<strong>Board SCK</strong>&nbsp;to&nbsp;<strong>sensor SCK</strong>
+</li>
+<li>
+<strong>Board&nbsp;MOSI&nbsp;</strong>to <strong>sensor SDI</strong>
+</li>
+<li>
+<strong>Board MISO</strong> to <strong>sensor SDO</strong>
+</li>
+<li>
+<strong>Board D5</strong> to <strong>sensor CS</strong> (or use any other free digital I/O pin)</li>
+</ul></div></div>
+</div>
+
+      <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <h1>
+<div class="anchor-anchor">
+<a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#python-computer-wiring-2994989" class="anchor-link"><span class="fa fa-link"></span></a><span id="python-computer-wiring-2994989" class="anchor-link-target"></span>
+</div>Python Computer Wiring</h1>
+<p>Since there's <em>dozens</em> of Linux computers/boards you can use we will show wiring for Raspberry Pi. For other platforms, <a href="https://learn.adafruit.com/circuitpython-on-raspberrypi-linux">please visit the guide for CircuitPython on Linux to see whether your platform is supported</a>.&nbsp;</p>
+<p>Here's the Raspberry Pi wired with I2C:</p>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+      <div class="side-element">
+    <div class="side-images">
+      <div class="anchor-anchor">
+        <a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#step-2994996" class="anchor-link"><span class="fa fa-link"></span></a>
+      </div>
+      <span id="step-2994996" class="anchor-link-target"></span>
+      <a class="side-image-link" href="https://learn.adafruit.com/assets/97128">
+    <img class="97128-asset medium-side-image" src="./Barometer Tutorial_files/adafruit_products_BME280_RasPi_I2C_STEMMA_bb.jpg" alt="adafruit_products_BME280_RasPi_I2C_STEMMA_bb.jpg" loading="lazy">
+</a>
+  <div class="image-gallery">
+      <div class="small-side">
+        <a href="https://learn.adafruit.com/assets/97128">
+            <img class="97128-asset small-side-image" src="./Barometer Tutorial_files/adafruit_products_BME280_RasPi_I2C_STEMMA_bb.jpg" alt="adafruit_products_BME280_RasPi_I2C_STEMMA_bb.jpg" loading="lazy">
+</a>      </div>
+      <div class="small-side">
+        <a href="https://learn.adafruit.com/assets/97129">
+            <img class="97129-asset small-side-image" src="./Barometer Tutorial_files/adafruit_products_BME280_RasPi_I2C_breadboard_bb.jpg" alt="adafruit_products_BME280_RasPi_I2C_breadboard_bb.jpg" loading="lazy">
+</a>      </div>
+      <div class="small-side">
+        <a href="https://learn.adafruit.com/assets/97130">
+            <img class="97130-asset small-side-image" src="./Barometer Tutorial_files/adafruit_products_BME280_RasPi_I2C_original.png" alt="adafruit_products_BME280_RasPi_I2C_original.png" loading="lazy">
+</a>      </div>
+  </div>
+
+    </div>
+  <div class="side-text"><div class="text"><ul>
+<li>
+<strong>Pi 3V3</strong> to <strong>sensor VIN</strong>
+</li>
+<li>
+<strong>Pi GND</strong> to <strong>sensor GND</strong>
+</li>
+<li>
+<strong>Pi SCL</strong> to <strong>sensor SCK</strong>
+</li>
+<li>
+<strong>Pi SDA</strong> to <strong>sensor SDI</strong>
+</li>
+</ul></div></div>
+</div>
+
+      <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <p>And an example on the Raspberry Pi 3 Model B wired with SPI:</p>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+      <div class="side-element">
+    <div class="side-images">
+      <div class="anchor-anchor">
+        <a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#step-2994997" class="anchor-link"><span class="fa fa-link"></span></a>
+      </div>
+      <span id="step-2994997" class="anchor-link-target"></span>
+      <a class="side-image-link" href="https://learn.adafruit.com/assets/97131">
+    <img class="97131-asset medium-side-image" src="./Barometer Tutorial_files/adafruit_products_BME280_RasPi_SPI_bb.jpg" alt="adafruit_products_BME280_RasPi_SPI_bb.jpg" loading="lazy">
+</a>
+  <div class="image-gallery">
+      <div class="small-side">
+        <a href="https://learn.adafruit.com/assets/97131">
+            <img class="97131-asset small-side-image" src="./Barometer Tutorial_files/adafruit_products_BME280_RasPi_SPI_bb.jpg" alt="adafruit_products_BME280_RasPi_SPI_bb.jpg" loading="lazy">
+</a>      </div>
+      <div class="small-side">
+        <a href="https://learn.adafruit.com/assets/97132">
+            <img class="97132-asset small-side-image" src="./Barometer Tutorial_files/adafruit_products_BME280_RasPi_SPI_original.png" alt="adafruit_products_BME280_RasPi_SPI_original.png" loading="lazy">
+</a>      </div>
+  </div>
+
+    </div>
+  <div class="side-text"><div class="text"><ul>
+<li>
+<strong>Pi 3V3</strong> to&nbsp;<strong>sensor VIN</strong>
+</li>
+<li>
+<strong>Pi GND</strong>&nbsp;to&nbsp;<strong>sensor GND</strong>
+</li>
+<li>
+<strong>Pi MOSI&nbsp;</strong>to <strong>sensor SDI</strong>
+</li>
+<li>
+<strong>Pi MISO</strong> to <strong>sensor SDO</strong>
+</li>
+<li>
+<strong>Pi SCLK</strong>&nbsp;to&nbsp;<strong>sensor SCK</strong>
+</li>
+<li>
+<strong>Pi #5</strong> to <strong>sensor CS</strong> (or use any other free GPIO pin)</li>
+</ul></div></div>
+</div>
+
+      <div class="text-element">
+  
+  
+  
+        <h1>
+<div class="anchor-anchor">
+<a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#circuitpython-installation-of-bme280-library-2958132" class="anchor-link"><span class="fa fa-link"></span></a><span id="circuitpython-installation-of-bme280-library-2958132" class="anchor-link-target"></span>
+</div>CircuitPython Installation of BME280 Library</h1>
+<p>You'll need to install the&nbsp;<a href="https://github.com/adafruit/Adafruit_CircuitPython_BME280">Adafruit CircuitPython BME280</a>&nbsp;library on your CircuitPython board.</p>
+<p>First make sure you are running the&nbsp;<a href="https://learn.adafruit.com/welcome-to-circuitpython/installing-circuitpython">latest version of Adafruit CircuitPython</a>&nbsp;for your board.</p>
+<p>Next you'll need to install the necessary libraries&nbsp;to use the hardware--carefully follow the steps to find and install these libraries from&nbsp;<a href="https://github.com/adafruit/Adafruit_CircuitPython_Bundle/releases">Adafruit's CircuitPython library bundle</a>.&nbsp; Our CircuitPython starter guide has <a href="https://learn.adafruit.com/welcome-to-circuitpython/circuitpython-libraries">a great page on how to install the library bundle</a>.</p>
+<p>Before continuing make sure your board's lib folder or root filesystem has the&nbsp;<strong>adafruit_bme280, </strong>and<strong> adafruit_bus_device</strong><strong> </strong>folders<strong>&nbsp;</strong>copied over. <span class="s1">Both of these are folders with library files in them. Make sure to copy the whole folder for both into your <strong>lib</strong> folder!</span></p>
+<p>Next<a href="https://learn.adafruit.com/welcome-to-circuitpython/the-repl">&nbsp;connect to the board's serial REPL</a> so you are at the CircuitPython&nbsp;<strong>&gt;&gt;&gt;</strong>&nbsp;prompt.</p>
+      
+
+
+</div>
+
+      <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <h1>
+<div class="anchor-anchor">
+<a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#python-installation-of-bme280-library-2995297" class="anchor-link"><span class="fa fa-link"></span></a><span id="python-installation-of-bme280-library-2995297" class="anchor-link-target"></span>
+</div>Python Installation of BME280 Library</h1>
+<p>You'll need to install the Adafruit_Blinka library that provides the CircuitPython support in Python. This may also require enabling I2C on your platform and verifying you are running Python 3. <a href="https://learn.adafruit.com/circuitpython-on-raspberrypi-linux">Since each platform is a little different, and Linux changes often, please visit the CircuitPython on Linux guide to get your computer ready</a>!</p>
+<p>Once that's done, from your command line run the following command:</p>
+<ul>
+<li><code>sudo pip3 install adafruit-circuitpython-bme280</code></li>
+</ul>
+<p>If your default Python is version 3 you may need to run 'pip' instead. Just make sure you aren't trying to use CircuitPython on Python 2.x, it isn't supported!</p>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+      <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <h1>
+<div class="anchor-anchor">
+<a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#circuitpython-and-python-usage-2958133" class="anchor-link"><span class="fa fa-link"></span></a><span id="circuitpython-and-python-usage-2958133" class="anchor-link-target"></span>
+</div>CircuitPython &amp; Python Usage</h1>
+<p>To demonstrate the usage of the sensor we'll initialize it and read the temperature, humidity, and more from the board's Python REPL.</p>
+<p>If you're using an I2C connection run the following code to import the necessary modules and initialize the I2C connection with the sensor:</p>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+      <div class="code-element" aria-label="Code element">
+  <div class="download-code ">
+    <div class="code-copy-container">
+      <a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#" class="code-copy-button"><i class="fa fa-clipboard"></i> Copy Code</a>
+    </div>
+  </div>
+  <pre class="code-text-only" style="display: none;">import board
+from adafruit_bme280 import basic as adafruit_bme280
+i2c = board.I2C()  # uses board.SCL and board.SDA
+bme280 = adafruit_bme280.Adafruit_BME280_I2C(i2c)</pre>
+  <div class="code-preview-container has-line-numbers">
+    <pre class="line-number-gutter" aria-hidden="true">1
+2
+3
+4</pre>
+    <pre class="prettyprint language-python hljs"><span class="hljs-keyword">import</span> board
+<span class="hljs-keyword">from</span> adafruit_bme280 <span class="hljs-keyword">import</span> basic <span class="hljs-keyword">as</span> adafruit_bme280
+i2c = board.I2C()  <span class="hljs-comment"># uses board.SCL and board.SDA</span>
+bme280 = adafruit_bme280.Adafruit_BME280_I2C(i2c)</pre>
+  </div>
+  <div class="code-bottom-bar">
+  </div>
+</div>
+
+      <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <p>Or if you're using a SPI connection run this code instead to setup the SPI connection and sensor:</p>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+      <div class="code-element" aria-label="Code element">
+  <div class="download-code ">
+        <a data-turbo="false" class="download-button" href="https://learn.adafruit.com/elements/2958138/download">
+          <i class="fa fa-cloud"></i> Download File
+</a>    <div class="code-copy-container">
+      <a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#" class="code-copy-button"><i class="fa fa-clipboard"></i> Copy Code</a>
+    </div>
+  </div>
+  <pre class="code-text-only" style="display: none;">import board
+import digitalio
+from adafruit_bme280 import basic as adafruit_bme280
+spi = board.SPI()
+cs = digitalio.DigitalInOut(board.D5)
+bme280 = adafruit_bme280.Adafruit_BME280_SPI(spi, cs)</pre>
+  <div class="code-preview-container has-line-numbers">
+    <pre class="line-number-gutter" aria-hidden="true">1
+2
+3
+4
+5
+6</pre>
+    <pre class="prettyprint language-python hljs"><span class="hljs-keyword">import</span> board
+<span class="hljs-keyword">import</span> digitalio
+<span class="hljs-keyword">from</span> adafruit_bme280 <span class="hljs-keyword">import</span> basic <span class="hljs-keyword">as</span> adafruit_bme280
+spi = board.SPI()
+cs = digitalio.DigitalInOut(board.D5)
+bme280 = adafruit_bme280.Adafruit_BME280_SPI(spi, cs)</pre>
+  </div>
+  <div class="code-bottom-bar">
+  </div>
+</div>
+
+      <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <p>Now you're ready to read values from the sensor using any of these properties:</p>
+<ul>
+<li>
+<strong>temperature</strong> - The sensor temperature in degrees Celsius.</li>
+<li>
+<strong>humidity</strong> - The percent humidity as a value from 0 to 100%.</li>
+<li>
+<strong>pressure</strong> - The pressure in hPa.</li>
+<li>
+<strong>altitude</strong> - The altitude in meters.</li>
+</ul>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+      <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <p>For example to print temperature, humidity, and pressure:</p>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+      <div class="code-element" aria-label="Code element">
+  <div class="download-code ">
+    <div class="code-copy-container">
+      <a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#" class="code-copy-button"><i class="fa fa-clipboard"></i> Copy Code</a>
+    </div>
+  </div>
+  <pre class="code-text-only" style="display: none;">print("\nTemperature: %0.1f C" % bme280.temperature)
+print("Humidity: %0.1f %%" % bme280.humidity)
+print("Pressure: %0.1f hPa" % bme280.pressure)
+</pre>
+  <div class="code-preview-container has-line-numbers">
+    <pre class="line-number-gutter" aria-hidden="true">1
+2
+3</pre>
+    <pre class="prettyprint hljs language-perl"><span class="hljs-keyword">print</span>(<span class="hljs-string">"\nTemperature: %0.1f C"</span> % bme28<span class="hljs-number">0</span>.temperature)
+<span class="hljs-keyword">print</span>(<span class="hljs-string">"Humidity: %0.1f %%"</span> % bme28<span class="hljs-number">0</span>.humidity)
+<span class="hljs-keyword">print</span>(<span class="hljs-string">"Pressure: %0.1f hPa"</span> % bme28<span class="hljs-number">0</span>.pressure)
+</pre>
+  </div>
+  <div class="code-bottom-bar">
+  </div>
+</div>
+
+        <figure class="element image-element">
+    <a href="https://learn.adafruit.com/assets/48973">
+        <img class="48973-asset" srcset="https://cdn-learn.adafruit.com/assets/assets/000/048/973/small360/adafruit_products_bme280_1.png?1512683679 360w,
+               https://cdn-learn.adafruit.com/assets/assets/000/048/973/medium640/adafruit_products_bme280_1.png?1512683679 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/048/973/medium800/adafruit_products_bme280_1.png?1512683679 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/048/973/large1024/adafruit_products_bme280_1.png?1512683679 1024w" sizes="(max-width: 360px) 360px, (max-width: 640px) 640px, (max-width: 800px) 800px, 1024px" src="./Barometer Tutorial_files/adafruit_products_bme280_1.png" loading="lazy" alt="">
+</a>  </figure>
+
+      <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <p>For altitude you'll want to set the pressure at sea level for your location to get the most accurate measure (remember these sensors can only infer altitude based on pressure and need a set calibration point).&nbsp; Look at your local weather report for a pressure at sea level reading and set the <strong>sea_level_pressure</strong>&nbsp;property:</p>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+      <div class="code-element" aria-label="Code element">
+  <div class="download-code ">
+    <div class="code-copy-container">
+      <a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#" class="code-copy-button"><i class="fa fa-clipboard"></i> Copy Code</a>
+    </div>
+  </div>
+  <pre class="code-text-only" style="display: none;">bme280.sea_level_pressure = 1013.4</pre>
+  <div class="code-preview-container has-line-numbers">
+    <pre class="line-number-gutter" aria-hidden="true">1</pre>
+    <pre class="prettyprint hljs language-ini"><span class="hljs-attr">bme280.sea_level_pressure</span> = <span class="hljs-number">1013.4</span></pre>
+  </div>
+  <div class="code-bottom-bar">
+  </div>
+</div>
+
+      <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <p>Then read the altitude property for a more accurate altitude reading (but remember this altitude will fluctuate based on atmospheric pressure changes!):</p>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+      <div class="code-element" aria-label="Code element">
+  <div class="download-code ">
+    <div class="code-copy-container">
+      <a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#" class="code-copy-button"><i class="fa fa-clipboard"></i> Copy Code</a>
+    </div>
+  </div>
+  <pre class="code-text-only" style="display: none;">print("Altitude = %0.2f meters" % bme280.altitude)</pre>
+  <div class="code-preview-container has-line-numbers">
+    <pre class="line-number-gutter" aria-hidden="true">1</pre>
+    <pre class="prettyprint hljs language-perl"><span class="hljs-keyword">print</span>(<span class="hljs-string">"Altitude = %0.2f meters"</span> % bme28<span class="hljs-number">0</span>.altitude)</pre>
+  </div>
+  <div class="code-bottom-bar">
+  </div>
+</div>
+
+        <figure class="element image-element">
+    <a href="https://learn.adafruit.com/assets/48975">
+        <img class="48975-asset" srcset="https://cdn-learn.adafruit.com/assets/assets/000/048/975/small360/adafruit_products_bme280_3.png?1512683905 360w,
+               https://cdn-learn.adafruit.com/assets/assets/000/048/975/medium640/adafruit_products_bme280_3.png?1512683905 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/048/975/medium800/adafruit_products_bme280_3.png?1512683905 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/048/975/large1024/adafruit_products_bme280_3.png?1512683905 1024w" sizes="(max-width: 360px) 360px, (max-width: 640px) 640px, (max-width: 800px) 800px, 1024px" src="./Barometer Tutorial_files/adafruit_products_bme280_3.png" loading="lazy" alt="">
+</a>  </figure>
+
+      <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    <p>You can use the BME280 temperature and humidity to calculate the dew point using the <a href="https://en.wikipedia.org/wiki/Dew_point#Calculating_the_dew_point">Magnus formula</a>! For this example, you'll need to <code>import</code> an additional library: <code>math</code>. Run the following code:</p>
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+      <div class="code-element" aria-label="Code element">
+  <div class="download-code ">
+        <a data-turbo="false" class="download-button" href="https://learn.adafruit.com/elements/2998120/download">
+          <i class="fa fa-cloud"></i> Download File
+</a>    <div class="code-copy-container">
+      <a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#" class="code-copy-button"><i class="fa fa-clipboard"></i> Copy Code</a>
+    </div>
+  </div>
+  <pre class="code-text-only" style="display: none;">import math
+b = 17.62
+c = 243.12
+gamma = (b * bme280.temperature /(c + bme280.temperature)) + math.log(bme280.humidity / 100.0)
+dewpoint = (c * gamma) / (b - gamma)
+print(dewpoint)</pre>
+  <div class="code-preview-container has-line-numbers">
+    <pre class="line-number-gutter" aria-hidden="true">1
+2
+3
+4
+5
+6</pre>
+    <pre class="prettyprint hljs language-r">import math
+b = <span class="hljs-number">17.62</span>
+<span class="hljs-built_in">c</span> = <span class="hljs-number">243.12</span>
+<span class="hljs-built_in">gamma</span> = (b * bme280.temperature /(<span class="hljs-built_in">c</span> + bme280.temperature)) + math.log(bme280.humidity / <span class="hljs-number">100.0</span>)
+dewpoint = (<span class="hljs-built_in">c</span> * <span class="hljs-built_in">gamma</span>) / (b - <span class="hljs-built_in">gamma</span>)
+print(dewpoint)</pre>
+  </div>
+  <div class="code-bottom-bar">
+  </div>
+</div>
+
+      <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <p>That's all there is to using the BME280 sensor with CircuitPython!</p>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+      <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <h1>
+<div class="anchor-anchor">
+<a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#full-example-code-2995300" class="anchor-link"><span class="fa fa-link"></span></a><span id="full-example-code-2995300" class="anchor-link-target"></span>
+</div>Full Example Code</h1>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+          <div class="code-element" aria-label="Code element" data-controller="elements--code-expander" data-elements--code-expander-line-count-value="29">
+  <div class="download-code ">
+        <a data-turbo="false" class="download-button" href="https://learn.adafruit.com/elements/2995301/download?type=zip">
+          <i class="fa fa-cloud"></i> Download Project Bundle
+</a>    <div class="code-copy-container">
+      <a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#" class="code-copy-button"><i class="fa fa-clipboard"></i> Copy Code</a>
+    </div>
+  </div>
+  <pre class="code-text-only" style="display: none;"># SPDX-FileCopyrightText: 2021 ladyada for Adafruit Industries
+# SPDX-License-Identifier: MIT
+
+import time
+
+import board
+
+from adafruit_bme280 import basic as adafruit_bme280
+
+# Create sensor object, using the board's default I2C bus.
+i2c = board.I2C()  # uses board.SCL and board.SDA
+# i2c = board.STEMMA_I2C()  # For using the built-in STEMMA QT connector on a microcontroller
+bme280 = adafruit_bme280.Adafruit_BME280_I2C(i2c)
+
+# OR create sensor object, using the board's default SPI bus.
+# import digitalio
+# spi = board.SPI()
+# bme_cs = digitalio.DigitalInOut(board.D10)
+# bme280 = adafruit_bme280.Adafruit_BME280_SPI(spi, bme_cs)
+
+# change this to match the location's pressure (hPa) at sea level
+bme280.sea_level_pressure = 1013.25
+
+while True:
+    print(f"\nTemperature: {bme280.temperature:0.1f} C")
+    print(f"Humidity: {bme280.relative_humidity:0.1f} %")
+    print(f"Pressure: {bme280.pressure:0.1f} hPa")
+    print(f"Altitude = {bme280.altitude:0.2f} meters")
+    time.sleep(2)
+</pre>
+  <div class="code-preview-container has-line-numbers collapsed" data-elements--code-expander-target="container">
+    <pre class="line-number-gutter" aria-hidden="true">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29</pre>
+    <pre class="prettyprint embed language-python hljs"><span class="hljs-comment"># SPDX-FileCopyrightText: 2021 ladyada for Adafruit Industries</span>
+<span class="hljs-comment"># SPDX-License-Identifier: MIT</span>
+
+<span class="hljs-keyword">import</span> time
+
+<span class="hljs-keyword">import</span> board
+
+<span class="hljs-keyword">from</span> adafruit_bme280 <span class="hljs-keyword">import</span> basic <span class="hljs-keyword">as</span> adafruit_bme280
+
+<span class="hljs-comment"># Create sensor object, using the board's default I2C bus.</span>
+i2c = board.I2C()  <span class="hljs-comment"># uses board.SCL and board.SDA</span>
+<span class="hljs-comment"># i2c = board.STEMMA_I2C()  # For using the built-in STEMMA QT connector on a microcontroller</span>
+bme280 = adafruit_bme280.Adafruit_BME280_I2C(i2c)
+
+<span class="hljs-comment"># OR create sensor object, using the board's default SPI bus.</span>
+<span class="hljs-comment"># import digitalio</span>
+<span class="hljs-comment"># spi = board.SPI()</span>
+<span class="hljs-comment"># bme_cs = digitalio.DigitalInOut(board.D10)</span>
+<span class="hljs-comment"># bme280 = adafruit_bme280.Adafruit_BME280_SPI(spi, bme_cs)</span>
+
+<span class="hljs-comment"># change this to match the location's pressure (hPa) at sea level</span>
+bme280.sea_level_pressure = <span class="hljs-number">1013.25</span>
+
+<span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">f"\nTemperature: <span class="hljs-subst">{bme280.temperature:<span class="hljs-number">0.1</span>f}</span> C"</span>)
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">f"Humidity: <span class="hljs-subst">{bme280.relative_humidity:<span class="hljs-number">0.1</span>f}</span> %"</span>)
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">f"Pressure: <span class="hljs-subst">{bme280.pressure:<span class="hljs-number">0.1</span>f}</span> hPa"</span>)
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">f"Altitude = <span class="hljs-subst">{bme280.altitude:<span class="hljs-number">0.2</span>f}</span> meters"</span>)
+    time.sleep(<span class="hljs-number">2</span>)
+</pre>
+  </div>
+  <div class="code-bottom-bar">
+      <button class="code-expand-button" aria-expanded="false" data-elements--code-expander-target="button" data-action="click-&gt;elements--code-expander#toggle" data-line-count="29">
+        <i class="fa fa-chevron-down"></i> Show all 29 lines
+      </button>
+      <a target="_blank" rel="noopener noreferrer" class="code-github-link" href="https://github.com/adafruit/Adafruit_CircuitPython_BME280/blob/main/examples/bme280_simpletest.py">
+        <i class="fa fa-github"></i>
+        View on GitHub
+</a>  </div>
+</div>
+
+
+  </div>
+
+
+              <div class="page-last-updated">
+  <p>Page last edited March 08, 2024</p>
+  <p>Text editor powered by <a href="https://www.tiny.cloud/">tinymce</a>.</p>
+</div>
+
+            </section>
+            <h2>
+              <span id="wippersnapper">WipperSnapper</span>
+            </h2>
+
+            <section class="page-content">
+                <div class="" role="region" aria-label="Page content">
+          <figure class="element image-element">
+    <a href="https://learn.adafruit.com/assets/128241">
+        <img class="128241-asset" srcset="https://cdn-learn.adafruit.com/assets/assets/000/128/241/small360/adafruit_products_01_DeviceList.png?1709158893 360w,
+               https://cdn-learn.adafruit.com/assets/assets/000/128/241/medium640/adafruit_products_01_DeviceList.png?1709158893 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/128/241/medium800/adafruit_products_01_DeviceList.png?1709158893 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/128/241/large1024/adafruit_products_01_DeviceList.png?1709158893 1024w" sizes="(max-width: 360px) 360px, (max-width: 640px) 640px, (max-width: 800px) 800px, 1024px" src="./Barometer Tutorial_files/adafruit_products_01_DeviceList.png" loading="lazy" alt="">
+</a>  </figure>
+
+
+      <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+        <h2>
+<div class="anchor-anchor">
+<a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#what-is-wippersnapper-3112746" class="anchor-link"><span class="fa fa-link"></span></a><span id="what-is-wippersnapper-3112746" class="anchor-link-target"></span>
+</div>What is WipperSnapper</h2>
+<p>WipperSnapper is a firmware designed to turn any WiFi-capable board into an Internet-of-Things device without programming a single line of code. WipperSnapper connects to <a href="https://io.adafruit.com/">Adafruit IO</a>, a web&nbsp;platform designed (<a href="https://www.adafruit.com/about">by Adafruit!</a>) to<span>&nbsp;</span><em>display</em>,<span>&nbsp;</span><em>respond</em>, and<span>&nbsp;</span><em>interact</em><span>&nbsp;</span>with your project's data.</p>
+<p><span>Simply load the WipperSnapper firmware onto your board, add credentials, and plug it into power. Your board will automatically register itself with your Adafruit IO account.</span></p>
+<p><span>From there, you can add&nbsp;<em>components</em>&nbsp;to your board such as buttons, switches, potentiometers, sensors, and more! Components are&nbsp;<em>dynamically&nbsp;</em>added to hardware, so you can</span><span>&nbsp;immediately start interacting, logging, and streaming the data your projects produce without writing code.</span></p>
+<p>If you've never used WipperSnapper, click below to read through the quick start guide before continuing.</p>
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+      <div id="element-3112753" class="button-element" data-github-release="">
+
+  <a href="https://learn.adafruit.com/quickstart-adafruit-io-wippersnapper" class="btn btn-primary icon-" target="_blank" rel="noopener noreferrer" data-zip-folder="">
+    <span>
+      Quickstart: Adafruit IO WipperSnapper
+    </span>
+  </a>
+</div>
+
+      <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+        <h2>
+<div class="anchor-anchor">
+<a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#wiring-3112744" class="anchor-link"><span class="fa fa-link"></span></a><span id="wiring-3112744" class="anchor-link-target"></span>
+</div>Wiring</h2>
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+        <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+        <p>First, wire up an BME280 to your board exactly as follows. Here is an example of the BME280 wired to an<span>&nbsp;</span><a href="https://www.adafruit.com/product/5400">Adafruit ESP32 Feather V2</a><span>&nbsp;</span>using I2C<span>&nbsp;</span><a href="https://www.adafruit.com/product/4210">with a STEMMA QT cable (no soldering required)</a></p>
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+  <div class="side-element">
+    <div class="side-images">
+      <div class="anchor-anchor">
+        <a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#step-3121620" class="anchor-link"><span class="fa fa-link"></span></a>
+      </div>
+      <span id="step-3121620" class="anchor-link-target"></span>
+      <a class="side-image-link" href="https://learn.adafruit.com/assets/113148">
+    <img class="113148-asset medium-side-image" src="./Barometer Tutorial_files/adafruit_products_BME280-1.png" alt="adafruit_products_BME280-1.png" loading="lazy">
+</a>
+  <div class="image-gallery">
+      <div class="small-side">
+        <a href="https://learn.adafruit.com/assets/113148">
+            <img class="113148-asset small-side-image" src="./Barometer Tutorial_files/adafruit_products_BME280-1.png" alt="adafruit_products_BME280-1.png" loading="lazy">
+</a>      </div>
+      <div class="small-side">
+        <a href="https://learn.adafruit.com/assets/113149">
+            <img class="113149-asset small-side-image" src="./Barometer Tutorial_files/adafruit_products_BME280-2.png" alt="adafruit_products_BME280-2.png" loading="lazy">
+</a>      </div>
+  </div>
+
+    </div>
+  <div class="side-text"><div class="text">
+            <ul>
+<li>
+<strong>Board 3V</strong>&nbsp;to&nbsp;<strong>sensor VIN (red wire on STEMMA QT)<br></strong>
+</li>
+<li>
+<strong>Board GND</strong>&nbsp;to&nbsp;<strong>sensor GND (black wire on STEMMA QT)<br></strong>
+</li>
+<li>
+<strong>Board SCL</strong>&nbsp;to&nbsp;<strong>sensor SCL (yellow wire on STEMMA QT)<br></strong>
+</li>
+<li>
+<strong>Board SDA</strong>&nbsp;to&nbsp;<strong>sensor SDA (blue wire on STEMMA QT)</strong>
+</li>
+</ul>
+          </div></div>
+</div>
+
+
+      <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+        <h2>
+<div class="anchor-anchor">
+<a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#usage-3112747" class="anchor-link"><span class="fa fa-link"></span></a><span id="usage-3112747" class="anchor-link-target"></span>
+</div>Usage</h2>
+<p>Connect your board to Adafruit IO Wippersnapper and <strong><a href="https://io.adafruit.com/wippersnapper">navigate to the WipperSnapper board list</a>.</strong></p>
+<p>On this page, <strong>select the WipperSnapper board you're using</strong> to be brought to the board's interface page.</p>
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+          <figure class="element image-element">
+    <a href="https://learn.adafruit.com/assets/117352">
+        <img class="117352-asset" srcset="https://cdn-learn.adafruit.com/assets/assets/000/117/352/small360/adafruit_products_ksnip_20230106-135639.png?1673031553 360w,
+               https://cdn-learn.adafruit.com/assets/assets/000/117/352/medium640/adafruit_products_ksnip_20230106-135639.png?1673031553 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/117/352/medium800/adafruit_products_ksnip_20230106-135639.png?1673031553 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/117/352/large1024/adafruit_products_ksnip_20230106-135639.png?1673031553 1024w" sizes="(max-width: 360px) 360px, (max-width: 640px) 640px, (max-width: 800px) 800px, 1024px" src="./Barometer Tutorial_files/adafruit_products_ksnip_20230106-135639.png" loading="lazy" alt="">
+</a>  </figure>
+
+
+      <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+        <p>If you do not see your board listed here - you need <a href="https://learn.adafruit.com/quickstart-adafruit-io-wippersnapper">to connect your board to Adafruit IO</a> first.</p>
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+        <div class="side-element">
+    <div class="side-images">
+      <div class="anchor-anchor">
+        <a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#step-3134251" class="anchor-link"><span class="fa fa-link"></span></a>
+      </div>
+      <span id="step-3134251" class="anchor-link-target"></span>
+      <a class="side-image-link" href="https://learn.adafruit.com/assets/128238">
+    <img class="128238-asset medium-side-image" src="./Barometer Tutorial_files/adafruit_products_04_LatestVersion.png" alt="adafruit_products_04_LatestVersion.png" loading="lazy">
+</a>
+  <div class="image-gallery">
+      <div class="small-side">
+        <a href="https://learn.adafruit.com/assets/128238">
+            <img class="128238-asset small-side-image" src="./Barometer Tutorial_files/adafruit_products_04_LatestVersion.png" alt="adafruit_products_04_LatestVersion.png" loading="lazy">
+</a>      </div>
+      <div class="small-side">
+        <a href="https://learn.adafruit.com/assets/128239">
+            <img class="128239-asset small-side-image" src="./Barometer Tutorial_files/adafruit_products_04_UpdateRequired.png" alt="adafruit_products_04_UpdateRequired.png" loading="lazy">
+</a>      </div>
+  </div>
+
+    </div>
+  <div class="side-text"><div class="text">
+            <p>On the device page, quickly<span>&nbsp;</span><strong>check that you're running the latest version of the WipperSnapper firmware</strong>.</p>
+<p>The device tile on the left indicates the version number of the firmware running on the connected board.</p>
+<ul>
+<li>
+<strong>If the firmware version is green with a checkmark -</strong><span>&nbsp;</span>continue with this guide.</li>
+<li>
+<strong>If the firmware version is red with an "X" -</strong><span>&nbsp;</span><a href="https://learn.adafruit.com/quickstart-adafruit-io-wippersnapper">update to the latest WipperSnapper firmware</a><span>&nbsp;</span>on your board before continuing.</li>
+</ul>
+          </div></div>
+</div>
+
+
+      <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+        <p>Next, make sure the sensor is plugged into your board and click the<strong>&nbsp;I2C Scan&nbsp;</strong>button.</p>
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+        <figure class="element image-element">
+    <a href="https://learn.adafruit.com/assets/113177">
+        <img class="113177-asset" srcset="https://cdn-learn.adafruit.com/assets/assets/000/113/177/small360/sensor_page_crop_scan.png?1657724520 360w,
+               https://cdn-learn.adafruit.com/assets/assets/000/113/177/medium640/sensor_page_crop_scan.png?1657724520 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/113/177/medium800/sensor_page_crop_scan.png?1657724520 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/113/177/large1024/sensor_page_crop_scan.png?1657724520 1024w" sizes="(max-width: 360px) 360px, (max-width: 640px) 640px, (max-width: 800px) 800px, 1024px" src="./Barometer Tutorial_files/sensor_page_crop_scan.png" loading="lazy" alt="">
+</a>  </figure>
+
+        <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+        <p>You should see the BME280's default I2C address of&nbsp;<code>0x77</code> pop up in the I2C scan list.</p>
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+    <figure class="element image-element">
+    <a href="https://learn.adafruit.com/assets/113150">
+        <img class="113150-asset" srcset="https://cdn-learn.adafruit.com/assets/assets/000/113/150/small360/adafruit_products_bme280-i2c.png?1657650056 360w,
+               https://cdn-learn.adafruit.com/assets/assets/000/113/150/medium640/adafruit_products_bme280-i2c.png?1657650056 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/113/150/medium800/adafruit_products_bme280-i2c.png?1657650056 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/113/150/large1024/adafruit_products_bme280-i2c.png?1657650056 1024w" sizes="(max-width: 360px) 360px, (max-width: 640px) 640px, (max-width: 800px) 800px, 1024px" src="./Barometer Tutorial_files/adafruit_products_bme280-i2c.png" loading="lazy" alt="">
+</a>  </figure>
+
+
+      
+      <div class="faq-element last color-black" data-controller="collapse" aria-label="Collapsible prompt  I don&#39;t see the sensor&#39;s I2C address listed! 
+">
+  <div class="faq-anchor-anchor">
+    <a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#faq-3112810" class="anchor-link"><span class="fa fa-link"></span></a>
+    <span id="faq-3112810" class="anchor-link-target"></span>
+  </div>
+  <i class="prompt-icon icon-question-mark"></i>
+  <div class="content">
+    <div class="question" data-action="click-&gt;collapse#toggle" aria-controls="faq-answer_element_3112810">
+      
+       
+        I don't see the sensor's I2C address listed! 
+ 
+       
+        
+       
+     
+       
+        
+       
+    
+    </div>
+
+    <div id="faq-answer_element_3112810" data-collapse-target="content" class="answer collapse">
+      <p>First, double-check the connection and/or wiring between the sensor and the board.</p>
+<p>Then, reset the board and let it re-connect to Adafruit IO WipperSnapper.</p>
+    </div>
+  </div>
+  <div class="collapsible-icon" data-action="click-&gt;collapse#toggle" aria-controls="faq-answer_element_3112810">
+    <i class="collapsed-icon  expanded" data-collapse-target="icon"></i>
+  </div>
+</div>
+
+      <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+        <p>With the sensor detected in an I2C scan, you're ready to add the sensor to your board.</p>
+<p><strong>Click the New Component button or the + button </strong>to bring up the component picker.</p>
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+      
+        <figure class="element image-element">
+    <a href="https://learn.adafruit.com/assets/127931">
+        <img class="127931-asset" srcset="https://cdn-learn.adafruit.com/assets/assets/000/127/931/small360/sensor_page_temperature___humidity_06_AddComponent.png?1708631009 360w,
+               https://cdn-learn.adafruit.com/assets/assets/000/127/931/medium640/sensor_page_temperature___humidity_06_AddComponent.png?1708631009 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/127/931/medium800/sensor_page_temperature___humidity_06_AddComponent.png?1708631009 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/127/931/large1024/sensor_page_temperature___humidity_06_AddComponent.png?1708631009 1024w" sizes="(max-width: 360px) 360px, (max-width: 640px) 640px, (max-width: 800px) 800px, 1024px" src="./Barometer Tutorial_files/sensor_page_temperature___humidity_06_AddComponent.png" loading="lazy" alt="">
+</a>  </figure>
+
+        <div class="text-element">
+  
+  
+  
+  
+  
+        <p><span>Adafruit IO supports a large amount of components. To quickly find your sensor, type&nbsp;</span><code>BME280</code><span>&nbsp;into the search bar, then select the&nbsp;<strong>BME280</strong>&nbsp;component.</span></p>
+      
+
+
+
+
+</div>
+
+    <figure class="element image-element">
+    <a href="https://learn.adafruit.com/assets/128240">
+        <img class="128240-asset" srcset="https://cdn-learn.adafruit.com/assets/assets/000/128/240/small360/adafruit_products_7YLIvm5d23.png?1709158574 360w,
+               https://cdn-learn.adafruit.com/assets/assets/000/128/240/medium640/adafruit_products_7YLIvm5d23.png?1709158574 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/128/240/medium800/adafruit_products_7YLIvm5d23.png?1709158574 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/128/240/large1024/adafruit_products_7YLIvm5d23.png?1709158574 1024w" sizes="(max-width: 360px) 360px, (max-width: 640px) 640px, (max-width: 800px) 800px, 1024px" src="./Barometer Tutorial_files/adafruit_products_7YLIvm5d23.png" loading="lazy" alt="">
+</a>  </figure>
+
+
+        <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+        <p>On the component configuration page, the BME280's sensor address should be listed along with the sensor's settings.</p>
+<p>The<span>&nbsp;</span><strong>Send Every</strong><span>&nbsp;</span>option is specific to each sensor's measurements. This option will tell the Feather how often it should read from the BME280 sensor and send the data to Adafruit IO. Measurements can range from every 30 seconds to every 24 hours.</p>
+<p>For this example, set the<span>&nbsp;</span><strong>Send Every&nbsp;</strong>interval for each sensor to every 30 seconds.</p>
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+    <figure class="element image-element">
+    <a href="https://learn.adafruit.com/assets/113312">
+        <img class="113312-asset" srcset="https://cdn-learn.adafruit.com/assets/assets/000/113/312/small360/adafruit_products_Screenshot_2022-07-12_14-26-14.png?1658253220 360w,
+               https://cdn-learn.adafruit.com/assets/assets/000/113/312/medium640/adafruit_products_Screenshot_2022-07-12_14-26-14.png?1658253220 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/113/312/medium800/adafruit_products_Screenshot_2022-07-12_14-26-14.png?1658253220 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/113/312/large1024/adafruit_products_Screenshot_2022-07-12_14-26-14.png?1658253220 1024w" sizes="(max-width: 360px) 360px, (max-width: 640px) 640px, (max-width: 800px) 800px, 1024px" src="./Barometer Tutorial_files/adafruit_products_Screenshot_2022-07-12_14-26-14.png" loading="lazy" alt="">
+</a>  </figure>
+
+
+      <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+        <p>Your device interface should now show the sensor components you created. After the interval you configured elapses, WipperSnapper will automatically read values from the sensor(s) and send them to Adafruit IO.</p>
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+          <figure class="element image-element">
+    <a href="https://learn.adafruit.com/assets/113153">
+        <video preload="auto" muted="muted" loop="loop" playsinline="" poster="https://cdn-learn.adafruit.com/assets/assets/000/113/153/medium800thumb/adafruit_products_ezgif.com-gif-maker_%282%29.jpg?1657650769" aria-label="">
+          <source data-src="https://cdn-learn.adafruit.com/assets/assets/000/113/153/large1024mp4/adafruit_products_ezgif.com-gif-maker_%282%29.mp4?1657650769">
+          <source data-src="https://cdn-learn.adafruit.com/assets/assets/000/113/153/large1024webm/adafruit_products_ezgif.com-gif-maker_%282%29.webm?1657650769" type="video/webm; codecs=vp8,vorbis">
+          Your browser does not support the video tag.
+        </video>
+</a>  </figure>
+
+
+      <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+        <p>To view the data that has been logged from the sensor, click on the graph next to the sensor name.</p>
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+        <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+        <p>The BME280 has four sensors that each have their own feeds. In this picture, we're looking at the altitude sensor, but if you click on the graph icon for the different sensors you'll see their feed history.</p>
+      
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+    <figure class="element image-element">
+    <a href="https://learn.adafruit.com/assets/113314">
+        <img class="113314-asset" srcset="https://cdn-learn.adafruit.com/assets/assets/000/113/314/small360/adafruit_products_Screenshot_2022-07-19_13-56-24.png?1658254138 360w,
+               https://cdn-learn.adafruit.com/assets/assets/000/113/314/medium640/adafruit_products_Screenshot_2022-07-19_13-56-24.png?1658254138 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/113/314/medium800/adafruit_products_Screenshot_2022-07-19_13-56-24.png?1658254138 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/113/314/large1024/adafruit_products_Screenshot_2022-07-19_13-56-24.png?1658254138 1024w" sizes="(max-width: 360px) 360px, (max-width: 640px) 640px, (max-width: 800px) 800px, 1024px" src="./Barometer Tutorial_files/adafruit_products_Screenshot_2022-07-19_13-56-24.png" loading="lazy" alt="">
+</a>  </figure>
+
+
+      <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+        <p>Here you can see the feed history and edit things about the feed such as the name, privacy, webhooks associated with the feed and more. If you want to learn more about how feeds work, <a href="https://learn.adafruit.com/all-the-internet-of-things-episode-four-adafruit-io/advanced-feeds" target="_blank">check out this page</a>.</p>
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+        <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+        <p><span>For IO Free accounts, feed data is stored for a maximum of 30 days and there's a maximum of 10 feeds. In this guide, you created four feeds (one for each of the BME280's sensors). If you’d like to store data for more than 30 days, increase the number of feeds (components) you can use with WipperSnapper, or increase your data rate to send more sensor measurements to Adafruit IO - <a href="https://io.adafruit.com/plus" target="_blank">upgrade your account to Adafruit IO Plus</a>.</span></p>
+      
+
+
+
+
+
+
+
+
+
+
+</div>
+
+    <figure class="element image-element">
+    <a href="https://learn.adafruit.com/assets/113315">
+        <img class="113315-asset" srcset="https://cdn-learn.adafruit.com/assets/assets/000/113/315/small360/adafruit_products_Screenshot_2022-07-19_14-11-25.png?1658254383 360w,
+               https://cdn-learn.adafruit.com/assets/assets/000/113/315/medium640/adafruit_products_Screenshot_2022-07-19_14-11-25.png?1658254383 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/113/315/medium800/adafruit_products_Screenshot_2022-07-19_14-11-25.png?1658254383 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/113/315/large1024/adafruit_products_Screenshot_2022-07-19_14-11-25.png?1658254383 1024w" sizes="(max-width: 360px) 360px, (max-width: 640px) 640px, (max-width: 800px) 800px, 1024px" src="./Barometer Tutorial_files/adafruit_products_Screenshot_2022-07-19_14-11-25.png" loading="lazy" alt="">
+</a>  </figure>
+
+
+  </div>
+
+
+              <div class="page-last-updated">
+  <p>Page last edited March 08, 2024</p>
+  <p>Text editor powered by <a href="https://www.tiny.cloud/">tinymce</a>.</p>
+</div>
+
+            </section>
+            <h2>
+              <span id="f-a-q">F.A.Q.</span>
+            </h2>
+
+            <section class="page-content">
+                <div class="" role="region" aria-label="Page content">
+      <div class="faq-element  color-black" data-controller="collapse" aria-label="Collapsible prompt ">
+  <div class="faq-anchor-anchor">
+    <a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#faq-2958149" class="anchor-link"><span class="fa fa-link"></span></a>
+    <span id="faq-2958149" class="anchor-link-target"></span>
+  </div>
+  <i class="prompt-icon icon-question-mark"></i>
+  <div class="content">
+    <div class="question" data-action="click-&gt;collapse#toggle" aria-controls="faq-answer_element_2958149">
+      How come the altitude calculation is wrong? Is my sensor broken?
+    </div>
+
+    <div id="faq-answer_element_2958149" data-collapse-target="content" class="answer collapse">
+      
+<p>No, your sensor is likely just fine. The altitude calculation depends on knowing the barometric pressure at sea level</p>
+<p><strong>If you do not set the correct sea level pressure for your location FOR THE CURRENT DAY it will not be able to calculate the altitude accurately</strong></p>
+<p>Barometric pressure at sea level changes daily based on the weather!</p>
+
+    </div>
+  </div>
+  <div class="collapsible-icon" data-action="click-&gt;collapse#toggle" aria-controls="faq-answer_element_2958149">
+    <i class="collapsed-icon  expanded" data-collapse-target="icon"></i>
+  </div>
+</div>
+
+      <div class="faq-element  color-black" data-controller="collapse" aria-label="Collapsible prompt ">
+  <div class="faq-anchor-anchor">
+    <a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#faq-2958150" class="anchor-link"><span class="fa fa-link"></span></a>
+    <span id="faq-2958150" class="anchor-link-target"></span>
+  </div>
+  <i class="prompt-icon icon-question-mark"></i>
+  <div class="content">
+    <div class="question" data-action="click-&gt;collapse#toggle" aria-controls="faq-answer_element_2958150">
+      If I have long delays between reads, the first data read seems wrong?
+    </div>
+
+    <div id="faq-answer_element_2958150" data-collapse-target="content" class="answer collapse">
+      <p>The BMx280 'saves' the last reading in memory for you to query. Just read twice in a row and toss out the first reading!</p>
+    </div>
+  </div>
+  <div class="collapsible-icon" data-action="click-&gt;collapse#toggle" aria-controls="faq-answer_element_2958150">
+    <i class="collapsed-icon  expanded" data-collapse-target="icon"></i>
+  </div>
+</div>
+
+  </div>
+
+
+              <div class="page-last-updated">
+  <p>Page last edited March 08, 2024</p>
+  <p>Text editor powered by <a href="https://www.tiny.cloud/">tinymce</a>.</p>
+</div>
+
+            </section>
+            <h2>
+              <span id="downloads">Downloads</span>
+            </h2>
+
+            <section class="page-content">
+                <div class="" role="region" aria-label="Page content">
+      <div class="text-element">
+  
+  
+        <h1>
+<div class="anchor-anchor">
+<a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#documents-2958151" class="anchor-link"><span class="fa fa-link"></span></a><span id="documents-2958151" class="anchor-link-target"></span>
+</div>Documents</h1>
+<ul>
+<li><a href="https://cdn-learn.adafruit.com/assets/assets/000/115/588/original/bst-bme280-ds002.pdf?1664822559">Datasheet for the BME280 sensor used in this breakout</a></li>
+<li><a href="https://github.com/adafruit/Adafruit_BME280_Library">Arduino BME280 Driver</a></li>
+<li><a href="https://github.com/adafruit/Fritzing-Library">Fritzing object in the Adafruit Fritzing Library</a></li>
+<li><a href="https://github.com/adafruit/Adafruit-BME280-Breakout-PCB">EagleCAD PCB files on GitHub (original, non QT version)</a></li>
+<li>
+<a href="https://github.com/adafruit/Adafruit-BMP280-Breakout-PCB">EagleCAD PCB files for QT version, which is the same exact PCB as the BMP280 </a>(sensors are pin/size compatible)</li>
+<li><a href="http://www.kandrsmith.org/RJS/Misc/Hygrometers/calib_many.html">K&amp;R Smith calibration notes</a></li>
+</ul>
+      
+
+</div>
+
+      <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+      
+      
+      <h1>
+<div class="anchor-anchor">
+<a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#alternative-driver-python-2958152" class="anchor-link"><span class="fa fa-link"></span></a><span id="alternative-driver-python-2958152" class="anchor-link-target"></span>
+</div>Alternative Driver (Python)</h1>
+<p>If you are using this breakout with a Raspberry Pi or Pi2, you can also look at the <a href="https://github.com/adafruit/Adafruit_Python_BME280">Adafruit_Python_BME280</a>&nbsp;driver.</p>
+<p>This alternative driver uses I2C to communicate with the BME280, so connect SCL on the Pi to SCK on the BME, and SDA to SDI, along with power (3.3V to VIN) and GND.</p>
+    
+    
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+      <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+        <h1>
+<div class="anchor-anchor">
+<a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#schematic-and-fab-print-for-stemma-qt-version-3077864" class="anchor-link"><span class="fa fa-link"></span></a><span id="schematic-and-fab-print-for-stemma-qt-version-3077864" class="anchor-link-target"></span>
+</div>Schematic and Fab Print for STEMMA QT Version</h1>
+      
+
+
+
+
+
+
+
+
+
+</div>
+
+        <figure class="element image-element">
+    <a href="https://learn.adafruit.com/assets/97136">
+        <img class="97136-asset" srcset="https://cdn-learn.adafruit.com/assets/assets/000/097/136/small360/adafruit_products_BME280_sch.png?1605727658 360w,
+               https://cdn-learn.adafruit.com/assets/assets/000/097/136/medium640/adafruit_products_BME280_sch.png?1605727658 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/097/136/medium800/adafruit_products_BME280_sch.png?1605727658 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/097/136/large1024/adafruit_products_BME280_sch.png?1605727658 1024w" sizes="(max-width: 360px) 360px, (max-width: 640px) 640px, (max-width: 800px) 800px, 1024px" src="./Barometer Tutorial_files/adafruit_products_BME280_sch.png" loading="lazy" alt="">
+</a>  </figure>
+
+        <figure class="element image-element">
+    <a href="https://learn.adafruit.com/assets/97134">
+        <img class="97134-asset" srcset="https://cdn-learn.adafruit.com/assets/assets/000/097/134/small360/adafruit_products_BME280_fab_print.png?1605727502 360w,
+               https://cdn-learn.adafruit.com/assets/assets/000/097/134/medium640/adafruit_products_BME280_fab_print.png?1605727502 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/097/134/medium800/adafruit_products_BME280_fab_print.png?1605727502 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/097/134/large1024/adafruit_products_BME280_fab_print.png?1605727502 1024w" sizes="(max-width: 360px) 360px, (max-width: 640px) 640px, (max-width: 800px) 800px, 1024px" src="./Barometer Tutorial_files/adafruit_products_BME280_fab_print.png" loading="lazy" alt="">
+</a>  </figure>
+
+      <div class="text-element">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+        <h1>
+<div class="anchor-anchor">
+<a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#schematic-and-fab-print-for-original-version-2958153" class="anchor-link"><span class="fa fa-link"></span></a><span id="schematic-and-fab-print-for-original-version-2958153" class="anchor-link-target"></span>
+</div>Schematic and Fab Print for Original Version</h1>
+<p>Click to enlarge</p>
+      
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+        <figure class="element image-element">
+    <a href="https://learn.adafruit.com/assets/26693">
+        <img class="26693-asset" srcset="https://cdn-learn.adafruit.com/assets/assets/000/026/693/small360/sensors_sch.png?1437773082 360w,
+               https://cdn-learn.adafruit.com/assets/assets/000/026/693/medium640/sensors_sch.png?1437773082 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/026/693/medium800/sensors_sch.png?1437773082 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/026/693/large1024/sensors_sch.png?1437773082 1024w" sizes="(max-width: 360px) 360px, (max-width: 640px) 640px, (max-width: 800px) 800px, 1024px" src="./Barometer Tutorial_files/sensors_sch.png" loading="lazy" alt="">
+</a>  </figure>
+
+        <figure class="element image-element">
+    <a href="https://learn.adafruit.com/assets/26692">
+        <img class="26692-asset" srcset="https://cdn-learn.adafruit.com/assets/assets/000/026/692/small360/sensors_print.png?1437773049 360w,
+               https://cdn-learn.adafruit.com/assets/assets/000/026/692/medium640/sensors_print.png?1437773049 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/026/692/medium800/sensors_print.png?1437773049 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/026/692/large1024/sensors_print.png?1437773049 1024w" sizes="(max-width: 360px) 360px, (max-width: 640px) 640px, (max-width: 800px) 800px, 1024px" src="./Barometer Tutorial_files/sensors_print.png" loading="lazy" alt="">
+</a>  </figure>
+
+  </div>
+
+
+              <div class="page-last-updated">
+  <p>Page last edited March 08, 2024</p>
+  <p>Text editor powered by <a href="https://www.tiny.cloud/">tinymce</a>.</p>
+</div>
+
+            </section>
+    </div>
+  </div>
+</article>
+
+    <div class="related-guides-wrapper">
+  <section class="content-card-group-preview">
+  <div class="group-preview-headline">
+    <div class="title">
+      Related Guides
+    </div>
+
+    
+  </div>
+
+  <a class="scroll-back"><i class="fa fa-angle-left"></i></a>
+  <div class="content-card-group-container">
+    <div class="content-card-group">
+      <!-- Update templates/guides/guide.mustache in tandom -->
+<div class="guide-preview content-card">
+    <a aria-hidden="true" tabindex="-1" href="https://learn.adafruit.com/no-code-offline-data-logging-with-wippersnapper">
+      <div class="image-container">
+        <img loading="lazy" alt="An Adafruit Feather RP2040 Adalogger connected to an Adafruit BME280 breakout. The products are above a file which shows data logged from the sensor." class="image-preview" src="./Barometer Tutorial_files/cropped-IMG_4424.JPG">
+
+      </div>
+</a>
+  <div class="bottom-section">
+    <div class="content">
+      <a class="title" aria-label="Guide title" href="https://learn.adafruit.com/no-code-offline-data-logging-with-wippersnapper">No-Code Offline Data Logger with WipperSnapper</a>
+          <div class="author">
+      By
+      <a aria-label="Guide author" data-turbo="false" href="https://learn.adafruit.com/u/brubell">
+        <span class="name">Brent Rubell</span>
+</a>    </div>
+
+    </div>
+
+    <div class="badges">
+  <div class="badge" aria-label="Guide skill level">
+    intermediate
+  </div>
+
+  <div class="badge favorites " title="Saved 10 times" aria-label="This guide has been saved 10 times">
+    <span>10</span>
+  </div>
+
+</div>
+
+  </div>
+</div>
+<!-- Update templates/guides/guide.mustache in tandom -->
+<div class="guide-preview content-card">
+    <a aria-hidden="true" tabindex="-1" href="https://learn.adafruit.com/circuitpython-libraries-on-linux-and-the-96boards-dragonboard-410c">
+      <div class="image-container">
+        <img loading="lazy" alt="A cartoon Blinka CircuitPython mascot snake with a purple body and pink accents is next to the red &quot;96Boards&quot; logo. A pink heart is above the snake." class="image-preview" src="./Barometer Tutorial_files/sensors_blinkapi.png">
+
+      </div>
+</a>
+  <div class="bottom-section">
+    <div class="content">
+      <a class="title" aria-label="Guide title" href="https://learn.adafruit.com/circuitpython-libraries-on-linux-and-the-96boards-dragonboard-410c">CircuitPython Libraries on Linux and the 96Boards...</a>
+          <div class="author">
+      By
+      <a aria-label="Guide author" data-turbo="false" href="https://learn.adafruit.com/u/MakerMelissa">
+        <span class="name">M. LeBlanc-Williams</span>
+</a>    </div>
+
+    </div>
+
+    <div class="badges">
+  <div class="badge" aria-label="Guide skill level">
+    intermediate
+  </div>
+
+  <div class="badge favorites " title="Saved 2 times" aria-label="This guide has been saved 2 times">
+    <span>2</span>
+  </div>
+
+</div>
+
+  </div>
+</div>
+<!-- Update templates/guides/guide.mustache in tandom -->
+<div class="guide-preview content-card">
+    <a aria-hidden="true" tabindex="-1" href="https://learn.adafruit.com/circuitpython-libraries-on-linux-and-the-nvidia-jetson-nano">
+      <div class="image-container">
+        <img loading="lazy" alt="A CircuitPython mascot cartoon Blinka snake with a heart near its head is next to a green logo with an eye design that is the nVidia logo." class="image-preview" src="./Barometer Tutorial_files/sensors_blinkapi(1).png">
+
+      </div>
+</a>
+  <div class="bottom-section">
+    <div class="content">
+      <a class="title" aria-label="Guide title" href="https://learn.adafruit.com/circuitpython-libraries-on-linux-and-the-nvidia-jetson-nano">CircuitPython Libraries on Linux and the NVIDIA...</a>
+          <div class="author">
+      By
+      <a aria-label="Guide author" data-turbo="false" href="https://learn.adafruit.com/u/MakerMelissa">
+        <span class="name">M. LeBlanc-Williams</span>
+</a>    </div>
+
+    </div>
+
+    <div class="badges">
+  <div class="badge" aria-label="Guide skill level">
+    intermediate
+  </div>
+
+  <div class="badge favorites " title="Saved 6 times" aria-label="This guide has been saved 6 times">
+    <span>6</span>
+  </div>
+
+</div>
+
+  </div>
+</div>
+<!-- Update templates/guides/guide.mustache in tandom -->
+<div class="guide-preview content-card">
+    <a aria-hidden="true" tabindex="-1" href="https://learn.adafruit.com/diy-trinkey-no-solder-air-quality-monitor">
+      <div class="image-container">
+        <img loading="lazy" alt="An air quality sensor module with a metal casing is connected to a laptop via a Trinkey via colorful wires. Visible pins include VIN, GND, SCL, and SDA." class="image-preview" src="./Barometer Tutorial_files/thumb.jpg">
+
+      </div>
+</a>
+  <div class="bottom-section">
+    <div class="content">
+      <a class="title" aria-label="Guide title" href="https://learn.adafruit.com/diy-trinkey-no-solder-air-quality-monitor">DIY Trinkey No-Soldering USB Air Quality Monitor</a>
+          <div class="author">
+      By
+      <a aria-label="Guide author" data-turbo="false" href="https://learn.adafruit.com/u/caternuson">
+        <span class="name">Carter Nelson</span>
+</a>    </div>
+
+    </div>
+
+    <div class="badges">
+  <div class="badge" aria-label="Guide skill level">
+    beginner
+  </div>
+
+  <div class="badge favorites " title="Saved 45 times" aria-label="This guide has been saved 45 times">
+    <span>45</span>
+  </div>
+
+</div>
+
+  </div>
+</div>
+<!-- Update templates/guides/guide.mustache in tandom -->
+<div class="guide-preview content-card">
+    <a aria-hidden="true" tabindex="-1" href="https://learn.adafruit.com/no-code-ikea-vindriktning-hack-with-qt-py-esp32-s3-and-adafruit-io">
+      <div class="image-container">
+        <img loading="lazy" alt="A small white IKEA Vindriktning Air Quality Sensor with a green LED indicator is on a desk. A smartphone displays air quality and temperature data from the device." class="image-preview" src="./Barometer Tutorial_files/IMG_9799.JPG">
+
+      </div>
+</a>
+  <div class="bottom-section">
+    <div class="content">
+      <a class="title" aria-label="Guide title" href="https://learn.adafruit.com/no-code-ikea-vindriktning-hack-with-qt-py-esp32-s3-and-adafruit-io">No-Code IKEA Vindriktning Air Quality Sensor Hack...</a>
+          <div class="author">
+      By
+      <a aria-label="Guide author" data-turbo="false" href="https://learn.adafruit.com/u/brubell">
+        <span class="name">Brent Rubell</span>
+</a>    </div>
+
+    </div>
+
+    <div class="badges">
+  <div class="badge" aria-label="Guide skill level">
+    beginner
+  </div>
+
+  <div class="badge favorites " title="Saved 39 times" aria-label="This guide has been saved 39 times">
+    <span>39</span>
+  </div>
+
+</div>
+
+  </div>
+</div>
+<!-- Update templates/guides/guide.mustache in tandom -->
+<div class="guide-preview content-card">
+    <a aria-hidden="true" tabindex="-1" href="https://learn.adafruit.com/gdocs-sensor-logging-from-your-pc">
+      <div class="image-container">
+        <img loading="lazy" alt="A breadboard with a BME280 sensor connected via jumper wires is placed in front of a computer screen displaying a spreadsheet with environmental data. The spreadsheet includes columns for time, pressure, temperature, and humidity, with a graph labeled &quot;Humidity vs. Time.&quot;" class="image-preview" src="./Barometer Tutorial_files/thumb_small.jpg">
+
+      </div>
+</a>
+  <div class="bottom-section">
+    <div class="content">
+      <a class="title" aria-label="Guide title" href="https://learn.adafruit.com/gdocs-sensor-logging-from-your-pc">Google Docs Sensor Logging From Your PC</a>
+          <div class="author">
+      By
+      <a aria-label="Guide author" data-turbo="false" href="https://learn.adafruit.com/u/caternuson">
+        <span class="name">Carter Nelson</span>
+</a>    </div>
+
+    </div>
+
+    <div class="badges">
+  <div class="badge" aria-label="Guide skill level">
+    beginner
+  </div>
+
+  <div class="badge favorites " title="Saved 29 times" aria-label="This guide has been saved 29 times">
+    <span>29</span>
+  </div>
+
+</div>
+
+  </div>
+</div>
+<!-- Update templates/guides/guide.mustache in tandom -->
+<div class="guide-preview content-card">
+    <a aria-hidden="true" tabindex="-1" href="https://learn.adafruit.com/integrating-adafruit-io-with-home-assistant">
+      <div class="image-container">
+        <img loading="lazy" alt="A blue square with a white house icon featuring a circuit pattern next to a stylized &quot;Adafruit IO&quot; logo with an Adafruit logo flower in the &quot;O&quot;." class="image-preview" src="./Barometer Tutorial_files/New_Project.png">
+
+      </div>
+</a>
+  <div class="bottom-section">
+    <div class="content">
+      <a class="title" aria-label="Guide title" href="https://learn.adafruit.com/integrating-adafruit-io-with-home-assistant">Integrating Home Assistant with Adafruit IO</a>
+          <div class="author">
+      By
+      <a aria-label="Guide author" data-turbo="false" href="https://learn.adafruit.com/u/brubell">
+        <span class="name">Brent Rubell</span>
+</a>    </div>
+
+    </div>
+
+    <div class="badges">
+  <div class="badge" aria-label="Guide skill level">
+    intermediate
+  </div>
+
+  <div class="badge favorites " title="Saved 53 times" aria-label="This guide has been saved 53 times">
+    <span>53</span>
+  </div>
+
+</div>
+
+  </div>
+</div>
+<!-- Update templates/guides/guide.mustache in tandom -->
+<div class="guide-preview content-card">
+    <a aria-hidden="true" tabindex="-1" href="https://learn.adafruit.com/i2c-addresses">
+      <div class="image-container">
+        <img loading="lazy" alt="Retro-style graphic with the text &quot;I2C Address Compilation&quot; in bold, colorful letters. Background features a grid and neon triangle." class="image-preview" src="./Barometer Tutorial_files/PhotoFunia-1501383296.jpg">
+
+      </div>
+</a>
+  <div class="bottom-section">
+    <div class="content">
+      <a class="title" aria-label="Guide title" href="https://learn.adafruit.com/i2c-addresses">I2C Addresses and Troublesome Chips</a>
+          <div class="author">
+      By
+      <a aria-label="Guide author" data-turbo="false" href="https://learn.adafruit.com/u/adafruit2">
+        <span class="name">lady ada</span>
+</a>    </div>
+
+    </div>
+
+    <div class="badges">
+  <div class="badge" aria-label="Guide skill level">
+    beginner
+  </div>
+
+  <div class="badge favorites " title="Saved 175 times" aria-label="This guide has been saved 175 times">
+    <span>175</span>
+  </div>
+
+</div>
+
+  </div>
+</div>
+<!-- Update templates/guides/guide.mustache in tandom -->
+<div class="guide-preview content-card">
+    <a aria-hidden="true" tabindex="-1" href="https://learn.adafruit.com/air-quality-sensor-silo-house">
+      <div class="image-container">
+        <img loading="lazy" alt="A 3D-printed grey and beige house-shaped enclosure is mounted on an exterior wall with a cable running from the bottom. It resembles a miniature building with a roof and door details. The enclosure hides an air quality sensor." class="image-preview" src="./Barometer Tutorial_files/hero-guide.jpg">
+
+      </div>
+</a>
+  <div class="bottom-section">
+    <div class="content">
+      <a class="title" aria-label="Guide title" href="https://learn.adafruit.com/air-quality-sensor-silo-house">Air Quality Sensor 3D Printed Enclosure</a>
+          <div class="author">
+      By
+      <a aria-label="Guide author" data-turbo="false" href="https://learn.adafruit.com/u/pixil3d">
+        <span class="name">Ruiz Brothers</span>
+</a>    </div>
+
+    </div>
+
+    <div class="badges">
+  <div class="badge" aria-label="Guide skill level">
+    intermediate
+  </div>
+
+  <div class="badge favorites " title="Saved 52 times" aria-label="This guide has been saved 52 times">
+    <span>52</span>
+  </div>
+
+</div>
+
+  </div>
+</div>
+<!-- Update templates/guides/guide.mustache in tandom -->
+<div class="guide-preview content-card">
+    <a aria-hidden="true" tabindex="-1" href="https://learn.adafruit.com/circuitpython-libraries-on-micropython-using-the-raspberry-pi-pico">
+      <div class="image-container">
+        <img loading="lazy" alt="A cartoon MicroPython snake on a microchip, a purple CircuitPython snake, and a red, black and green Raspberry Pi icon are shown with plus signs between them." class="image-preview" src="./Barometer Tutorial_files/Main_Image_2.jpg">
+
+      </div>
+</a>
+  <div class="bottom-section">
+    <div class="content">
+      <a class="title" aria-label="Guide title" href="https://learn.adafruit.com/circuitpython-libraries-on-micropython-using-the-raspberry-pi-pico">CircuitPython Libraries on MicroPython using the...</a>
+          <div class="author">
+      By
+      <a aria-label="Guide author" data-turbo="false" href="https://learn.adafruit.com/u/MakerMelissa">
+        <span class="name">M. LeBlanc-Williams</span>
+</a>    </div>
+
+    </div>
+
+    <div class="badges">
+  <div class="badge" aria-label="Guide skill level">
+    beginner
+  </div>
+
+  <div class="badge favorites " title="Saved 56 times" aria-label="This guide has been saved 56 times">
+    <span>56</span>
+  </div>
+
+</div>
+
+  </div>
+</div>
+<!-- Update templates/guides/guide.mustache in tandom -->
+<div class="guide-preview content-card">
+    <a aria-hidden="true" tabindex="-1" href="https://learn.adafruit.com/use-blinka-with-ubuntu-core-on-raspberry-pi">
+      <div class="image-container">
+        <img loading="lazy" alt="Raspberry Pi 4 connected to an HDMI display and a BME280 sensor via I2C. The display shows the Ubuntu Core logo during first bootup and installation." class="image-preview" src="./Barometer Tutorial_files/hero_photo.png">
+
+      </div>
+</a>
+  <div class="bottom-section">
+    <div class="content">
+      <a class="title" aria-label="Guide title" href="https://learn.adafruit.com/use-blinka-with-ubuntu-core-on-raspberry-pi">Use Blinka in Ubuntu Core on Raspberry Pi</a>
+          <div class="author">
+      By
+      <a aria-label="Guide author" data-turbo="false" href="https://learn.adafruit.com/u/Foamyguy">
+        <span class="name">Tim C</span>
+</a>    </div>
+
+    </div>
+
+    <div class="badges">
+  <div class="badge" aria-label="Guide skill level">
+    advanced
+  </div>
+
+  <div class="badge favorites " title="Saved 2 times" aria-label="This guide has been saved 2 times">
+    <span>2</span>
+  </div>
+
+    <div class="badge new" aria-label="This is a new guide">
+      New
+    </div>
+</div>
+
+  </div>
+</div>
+<!-- Update templates/guides/guide.mustache in tandom -->
+<div class="guide-preview content-card">
+    <a aria-hidden="true" tabindex="-1" href="https://learn.adafruit.com/multi-device-lora-temperature-network">
+      <div class="image-container">
+        <img loading="lazy" alt="Diagram showing a Feather board receiving sensor data and acting as a gateway/router connecting LoRa packets to The Things Network and Adafruit IO." class="image-preview" src="./Barometer Tutorial_files/updated_topology_(1)_(6).png">
+
+      </div>
+</a>
+  <div class="bottom-section">
+    <div class="content">
+      <a class="title" aria-label="Guide title" href="https://learn.adafruit.com/multi-device-lora-temperature-network">Feather + Raspberry Pi Weather Monitoring Network...</a>
+          <div class="author">
+      By
+      <a aria-label="Guide author" data-turbo="false" href="https://learn.adafruit.com/u/brubell">
+        <span class="name">Brent Rubell</span>
+</a>    </div>
+
+    </div>
+
+    <div class="badges">
+  <div class="badge" aria-label="Guide skill level">
+    intermediate
+  </div>
+
+  <div class="badge favorites " title="Saved 60 times" aria-label="This guide has been saved 60 times">
+    <span>60</span>
+  </div>
+
+</div>
+
+  </div>
+</div>
+<!-- Update templates/guides/guide.mustache in tandom -->
+<div class="guide-preview content-card">
+    <a aria-hidden="true" tabindex="-1" href="https://learn.adafruit.com/pyportal-iot-weather-station">
+      <div class="image-container">
+          <video class="video-preview lazy" preload="auto" muted="muted" loop="loop" playsinline="" tabindex="-1" poster="https://cdn-learn.adafruit.com/guides/cropped_images/000/002/438/medium640thumb/ezgif.com-video-to-gif_%284%29.gif?1552058684" aria-hidden="true">
+      <source data-src="https://cdn-learn.adafruit.com/guides/cropped_images/000/002/438/medium640mp4/ezgif.com-video-to-gif_%284%29.mp4?1552058684">
+      <source data-src="https://cdn-learn.adafruit.com/guides/cropped_images/000/002/438/medium640webm/ezgif.com-video-to-gif_%284%29.webm?1552058684" type="video/webm; codecs=vp8,vorbis">
+      Your browser does not support the video tag. This links to the guide PyPortal IoT Weather Station.
+  </video>
+<img loading="lazy" alt="PyPortal displays weather data including UV index, temperature, humidity, and wind speed. Connected to a breadboard with wires and sensors." class="image-preview" src="./Barometer Tutorial_files/ezgif.com-video-to-gif_(4).gif">
+
+      </div>
+</a>
+  <div class="bottom-section">
+    <div class="content">
+      <a class="title" aria-label="Guide title" href="https://learn.adafruit.com/pyportal-iot-weather-station">PyPortal IoT Weather Station</a>
+          <div class="author">
+      By
+      <a aria-label="Guide author" data-turbo="false" href="https://learn.adafruit.com/u/brubell">
+        <span class="name">Brent Rubell</span>
+</a>    </div>
+
+    </div>
+
+    <div class="badges">
+  <div class="badge" aria-label="Guide skill level">
+    beginner
+  </div>
+
+  <div class="badge favorites " title="Saved 79 times" aria-label="This guide has been saved 79 times">
+    <span>79</span>
+  </div>
+
+</div>
+
+  </div>
+</div>
+<!-- Update templates/guides/guide.mustache in tandom -->
+<div class="guide-preview content-card">
+    <a aria-hidden="true" tabindex="-1" href="https://learn.adafruit.com/adding-a-single-board-computer-to-blinka">
+      <div class="image-container">
+        <img loading="lazy" alt="A Blinka cartoon purple snake with circuit patterns is next to a cartoon Linux Tux penguin. The snake&#39;s tail is touching the penguin&#39;s flipper." class="image-preview" src="./Barometer Tutorial_files/main_image.jpg">
+
+      </div>
+</a>
+  <div class="bottom-section">
+    <div class="content">
+      <a class="title" aria-label="Guide title" href="https://learn.adafruit.com/adding-a-single-board-computer-to-blinka">Adding a Single Board Computer to Blinka</a>
+          <div class="author">
+      By
+      <a aria-label="Guide author" data-turbo="false" href="https://learn.adafruit.com/u/MakerMelissa">
+        <span class="name">M. LeBlanc-Williams</span>
+</a>    </div>
+
+    </div>
+
+    <div class="badges">
+  <div class="badge" aria-label="Guide skill level">
+    intermediate
+  </div>
+
+  <div class="badge favorites " title="Saved 17 times" aria-label="This guide has been saved 17 times">
+    <span>17</span>
+  </div>
+
+</div>
+
+  </div>
+</div>
+<!-- Update templates/guides/guide.mustache in tandom -->
+<div class="guide-preview content-card">
+    <a aria-hidden="true" tabindex="-1" href="https://learn.adafruit.com/adafruit-io-air-quality-monitor">
+      <div class="image-container">
+        <img loading="lazy" alt="A hand holds an open electronics enclosure with a circuit board and battery inside. A laptop screen displays sensor data graphs and metrics." class="image-preview" src="./Barometer Tutorial_files/IMG_6364.jpg">
+
+      </div>
+</a>
+  <div class="bottom-section">
+    <div class="content">
+      <a class="title" aria-label="Guide title" href="https://learn.adafruit.com/adafruit-io-air-quality-monitor">Adafruit IO Environmental Monitor for Feather or...</a>
+          <div class="author">
+      By
+      <a aria-label="Guide author" data-turbo="false" href="https://learn.adafruit.com/u/brubell">
+        <span class="name">Brent Rubell</span>
+</a>    </div>
+
+    </div>
+
+    <div class="badges">
+  <div class="badge" aria-label="Guide skill level">
+    intermediate
+  </div>
+
+  <div class="badge favorites " title="Saved 219 times" aria-label="This guide has been saved 219 times">
+    <span>219</span>
+  </div>
+
+</div>
+
+  </div>
+</div>
+
+    </div>
+  </div>
+  <a class="scroll-forward"><i class="fa fa-angle-right"></i></a>
+</section>
+
+</div>
+
+
+
+
+<div class="dialog-container modal" id="create-wishlist-modal" data-modals-target="modal" aria-labelledby="dialog-title" aria-hidden="true">
+  <div class="dialog-overlay" data-a11y-dialog-hide=""></div>
+  <div class="dialog-content">
+    <div class="dialog-header">
+      <h5 class="dialog-title">Create Wishlist</h5>
+      <a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#" class="dialog-close" data-a11y-dialog-hide="create-wishlist-modal" aria-label="Close this dialog window">×</a>
+    </div>
+    <form>
+      <div class="dialog-body">
+        <div class="form-group">
+          <label for="wishlist_title">Title</label>
+          <input type="text" name="wishlist_title" id="wishlist_title">
+        </div>
+
+        <div class="form-group">
+          <label for="wishlist_description">Description</label>
+          <textarea name="wishlist_description" id="wishlist_description"></textarea>
+        </div>
+      </div>
+      <div class="dialog-footer">
+        <input type="submit" name="commit" value="Create Wishlist" class="btn-primary" id="create-wishlist" data-disable-with="Create Wishlist">
+        <a href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all#" class="dialog-close" data-a11y-dialog-hide="create-wishlist-modal" aria-label="Close this dialog window">Close</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+        </div>
+
+        <div id="search-container">
+  <div class="toolbar-primary">
+    <div class="content">
+      <div class="left-content">
+        <div class="breadcrumbs">
+          <a href="https://learn.adafruit.com/" aria-label="Home page"><i class="fa fa-home"></i></a>
+          <i class="fa fa-chevron-right separator"></i> Search <i class="fa fa-chevron-right separator"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sub-header">
+    <div class="header-intro">
+      <h1 class="title">Search</h1>
+    </div>
+
+    <div class="header-main-content-wrapper">
+      <div class="header-main-content">
+        <div id="search-refinements" class="breakdown"><div class="ais-CurrentRefinements ais-CurrentRefinements--noRefinement"><ul class="ais-CurrentRefinements-list"></ul></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="search-content left-sidebar-layout">
+    <div>
+      <div class="facets-wrapper">
+        <h5 class="search-refinement-header">Categories</h5>
+        <div id="search-categories"><div class="ais-HierarchicalMenu root ais-HierarchicalMenu--noRefinement"></div></div>
+      </div>
+    </div>
+
+    <div>
+      <div id="search-results" class="search-content-card-group"><div class="no-results">No results for query</div></div>
+
+      <div id="search-pagination" class="pagination"><div class="ais-Pagination ais-Pagination--noRefinement"><ul class="ais-Pagination-list"><li class="ais-Pagination-item item ais-Pagination-item--disabled disabled ais-Pagination-item--firstPage"><span class="ais-Pagination-link link" aria-label="First Page">«</span></li><li class="ais-Pagination-item item ais-Pagination-item--disabled disabled ais-Pagination-item--previousPage"><span class="ais-Pagination-link link" aria-label="Previous Page">‹</span></li><li class="ais-Pagination-item item ais-Pagination-item--page ais-Pagination-item--selected selected"><a class="ais-Pagination-link link" aria-label="Page 1" href="https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout?view=all">1</a></li><li class="ais-Pagination-item item ais-Pagination-item--disabled disabled ais-Pagination-item--nextPage"><span class="ais-Pagination-link link" aria-label="Next Page">›</span></li><li class="ais-Pagination-item item ais-Pagination-item--disabled disabled ais-Pagination-item--lastPage"><span class="ais-Pagination-link link" aria-label="Last Page, Page 0">»</span></li></ul></div></div>
+    </div>
+  </div>
+</div>
+
+
+        <div id="main-content-overlay"></div>
+      </main>
+        <footer id="adafruit-footer">
+    <div class="footer-container">
+      <div>
+        <ul>
+          <li>
+            <a href="https://www.adafruit.com/contact_us">Contact Us</a>
+          </li>
+          <li>
+            <a href="https://forums.adafruit.com/">Tech Support Forums</a>
+          </li>
+          <li>
+            <a href="https://www.adafruit.com/faq">FAQs</a>
+          </li>
+          <li>
+            <a href="https://www.adafruit.com/shippinginfo">Shipping &amp; Returns</a>
+          </li>
+          <li>
+            <a href="https://www.adafruit.com/free">Freebies</a>
+          </li>
+          <li>
+            <a href="https://www.adafruit.com/terms_of_service">Terms of Service</a>
+          </li>
+          <li>
+            <a href="https://www.adafruit.com/privacy">Privacy &amp; Legal</a>
+          </li>
+          <li>
+            <a href="https://www.adafruit.com/accessibility">Website Accessibility</a>
+          </li>
+          <li>
+            <a href="https://learn.adafruit.com/llms.txt">LLMs.txt</a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <ul>
+          <li>
+            <a href="https://www.adafruit.com/about">About Us</a>
+          </li>
+          <li>
+            <a href="https://www.adafruit.com/press">Press</a>
+          </li>
+          <li>
+            <a href="https://www.adafruit.com/educators">Educators</a>
+          </li>
+          <li>
+            <a href="https://www.adafruit.com/distributors">Distributors</a>
+          </li>
+          <li>
+            <a href="https://jobs.adafruit.com/">Jobs</a>
+          </li>
+          <li>
+            <a href="https://www.adafruit.com/category/14">Gift Cards</a>
+          </li>
+        </ul>
+      </div>
+      <aside>
+        <div class="quote">"I think there's something strangely musical about noise"</div>
+        <div class="quote-attribution"><a href="http://en.wikipedia.org/wiki/Trent_Reznor">Trent Reznor</a></div>
+      </aside>
+    </div>
+    <div class="footer-container bottom">
+      <a title="About Adafruit" id="footer-logo" href="https://learn.adafruit.com/">
+        <img alt="Adafruit Logo" src="./Barometer Tutorial_files/adafruit_logo_small.png">
+</a>
+      <div class="social-links">
+        <a href="https://www.instagram.com/adafruit/" target="_blank" rel="noopener noreferrer" aria-label="Adafruit on Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+
+        <a href="https://twitter.com/adafruit/" target="_blank" rel="noopener noreferrer" aria-label="Adafruit on Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+
+        <a class="mastodon-logo" href="https://fosstodon.org/@adafruit" target="_blank" rel="noopener noreferrer" aria-label="Adafruit on Mastodon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 216.4144 232.00976"><path class="logo" d="M211.80734 139.0875c-3.18125 16.36625-28.4925 34.2775-57.5625 37.74875-15.15875 1.80875-30.08375 3.47125-45.99875 2.74125-26.0275-1.1925-46.565-6.2125-46.565-6.2125 0 2.53375.15625 4.94625.46875 7.2025 3.38375 25.68625 25.47 27.225 46.39125 27.9425 21.11625.7225 39.91875-5.20625 39.91875-5.20625l.8675 19.09s-14.77 7.93125-41.08125 9.39c-14.50875.7975-32.52375-.365-53.50625-5.91875C9.23234 213.82 1.40609 165.31125.20859 116.09125c-.365-14.61375-.14-28.39375-.14-39.91875 0-50.33 32.97625-65.0825 32.97625-65.0825C49.67234 3.45375 78.20359.2425 107.86484 0h.72875c29.66125.2425 58.21125 3.45375 74.8375 11.09 0 0 32.975 14.7525 32.975 65.0825 0 0 .41375 37.13375-4.59875 62.915" fill="currentColor"></path><path d="M177.50984 80.077v60.94125h-24.14375v-59.15c0-12.46875-5.24625-18.7975-15.74-18.7975-11.6025 0-17.4175 7.5075-17.4175 22.3525v32.37625H96.20734V85.42325c0-14.845-5.81625-22.3525-17.41875-22.3525-10.49375 0-15.74 6.32875-15.74 18.7975v59.15H38.90484V80.077c0-12.455 3.17125-22.3525 9.54125-29.675 6.56875-7.3225 15.17125-11.07625 25.85-11.07625 12.355 0 21.71125 4.74875 27.8975 14.2475l6.01375 10.08125 6.015-10.08125c6.185-9.49875 15.54125-14.2475 27.8975-14.2475 10.6775 0 19.28 3.75375 25.85 11.07625 6.36875 7.3225 9.54 17.22 9.54 29.675" fill="#000"></path></svg></a>
+
+        <a href="https://www.facebook.com/adafruitindustries" target="_blank" rel="noopener noreferrer" aria-label="Adafruit on Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+
+        <a href="https://www.youtube.com/adafruit" target="_blank" rel="noopener noreferrer" aria-label="Adafruit on YouTube"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+
+        <a href="https://github.com/adafruit" target="_blank" rel="noopener noreferrer" aria-label="Adafruit on Github"><i class="fa fa-github" aria-hidden="true"></i></a>
+
+        <a class="tiktok-logo" aria-label="Adafruit on TikTok" href="https://www.tiktok.com/@adafruit" target="_blank" rel="noopener noreferrer"><svg viewBox="3 2 20 22" xmlns="http://www.w3.org/2000/svg"><path class="logo" d="M19.8059 7.50695C18.7771 7.50695 17.8278 7.16612 17.0655 6.59113C16.1912 5.93198 15.5631 4.9651 15.3412 3.85069C15.2863 3.57534 15.2567 3.29119 15.2539 3H12.3149V11.0308L12.3114 15.4297C12.3114 16.6057 11.5455 17.6029 10.4839 17.9536C10.1758 18.0553 9.8431 18.1036 9.49663 18.0846C9.05438 18.0603 8.63995 17.9268 8.27975 17.7113C7.51322 17.2529 6.99351 16.4212 6.97942 15.4698C6.95724 13.9829 8.15933 12.7706 9.64522 12.7706C9.93852 12.7706 10.2202 12.8185 10.4839 12.9054V10.7104V9.92134C10.2058 9.88015 9.92268 9.85867 9.63641 9.85867C8.01004 9.85867 6.48894 10.5347 5.40164 11.7526C4.57982 12.6731 4.08687 13.8473 4.01082 15.0786C3.91117 16.6962 4.50306 18.2339 5.65093 19.3683C5.81959 19.5349 5.9967 19.6895 6.1819 19.8321C7.16604 20.5894 8.36919 21 9.63641 21C9.92268 21 10.2058 20.9789 10.4839 20.9377C11.6677 20.7623 12.7599 20.2204 13.6219 19.3683C14.681 18.3215 15.2662 16.9318 15.2726 15.4526L15.2574 8.88369C15.7627 9.27347 16.3152 9.596 16.9081 9.84635C17.8303 10.2354 18.8081 10.4326 19.8144 10.4322V8.29814V7.50625C19.8151 7.50695 19.8066 7.50695 19.8059 7.50695Z" fill="currentColor"></path></svg></a>
+
+        <a class="tumblr-logo" aria-label="Adafruit on Tumblr" href="https://adafruit.tumblr.com/" target="_blank" rel="noopener noreferrer"><i class="fa fa-tumblr" aria-hidden="true"></i></a>
+
+        <a class="threads-logo" href="https://www.threads.net/@adafruit" target="_blank" rel="noopener noreferrer" aria-label="Adafruit on Threads"><span aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M331.5 235.7c2.2 .9 4.2 1.9 6.3 2.8c29.2 14.1 50.6 35.2 61.8 61.4c15.7 36.5 17.2 95.8-30.3 143.2c-36.2 36.2-80.3 52.5-142.6 53h-.3c-70.2-.5-124.1-24.1-160.4-70.2c-32.3-41-48.9-98.1-49.5-169.6V256v-.2C17 184.3 33.6 127.2 65.9 86.2C102.2 40.1 156.2 16.5 226.4 16h.3c70.3 .5 124.9 24 162.3 69.9c18.4 22.7 32 50 40.6 81.7l-40.4 10.8c-7.1-25.8-17.8-47.8-32.2-65.4c-29.2-35.8-73-54.2-130.5-54.6c-57 .5-100.1 18.8-128.2 54.4C72.1 146.1 58.5 194.3 58 256c.5 61.7 14.1 109.9 40.3 143.3c28 35.6 71.2 53.9 128.2 54.4c51.4-.4 85.4-12.6 113.7-40.9c32.3-32.2 31.7-71.8 21.4-95.9c-6.1-14.2-17.1-26-31.9-34.9c-3.7 26.9-11.8 48.3-24.7 64.8c-17.1 21.8-41.4 33.6-72.7 35.3c-23.6 1.3-46.3-4.4-63.9-16c-20.8-13.8-33-34.8-34.3-59.3c-2.5-48.3 35.7-83 95.2-86.4c21.1-1.2 40.9-.3 59.2 2.8c-2.4-14.8-7.3-26.6-14.6-35.2c-10-11.7-25.6-17.7-46.2-17.8H227c-16.6 0-39 4.6-53.3 26.3l-34.4-23.6c19.2-29.1 50.3-45.1 87.8-45.1h.8c62.6 .4 99.9 39.5 103.7 107.7l-.2 .2zm-156 68.8c1.3 25.1 28.4 36.8 54.6 35.3c25.6-1.4 54.6-11.4 59.5-73.2c-13.2-2.9-27.8-4.4-43.4-4.4c-4.8 0-9.6 .1-14.4 .4c-42.9 2.4-57.2 23.2-56.2 41.8l-.1 .1z"></path></svg></span></a>
+
+        <a class="discord-logo" aria-label="Adafruit on Discord" href="https://adafru.it/discord" target="_blank" rel="noopener noreferrer"><svg style="height: 1em; margin-bottom: -0.15em" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.14 96.36"><path fill="currentColor" d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"></path></svg></a>
+
+        <a class="bluesky-logo" aria-label="Adafruit on Bluesky" href="https://bsky.app/profile/adafruit.com" target="_blank" rel="noopener noreferrer"><svg style="height: 1em; margin-bottom: -0.15em" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M111.8 62.2C170.2 105.9 233 194.7 256 242.4c23-47.6 85.8-136.4 144.2-180.2c42.1-31.6 110.3-56 110.3 21.8c0 15.5-8.9 130.5-14.1 149.2C478.2 298 412 314.6 353.1 304.5c102.9 17.5 129.1 75.5 72.5 133.5c-107.4 110.2-154.3-27.6-166.3-62.9l0 0c-1.7-4.9-2.6-7.8-3.3-7.8s-1.6 3-3.3 7.8l0 0c-12 35.3-59 173.1-166.3 62.9c-56.5-58-30.4-116 72.5-133.5C100 314.6 33.8 298 15.7 233.1C10.4 214.4 1.5 99.4 1.5 83.9c0-77.8 68.2-53.4 110.3-21.8z"></path></svg>
+</a>
+      </div>
+      <div class="footer-messaging">
+        <a href="https://www.adafruit.com/about">A Minority and Woman-owned Business Enterprise (M/WBE)</a>
+      </div>
+    </div>
+  </footer>
+
+    </div>
+  </div>
+
+  <div id="remote-modal-wrapper"></div>
+
+
+</body></html>

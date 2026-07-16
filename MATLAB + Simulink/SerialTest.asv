@@ -1,0 +1,18 @@
+clear
+
+a = serialport("COM3", 115200);
+fopen(a);
+
+pattern = '0-9'
+quat = zeros(4,1);
+for i=1:1000
+    
+    rawstring = readline(a)
+    split = split(rawstring,',')
+
+    % for j=1:length(matches)
+    %     quat[i] = str2double(matched[i])
+    % end
+end
+
+clear

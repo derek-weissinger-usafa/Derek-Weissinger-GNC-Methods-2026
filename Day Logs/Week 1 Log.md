@@ -143,10 +143,16 @@ Approximate Time Spent: 6 hours.
 
 Approximate time spent: 8.5 hours.
 
-
-
 ## 16 July
 
-- Watch remaining (5-7) [Understanding PID Control - YouTube](https://www.youtube.com/playlist?list=PLn8PRpmsu08pQBgjxYFXSsODEF3Jqmm-y)
+- Skim watched remaining (5-7) [Understanding PID Control - YouTube](https://www.youtube.com/playlist?list=PLn8PRpmsu08pQBgjxYFXSsODEF3Jqmm-y), a lot of control theory mathematics that I'm not up to speed on.
 
 #### Day 8
+
+- Took notes on the website reading, describing the sensor suite and the sources of error for each.
+
+- Took notes on [Understanding Sensor Fusion and Tracking, Part 2: Fusing a Mag, Accel, & Gyro Estimate](https://www.youtube.com/watch?v=0rlvvYgmTvI&list=PLn8PRpmsu08ryYoBpEKzoMOveSTyS-h4a&index=2); the website said it was part 1 but part 2 was the actual one we wanted to watch.
+
+-  Watched [A Simple MEMS Gyro Model Using MATLAB/Simulink](https://www.youtube.com/watch?v=P1OEoA70YJo), lot of mathematics that I don't understand how they apply to control theory.
+
+- Worked on my own and with Col Harris to get the IMU and barometer setup, was not able to successfully what I wanted done today but getting raw IMU and barometer data will be the focus tomorrow. With that data I can create a bias and nosie model in Simulink.
