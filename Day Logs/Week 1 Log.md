@@ -1,4 +1,4 @@
-# Day 1 (11 - 13 July) Log
+# Week 1 (11-17 July) Log
 
 ## 11 July
 
@@ -129,4 +129,24 @@ Approximate Time Spent: 6 hours.
 
 - Took notes on [Understanding PID Control](https://www.youtube.com/playlist?list=PLn8PRpmsu08pQBgjxYFXSsODEF3Jqmm-y), videos 2-4.
 
-Approximate time spent: 5.5 hours.
+- Skimmed [Ziegler–Nichols method - Wikipedia](https://en.wikipedia.org/wiki/Ziegler%E2%80%93Nichols_method)
+
+#### Day 7
+
+- The "[Discrete control / sampling and the zero-order hold](https://www.youtube.com/watch?v=fusr9eTceEo) — Brian Douglas (the clearest short explanation of why sampling adds phase lag and destabilizes loops)."  is a complete AI hallucination, the link leads to a PID hardware demo, which is still good.
+- Took notes on the Day 7 readings.
+- Skimmed some parts of  [Improving the Beginner's PID.](http://brettbeauregard.com/blog/2011/04/improving-the-beginners-pid-introduction/)
+- Added non-idealisms to PID model, such as actuator lag and discretization (see Day 7 deliverable).
+- Added I term Windup protection.
+- Read https://lastminuteengineers.com/servo-motor-arduino-tutorial/, learning how servos actually work and how they interface with microcontrollers.
+- Created Day 7 Deliverable detailing all changes made to controller.
+
+Approximate time spent: 8.5 hours.
+
+
+
+## 16 July
+
+- Watch remaining (5-7) [Understanding PID Control - YouTube](https://www.youtube.com/playlist?list=PLn8PRpmsu08pQBgjxYFXSsODEF3Jqmm-y)
+
+#### Day 8
