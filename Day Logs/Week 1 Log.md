@@ -156,3 +156,27 @@ Approximate time spent: 8.5 hours.
 -  Watched [A Simple MEMS Gyro Model Using MATLAB/Simulink](https://www.youtube.com/watch?v=P1OEoA70YJo), lot of mathematics that I don't understand how they apply to control theory.
 
 - Worked on my own and with Col Harris to get the IMU and barometer setup, was not able to successfully what I wanted done today but getting raw IMU and barometer data will be the focus tomorrow. With that data I can create a bias and nosie model in Simulink.
+
+Approximate Time Spent: 5.5 hours.
+
+## 17 July
+
+#### Day 8
+
+- Spent way too long debugging IMU and barometer code and creating data file to use for calibration
+  
+  - Main problem that I had to give up on was getting both the accel and gyro data simultaneously; for some reason pulling both reports gave garbage data
+  
+  - Rewatch [A Simple MEMS Gyro Model Using MATLAB/Simulink](https://www.youtube.com/watch?v=P1OEoA70YJo) for a good method on making sure your data has accurate timestamps; today's method was good enough but not the best.
+
+- Got a decent .csv and plot of the bias and noise in 6 degrees (accelerometer xyz and gyro xyz)
+
+- Tried to figure out how the white-noise block worked, realized the math is still beyond me so I used a random number block to model noise and a constant block to model bias, both for measured omega.
+
+- Added in an integrator to get a measured theta from measured omega
+
+- Used measured theta in controller; the controller is clearly worse however still overall stable at the same weights ($K_p = 2; \space K_i = 0.01; \space K_d = 0.15$).
+
+- Ended today very frustrated at slow pace of work; mainly caused by me not fully knowing a lot of the complicated math behind signals processing and having to figure out how to use a library with practically no documentation.
+
+Approximate Time Spent: 7 hours.
