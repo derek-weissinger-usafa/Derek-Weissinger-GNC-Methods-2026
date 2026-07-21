@@ -1,7 +1,11 @@
 #include <Arduino.h>
 
 // put function declarations here:
-int myFunction(int, int);
+int read(); // Pull sensor data
+int estimate(); // Quaternion propagation attitude estimator
+int control(); // PID controller
+int command(); // Write actuator output
+int log(); // Log telemetry to Serial or SD Card
 
 void setup() {
   // put your setup code here, to run once:

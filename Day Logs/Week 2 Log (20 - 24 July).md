@@ -21,7 +21,31 @@
   - Too much noise in measured omega
   
   - Could not properly calculate the bias in-model
+
 - After bypassing estimator and feeding perfect $\theta$, the controller and kinematics still work perfectly.
+
 - My focus tomorrow morning will be debugging these problems and/or preparing to be able to talk about them intelligently with Col Harris.
+
+Approximate Time Spent: 5 hours
+
+
+
+## 21 July
+
+#### Day 9
+
+- Debugged Quaternion integrator w/ Col Harris
+
+- Removed Accel. Fix; will just debug that in reality, won't model it.
+
+- Working through [Attitude from angular rate — AHRS 0.4.0 documentation](https://ahrs.readthedocs.io/en/latest/filters/angular.html) to be able to derive the quat. kinematic equation by hand, I feel it's important to conceptual understanding.
+
+- With Quaternion integrator fixed, I readded sensor noise and bias to the model. I added a LPF block (time constant = $2T_s$, vibed that number). 
+
+- Model performed sufficiently well to warrant moving on to 6DoF. Day 9 deliverable made.
+
+#### Day 11
+
+- Created delayless LED blink program, giving skeleton to flight controller.
 
 
