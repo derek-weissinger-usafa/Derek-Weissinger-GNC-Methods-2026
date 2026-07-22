@@ -61,9 +61,11 @@ void loop() {
 
 int toggleled(int pin, int state) {
   if (state == HIGH) {
+    Serial.println("High");
     return LOW;
   }
   else if (state == LOW) {
+    Serial.println("Low");
     return HIGH;
   }
 }

@@ -28,8 +28,6 @@
 
 Approximate Time Spent: 5 hours
 
-
-
 ## 21 July
 
 #### Day 9
@@ -53,5 +51,23 @@ Approximate Time Spent: 5 hours
   - There are 3 more parts to the guide that are worth reading through.
 
 - Created logic for loop to self-check in skeleton, completing day 11.
+
+Total Time Spent: 9 hours
+
+## 22 July
+
+#### Day 12
+
+- Took notes on: [I2C - SparkFun Learn](https://learn.sparkfun.com/tutorials/i2c); skimmed  [Serial Peripheral Interface (SPI) - SparkFun Learn](https://learn.sparkfun.com/tutorials/serial-peripheral-interface-spi), [Logic Levels - SparkFun Learn](https://learn.sparkfun.com/tutorials/logic-levels), [Shift Registers - SparkFun Learn](https://learn.sparkfun.com/tutorials/shift-registers), [Serial Communication - SparkFun Learn](https://learn.sparkfun.com/tutorials/serial-communication) for background on the data communications protocols I'll be using.
+
+- Filled out flight controller skeleton with *read()* and *log()* functions; I am running into the same issue as before trying to read both the accelerometer and gyro simultaneously, and I am shooting past the 0.01 s refresh limit, I have to find what is blocking.
+  
+  - Per BNO08X data sheet, gyroscope max. refresh is 400 Hz and Accelerometer is 500 Hz, so I should be able to rule out refresh rate as a lim. fac.
+  
+  - Set Accel and Gyro refresh rates to 200 Hz
+  
+  - My controller is missing cycles by 5 ms on average. Reference library files: [Adafruit_BNO08x/src/Adafruit_BNO08x.cpp at master · adafruit/Adafruit_BNO08x](https://github.com/adafruit/Adafruit_BNO08x/blob/master/src/Adafruit_BNO08x.cpp) [Adafruit_BusIO/Adafruit_I2CDevice.cpp at master · adafruit/Adafruit_BusIO](https://github.com/adafruit/Adafruit_BusIO/blob/master/Adafruit_I2CDevice.cpp) [Adafruit_BNO08x/src/sh2_SensorValue.h at master · adafruit/Adafruit_BNO08x](https://github.com/adafruit/Adafruit_BNO08x/blob/master/src/sh2_SensorValue.h) To try to figure out why sensor reading takes so long.
+
+- Installed [tomstewart89/BasicLinearAlgebra: A library for using matrices and linear algebra on Arduino](https://github.com/tomstewart89/BasicLinearAlgebra/tree/master) Library to handle vectors and matrices.
 
 
