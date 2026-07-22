@@ -48,4 +48,10 @@ Approximate Time Spent: 5 hours
 
 - Created delayless LED blink program, giving skeleton to flight controller.
 
+- Checked code with [Overview | Multi-tasking the Arduino - Part 1 | Adafruit Learning System](https://learn.adafruit.com/multi-tasking-the-arduino-part-1) afterwards; they used a class object for the LED, it would probably be smart for me to use OOP for my real flight controller.
+  
+  - There are 3 more parts to the guide that are worth reading through.
+
+- Created logic for loop to self-check in skeleton, completing day 11.
+
 
