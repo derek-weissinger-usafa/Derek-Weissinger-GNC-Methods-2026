@@ -68,6 +68,40 @@ Total Time Spent: 9 hours
   
   - My controller is missing cycles by 5 ms on average. Reference library files: [Adafruit_BNO08x/src/Adafruit_BNO08x.cpp at master · adafruit/Adafruit_BNO08x](https://github.com/adafruit/Adafruit_BNO08x/blob/master/src/Adafruit_BNO08x.cpp) [Adafruit_BusIO/Adafruit_I2CDevice.cpp at master · adafruit/Adafruit_BusIO](https://github.com/adafruit/Adafruit_BusIO/blob/master/Adafruit_I2CDevice.cpp) [Adafruit_BNO08x/src/sh2_SensorValue.h at master · adafruit/Adafruit_BNO08x](https://github.com/adafruit/Adafruit_BNO08x/blob/master/src/sh2_SensorValue.h) To try to figure out why sensor reading takes so long.
 
-- Installed [tomstewart89/BasicLinearAlgebra: A library for using matrices and linear algebra on Arduino](https://github.com/tomstewart89/BasicLinearAlgebra/tree/master) Library to handle vectors and matrices.
+- We can see that the gyro has considerable delays relative to the accelerometer, which tracks neatly with the overall timestamp
+
+- Plot 1: read() runs once per loop; gyro time error is smaller but the overall program cannot maintain 100 Hz interval.
+
+- Plot 2: read() runs once per loop; gyro time error much larger, program can maintain 100 Hz interval.
+
+- ![](C:/Users/C27Derek.Weissinger/AppData/Roaming/marktext/images/2026-07-22-17-27-43-image.png)
+
+- ![](C:/Users/C27Derek.Weissinger/AppData/Roaming/marktext/images/2026-07-22-17-30-00-image.png)
+
+Approximate Time Spent: 9 hours
+
+
+
+## 23 July
+
+#### Day 10
+
+- Derived the 6DOF equations of motion by hand
+  
+  - Talked with Col Harris about how we treat angular accel. and velocity differently, we will use a continuous quaternion integrator which will then be compared against the discrete one used by the estimator
+
+#### Day 12
+
+- After trying many different things, Col Harris and I concluded that it isn't worthwhile trying to keep the sensor measurements on a bound 100 Hz clock.  Therefore I set my program to call read() every loop, but only log once every 100 Hz cycle to free up as much processing space as possible.
+
+- I will further solve this problem by adding a state selector for the flight controller: state 0 = pre-launch, state 1 = under thrust, state 2 = burnout pre-apogee, state 3 = deploy parachute.
+  
+  - In state 0, the accelerometer will run at high frequency, the gyro just fast enough to get an accurate baseline bias measurement
+  
+  - In state 1, the accelerometer will be deactivated and the gyro will run as fast as possible, allowing us to properly update our attitude every 100 Hz.
+
+- Validated the gyro data output gives us the expected directions.
+
+
 
 

@@ -13,7 +13,7 @@ Adafruit_BNO08x  bno08x(BNO08X_RESET); //Sensor Objects
 Adafruit_BME280 bme;
 sh2_SensorValue_t sensor;
 
-void setReports(); //Configure BNO08x Sensor Reports
+void setReports(int state=0); //Configure BNO08x Sensor Reports
 void fillMats(); //Initializes all matrix objects
 int read(); // Pull raw sensor data
 int estimate(); // Clean up raw data, then Estimate Attitude w/ Quat. Propagation
@@ -27,8 +27,12 @@ unsigned long previousTime; // Allows us to check the tempo, microseconds.
 unsigned long elapsed; // Time elapsed after each loop() call, microseconds
 unsigned long accelTime;
 unsigned long gyroTime;
+unsigned long accel_dt;
+unsigned long gyro_dt;
+unsigned long accelTime_prev;
+unsigned long gyroTime_prev;
 long misstime; // If a 100 Hz cycle was missed, store how many microseconds it missed by
-int misscounter; // Count number of times cycles is missed.
+int readcounter; // Count number of times read() is called before log().
 
 BLA::Matrix<3> accelRaw; //Raw Accelerometer data; x,y,z order in m/s^2; updated everytime read() is called; 3x1 vector. 
 BLA::Matrix<3> gyroRaw; //Raw Gyro data; x,y,z order in rad/s; updated everytime read() is called; 3x1 vector.
@@ -78,11 +82,12 @@ void loop() {
   due to the nature of the BMO08x library. Therefore we will need to execute loop at least twice
   per tempo.
   */
+  read();
   
   elapsed = currentTime - previousTime;
   if (elapsed >= tempo) {
     previousTime = currentTime;
-    read();
+    log();
     // If we missed a cycle, count how many microseconds it missed by and increase a counter
     // if (elapsed > tempo) {
     //   misscounter++;
@@ -91,17 +96,18 @@ void loop() {
     //   Serial.println(misstime);
     // }
     //We only wish to log once per tempo
-    log();
+    
 
   }
 
 }
-//Set reporting freq. to 200 Hz, ensuring the sensors are never limiting us.
-void setReports(void) {
+//Change what reports the sensors generate based on the current launch state.
+void setReports(int state=0) {
   Serial.println("Setting desired reports");
-  if (!bno08x.enableReport(SH2_ACCELEROMETER, 5000UL)) {
+  if (!bno08x.enableReport(SH2_ACCELEROMETER, 10000UL)) {
     Serial.println("Could not set Accelerometer.");
   }
+
   if (!bno08x.enableReport(SH2_GYROSCOPE_UNCALIBRATED, 5000UL)) {
     Serial.println("Could not set Gyro.");
   } 
@@ -118,14 +124,16 @@ void fillMats() {
 int read() {
   //Generate Next BNO08x Report
   if (!bno08x.getSensorEvent(&sensor)) {
-    Serial.println("No New Report available");
+    //Serial.println("No New Report available");
     return 0;
   }
   else if (!newAccel && sensor.sensorId == SH2_ACCELEROMETER) {
     accelRaw(0) = sensor.un.accelerometer.x;
     accelRaw(1) = sensor.un.accelerometer.y;
     accelRaw(2) = sensor.un.accelerometer.z;
-    accelTime = micros(); //Debugging, seeing interval between accel and gyro report generation
+    accelTime = micros(); //Debugging, seeing interval between older and latest report
+    accel_dt = accelTime - accelTime_prev;
+    accelTime_prev = micros();
     newAccel = true;
   }
   
@@ -133,11 +141,13 @@ int read() {
     gyroRaw(0) = sensor.un.gyroscopeUncal.x;
     gyroRaw(1) = sensor.un.gyroscopeUncal.y;
     gyroRaw(2) = sensor.un.gyroscopeUncal.z;
-    gyroTime = micros(); //Debugging, seeing interval between accel and gyro report generation
+    gyroTime = micros(); //Debugging, seeing interval between older and latest report
+    gyro_dt = gyroTime - gyroTime_prev;
+    gyroTime_prev = micros();
     newGyro = true;
    }
 
-    // baroAltitude = bme.readAltitude(SEALEVELPRESSURE_HPA);
+    //baroAltitude = bme.readAltitude(SEALEVELPRESSURE_HPA);
     // baroPressure = bme.readPressure(); //Validate that it is in hPa
     //Return 0 if no new report, return 1 if new report, return 2 if both reports are new.
     return newGyro+newAccel;
@@ -147,28 +157,19 @@ int read() {
 //Log data to .csv in SD card and Serial Monitor
 int log() { 
   //Format: timestamp,accelx,accely,accelz,gyrox,gyroy,gyroz,altitude
-  Serial.print(currentTime);
+  // Serial.print(accel_dt);
+  // Serial.print(",");
+  // Serial.print(gyro_dt);
+  // Serial.print(",");
+  // Serial.println(misstime);
+  Serial.print(gyroRaw(0));
   Serial.print(",");
-  Serial.print(accelRaw(0), 6);
+  Serial.print(gyroRaw(1));
   Serial.print(",");
-  Serial.print(accelRaw(1), 6);
-  Serial.print(",");
-  Serial.print(accelRaw(2), 6);
-  Serial.print(",");
-  Serial.print(accelTime);
-  Serial.print(",");
-  Serial.print(gyroRaw(0), 6);
-  Serial.print(",");
-  Serial.print(gyroRaw(1), 6);
-  Serial.print(",");
-  Serial.print(gyroRaw(2), 6);
-  Serial.print(",");
-  Serial.print(gyroTime);
-  Serial.print(",");
-  Serial.println(misstime);
+  Serial.println(gyroRaw(2));
   //Serial.println(baroAltitude);
   newAccel = false;
   newGyro = false;
-  
+  readcounter = 0;
   return 1;
 }
