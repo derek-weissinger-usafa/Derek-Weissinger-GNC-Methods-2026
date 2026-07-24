@@ -80,8 +80,6 @@ Total Time Spent: 9 hours
 
 Approximate Time Spent: 9 hours
 
-
-
 ## 23 July
 
 #### Day 10
@@ -102,6 +100,4 @@ Approximate Time Spent: 9 hours
 
 - Validated the gyro data output gives us the expected directions.
 
-
-
-
+Approximate Time Spent: 6 hours.
