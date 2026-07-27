@@ -13,7 +13,7 @@ Adafruit_BNO08x  bno08x(BNO08X_RESET); //Sensor Objects
 Adafruit_BME280 bme;
 sh2_SensorValue_t sensor;
 
-void setReports(int state=0); //Configure BNO08x Sensor Reports
+void setReports(int state=0); //Configure BNO08x Sensor Reports for different launch states
 void fillMats(); //Initializes all matrix objects
 int read(); // Pull raw sensor data
 int estimate(); // Clean up raw data, then Estimate Attitude w/ Quat. Propagation
@@ -40,6 +40,8 @@ float baroPressure; //Raw barometric pressure, hPa.
 float baroAltitude; //Converted barometric altitude.
 bool newAccel; //Flags to indicate new data has been loaded, use them to force sensor to gather other report
 bool newGyro;
+
+int launchState = 0; //Current state of launch sequence. 0: Prelaunch on pad; 1: Under Thrust; 2: Coasting; 3: Apogee reached, deploy parachute.
 
 BLA::Matrix<4,4> OMEGA; //Used for quaternion integration
 
@@ -76,22 +78,17 @@ void setup() {
 
 void loop() {
   currentTime = micros();
-  /*
-  We call read() every loop because we want to read new data ASAP: our goal is to have a new
-  accel and gyro data every 10000 microseconds, and each call of read() will only update one 
-  due to the nature of the BMO08x library. Therefore we will need to execute loop at least twice
-  per tempo.
-  */
-  read();
   
+
+  read();
   elapsed = currentTime - previousTime;
   if (elapsed >= tempo) {
+    misstime = elapsed - tempo;
     previousTime = currentTime;
     log();
     // If we missed a cycle, count how many microseconds it missed by and increase a counter
     // if (elapsed > tempo) {
     //   misscounter++;
-      misstime = elapsed - tempo;
     //   Serial.print("Missed by: ");
     //   Serial.println(misstime);
     // }
@@ -101,18 +98,33 @@ void loop() {
   }
 
 }
+
 //Change what reports the sensors generate based on the current launch state.
+//State 0: High freq. Accel, low freq. gyro, low freq. altimiter
+//State 1: no accel, high freq. gyro, low freq. altimiter
+//State 2 & 3: no accel, no gyro, high freq. altimiter
 void setReports(int state=0) {
-  Serial.println("Setting desired reports");
-  if (!bno08x.enableReport(SH2_ACCELEROMETER, 10000UL)) {
-    Serial.println("Could not set Accelerometer.");
+  switch (state) {
+    case 0:
+      if (!bno08x.enableReport(SH2_ACCELEROMETER, 10000UL)) {
+        Serial.println("Could not set Accelerometer.");
+        break;
+      }
+
+      if (!bno08x.enableReport(SH2_GYROSCOPE_UNCALIBRATED, 5000UL)) {
+        Serial.println("Could not set Gyro.");
+        break;
+      } 
+      break;
+    case 1:
+      break;
+    case 2:
+      break;
+    }
   }
+  
 
-  if (!bno08x.enableReport(SH2_GYROSCOPE_UNCALIBRATED, 5000UL)) {
-    Serial.println("Could not set Gyro.");
-  } 
 
-}
 
 void fillMats() {
   accelRaw.Fill(0);

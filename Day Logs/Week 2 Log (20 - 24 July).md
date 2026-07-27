@@ -101,3 +101,21 @@ Approximate Time Spent: 9 hours
 - Validated the gyro data output gives us the expected directions.
 
 Approximate Time Spent: 6 hours.
+
+## 24 July
+
+#### Day 10
+
+- Inputted the hand-derived 6DoF equations into Simulink.
+
+- Struggled to get the plant model working properly
+
+- Discovered that I made some sign errors in the derivation, making it necessary to redo the derivation
+
+- Ran into issue in programming state machine in Teensy: Once I enable a report in the bNO085 IMU, I seemingly can't disable it, meaning I won't be able to precisely control what data I receive
+  
+  - Maybe set its refresh rate to zero? Have to check datasheet
+
+- Col Harris showed me both his and the other group's flight computer; I will try to figure things out with my own.
+
+Approximate Time Spent: 5.5 Hours
