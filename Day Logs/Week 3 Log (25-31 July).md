@@ -24,4 +24,14 @@ Approximate Time Spent: 4 hours
 
 Approximate Time Spent: 6 hours.
 
+## 28 July
+
+#### Day 10
+
+- I fixed the yaw/roll discrepancy between the 2 plant models. This means that unless the data I'm feeding it is wrong (my hand derivation of thrust and gravity in the body frame) my hand-derived plant model is correct.
+
+- I fixed a critical error in the I-term of my integrator: the windup clampdown actually set the I-term to 0 instead of simply stopping further integration if windup was detected. After fixing this, I was able to remove multiple bumps in various test cases that looked suspiciously like windup.
+
+- In all test cases where there is an initial pitch and psi offset, the plant model ends up with a steady-state roll ($\phi$) angle ($< 0.1 \degree$) despite having no noticeable $\omega_x$ in the body frame. This occurs in both my hand-derived plant and the 6DoF Block. This is strange because $\omega_x$ being $0$ means there should be absolutely no roll. My current theory is that it's just an equivalent way to represent the attitude I still want. The issue if that is true is that $\theta$ and $\psi$ will not be entirely accurate to how I tuned my controllers. I will have to look into this more before I can declare my controller model working.
+
 
