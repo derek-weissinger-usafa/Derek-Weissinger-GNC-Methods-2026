@@ -34,4 +34,22 @@ Approximate Time Spent: 6 hours.
 
 - In all test cases where there is an initial pitch and psi offset, the plant model ends up with a steady-state roll ($\phi$) angle ($< 0.1 \degree$) despite having no noticeable $\omega_x$ in the body frame. This occurs in both my hand-derived plant and the 6DoF Block. This is strange because $\omega_x$ being $0$ means there should be absolutely no roll. My current theory is that it's just an equivalent way to represent the attitude I still want. The issue if that is true is that $\theta$ and $\psi$ will not be entirely accurate to how I tuned my controllers. I will have to look into this more before I can declare my controller model working.
 
+Approximate Time Spent: 5 hours.
 
+## 29 July
+
+#### Day 13
+
+- After doing some experimenting, I was able to configure my sensors to refresh at an acceptable rate. The trick was not forcing them to wait until the timed `log()` function was called to check to see if there was another report available
+
+- Setting the report time to 0 microseconds also seemed to effectively disable the sensor reports. 
+
+- I added the logic for the controller to automatically find the gravity vector and the gyro bias vector while resting on the pad; I still have to convert the gravity vector to a usable quaternion for an attitude initial condition.
+
+- I added the logic for quaternion integration; I still need to figure out how to best convert them to euler angles: since my MATLAB coded functions don't work, I would have to find a library to do it for me.
+  
+  - This is complicated by my choice to represent quaternions as a BLA library 4x1 matrix object
+
+- I coded a basic PID controller and began to add the improvements from the *Improving the Arduino PID* site.
+
+Approximate Time Spent: 5.5 hours.

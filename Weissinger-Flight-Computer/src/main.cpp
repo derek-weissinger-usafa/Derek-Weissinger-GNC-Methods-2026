@@ -13,13 +13,19 @@ Adafruit_BNO08x  bno08x(BNO08X_RESET); //Sensor Objects
 Adafruit_BME280 bme;
 sh2_SensorValue_t sensor;
 
-void setReports(int state=0); //Configure BNO08x Sensor Reports for different launch states
+void setState(int state); //Set launchstate and update sensor reports accordingly
+void state0(); //Manage controller when in launch state 0
+void state1(); //Manage controller when in launch state 1
+
+void setReports(int state); //Configure BNO08x Sensor Reports for different launch states
 void fillMats(); //Initializes all matrix objects
 int read(); // Pull raw sensor data
-int estimate(); // Clean up raw data, then Estimate Attitude w/ Quat. Propagation
-int control(); // PID controller
+BLA::Matrix<4> estimate(BLA::Matrix<3> omegas, BLA::Matrix<4> quat); //Estimate Attitude w/ Quat. Propagation
+void control(); // PID controller
 int command(); // Write actuator output
 int log(); // Log telemetry to Serial or SD Card
+
+int launchState = 0; //Current state of launch sequence. 0: Prelaunch on pad; 1: Under Thrust; 2: Coasting; 3: Apogee reached, deploy parachute.
 
 unsigned long currentTime; // microseconds, expect approx. 80 min before overflow.
 unsigned long tempo = 10000; // microseconds, corresponds to refresh rate of 100 Hz.
@@ -31,19 +37,20 @@ unsigned long accel_dt;
 unsigned long gyro_dt;
 unsigned long accelTime_prev;
 unsigned long gyroTime_prev;
-long misstime; // If a 100 Hz cycle was missed, store how many microseconds it missed by
-int readcounter; // Count number of times read() is called before log().
+bool newAccel;
+bool newGyro;
 
 BLA::Matrix<3> accelRaw; //Raw Accelerometer data; x,y,z order in m/s^2; updated everytime read() is called; 3x1 vector. 
 BLA::Matrix<3> gyroRaw; //Raw Gyro data; x,y,z order in rad/s; updated everytime read() is called; 3x1 vector.
+BLA::Matrix<3> accelAvg; //Used to keep running avg of accel data from state 0; from this we determine initial launchpad attitude;
+int accelSamples; //Used to compute above avg.
+BLA::Matrix<3> gyroAvg; //Used to keep running avg of gyro data from state 0; from this we determine gyro bias to correct for in state 1; element 4 stores # of samples for comp. avg.
+int gyroSamples; //Used to compute above avg.
+BLA::Matrix<3> gyroCal; //Gyro data corrected for bias, used in state 1.
 float baroPressure; //Raw barometric pressure, hPa.
 float baroAltitude; //Converted barometric altitude.
-bool newAccel; //Flags to indicate new data has been loaded, use them to force sensor to gather other report
-bool newGyro;
 
-int launchState = 0; //Current state of launch sequence. 0: Prelaunch on pad; 1: Under Thrust; 2: Coasting; 3: Apogee reached, deploy parachute.
-
-BLA::Matrix<4,4> OMEGA; //Used for quaternion integration
+BLA::Matrix<4> attitude = {1, 0, 0, 0}; //Master Attitude Quaternion; the real part is the 0th element.
 
 void setup() {
   fillMats(); //Initialize matrices and vectors
@@ -57,8 +64,7 @@ void setup() {
     Serial.println("Failed to find BNO08x chip");
     while (1) { delay(10); }
   }
-
-  setReports();
+  setReports(launchState);
 
   //Attempt to start BME280 Sensor, default settings, force restart if not able
   bmestatus = bme.begin();
@@ -77,24 +83,13 @@ void setup() {
 }
 
 void loop() {
-  currentTime = micros();
-  
-
-  read();
-  elapsed = currentTime - previousTime;
-  if (elapsed >= tempo) {
-    misstime = elapsed - tempo;
-    previousTime = currentTime;
-    log();
-    // If we missed a cycle, count how many microseconds it missed by and increase a counter
-    // if (elapsed > tempo) {
-    //   misscounter++;
-    //   Serial.print("Missed by: ");
-    //   Serial.println(misstime);
-    // }
-    //We only wish to log once per tempo
-    
-
+  switch (launchState) {
+    case 0:
+      state0();
+      break;
+    case 1:
+      state1();
+      break;
   }
 
 }
@@ -103,10 +98,21 @@ void loop() {
 //State 0: High freq. Accel, low freq. gyro, low freq. altimiter
 //State 1: no accel, high freq. gyro, low freq. altimiter
 //State 2 & 3: no accel, no gyro, high freq. altimiter
-void setReports(int state=0) {
+void setReports(int state) {
   switch (state) {
     case 0:
-      if (!bno08x.enableReport(SH2_ACCELEROMETER, 10000UL)) {
+      if (!bno08x.enableReport(SH2_ACCELEROMETER, 5000UL)) {
+        Serial.println("Could not set Accelerometer.");
+        break;
+      }
+
+      if (!bno08x.enableReport(SH2_GYROSCOPE_UNCALIBRATED, 10000UL)) {
+        Serial.println("Could not set Gyro.");
+        break;
+      } 
+      break;
+    case 1:
+      if (!bno08x.enableReport(SH2_ACCELEROMETER, 0)) {
         Serial.println("Could not set Accelerometer.");
         break;
       }
@@ -115,8 +121,6 @@ void setReports(int state=0) {
         Serial.println("Could not set Gyro.");
         break;
       } 
-      break;
-    case 1:
       break;
     case 2:
       break;
@@ -129,7 +133,63 @@ void setReports(int state=0) {
 void fillMats() {
   accelRaw.Fill(0);
   gyroRaw.Fill(0);
-  OMEGA.Fill(0);
+  accelAvg.Fill(0);
+  gyroAvg.Fill(0);
+}
+
+
+void setState(int state) {
+  launchState = state;
+  setReports(state);
+}
+
+void state0() {
+  //Keep track of time
+  currentTime = micros();
+  elapsed = currentTime - previousTime;
+  //Read any new sensor events
+  read();
+  //Update running accel. avg.
+  if (newAccel) {
+    accelAvg = ((float(accelSamples) * accelAvg) + accelRaw) / (float(accelSamples) + 1);
+    accelSamples++;
+    newAccel = false;
+  }
+  //Update running gyro. avg.
+  if (newGyro) {
+    gyroAvg = ((float(gyroSamples) * gyroAvg) + gyroRaw) / (float(gyroSamples) + 1);
+    gyroSamples++;
+    newGyro = false;
+  }
+
+  elapsed = currentTime - previousTime;
+  //Log data if refresh tempo (10000 us) has passed
+  if (elapsed >= tempo) {
+    log();
+  }
+
+}
+
+void state1() {
+  //Keep track of time
+  currentTime = micros();
+  elapsed = currentTime - previousTime;
+  read();
+
+  //If new gyro reading is available, use it, otherwise use the previous one.
+  if (newGyro) {
+    //Compensate for bias
+    gyroCal = gyroRaw - gyroAvg;
+  }
+
+  //Call only once every 10000 us.
+  if (elapsed >= tempo) {
+    attitude = estimate(gyroCal, attitude);
+    control();
+    command();
+    log();
+  }
+  
 }
 
 //Read raw sensor data; return 1 if successful, return 0 if unable.
@@ -139,7 +199,8 @@ int read() {
     //Serial.println("No New Report available");
     return 0;
   }
-  else if (!newAccel && sensor.sensorId == SH2_ACCELEROMETER) {
+
+  else if (sensor.sensorId == SH2_ACCELEROMETER) {
     accelRaw(0) = sensor.un.accelerometer.x;
     accelRaw(1) = sensor.un.accelerometer.y;
     accelRaw(2) = sensor.un.accelerometer.z;
@@ -149,7 +210,7 @@ int read() {
     newAccel = true;
   }
   
-  else if (!newGyro && sensor.sensorId == SH2_GYROSCOPE_UNCALIBRATED) {
+  else if (sensor.sensorId == SH2_GYROSCOPE_UNCALIBRATED) {
     gyroRaw(0) = sensor.un.gyroscopeUncal.x;
     gyroRaw(1) = sensor.un.gyroscopeUncal.y;
     gyroRaw(2) = sensor.un.gyroscopeUncal.z;
@@ -161,27 +222,42 @@ int read() {
 
     //baroAltitude = bme.readAltitude(SEALEVELPRESSURE_HPA);
     // baroPressure = bme.readPressure(); //Validate that it is in hPa
-    //Return 0 if no new report, return 1 if new report, return 2 if both reports are new.
-    return newGyro+newAccel;
+    return 1;
 }
 
+//Use gyro data to determine attitude, via quaternion integration
+BLA::Matrix<4> estimate(BLA::Matrix<3> omegas, BLA::Matrix<4> quat) {
+  
+  BLA::Matrix<4,4> OMEGA = {0, -omegas(1), -omegas(2), -omegas(3),
+           omegas(1), 0, omegas(3), -omegas(2),
+           omegas(2), -omegas(3), 0, omegas(1),
+           omegas(3), omegas(2), -omegas(1), 0};
+  BLA::Matrix<4> qdot = 0.5f * OMEGA * quat;
+  BLA::Matrix<4> quatnew = qdot * float(elapsed/1000000) + quat; 
+  quatnew = quatnew / Norm(quatnew);
 
-//Log data to .csv in SD card and Serial Monitor
+  return quatnew;
+}
+
+void control() {
+
+}
+
+//Log data to Serial Monitor
 int log() { 
-  //Format: timestamp,accelx,accely,accelz,gyrox,gyroy,gyroz,altitude
-  // Serial.print(accel_dt);
-  // Serial.print(",");
-  // Serial.print(gyro_dt);
+  Serial.print(accelAvg);
+  Serial.print(",");
+  Serial.println(gyroAvg);
   // Serial.print(",");
   // Serial.println(misstime);
-  Serial.print(gyroRaw(0));
-  Serial.print(",");
-  Serial.print(gyroRaw(1));
-  Serial.print(",");
-  Serial.println(gyroRaw(2));
+  // Serial.print(gyroRaw(0));
+  // Serial.print(",");
+  // Serial.print(gyroRaw(1));
+  // Serial.print(",");
+  // Serial.println(gyroRaw(2));
   //Serial.println(baroAltitude);
-  newAccel = false;
-  newGyro = false;
-  readcounter = 0;
+  //newAccel = false;
+  //newGyro = false;
   return 1;
 }
+
