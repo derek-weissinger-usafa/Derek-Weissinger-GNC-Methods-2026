@@ -53,3 +53,17 @@ Approximate Time Spent: 5 hours.
 - I coded a basic PID controller and began to add the improvements from the *Improving the Arduino PID* site.
 
 Approximate Time Spent: 5.5 hours.
+
+## 30 July
+
+#### Day 10
+
+- Col Harris and I discussed how the slight roll we noticed was inherent due to the coupled nature of the euler angle diff eqs.. Although we use the quat. diff eq., we convert to Euler angles for the controller, which introduces the same issue.
+
+- We also discussed a potential research idea: constructing a "naive" (decoupled 2-axis) PID controller, an 1 loop LQR controller, and a nested Quat. feedback controller (quat. feedback outer, PID on omega inner) and comparing its ability to control the rocket, both in simulation and reality. Col Harris gave me a brief handout describing the mathematics of the Quat. Feed. controller, and it looks pretty easy to implement (famous last words).
+
+- I completed the Day 10 deliverable report on the 6DoF Simulink model; I will use it as a base to created the slide deck for my end of course briefing tomorrow.
+
+#### Day 13
+
+- I finished implementing the *Improving the Arduino PID* code to my teensy codebase. The code will still need to be tested and debugged, which will be difficult without any actuator (i.e. servo) code implemented.
