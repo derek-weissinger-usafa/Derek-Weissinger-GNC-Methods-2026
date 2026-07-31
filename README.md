@@ -10,10 +10,10 @@ Course Website: [GNC Methods for Thrust Vector Control | USAFA Astro Independent
 
 - *Deliverables* are specific items intended to demonstrate work done to an instructor or outside reviewer.
 
-- *MATLAB and Simulink* contain MATLAB and Simulink files.
+- *MATLAB and Simulink* is a working directory for ML and Simulink files being actively edited.
 
 - *Notes* are handwritten notes, usually on videos or other lecture-type material.
-  
+
 - *Serial Plotter* is a .exe for a serial plotter/logger developed by Lt Col Harris
 
 - *TestProject* is a PlatformIO project folder used for coding experiments that are relevant to show work done.

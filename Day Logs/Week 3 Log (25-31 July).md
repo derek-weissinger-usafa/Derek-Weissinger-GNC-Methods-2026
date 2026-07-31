@@ -67,3 +67,17 @@ Approximate Time Spent: 5.5 hours.
 #### Day 13
 
 - I finished implementing the *Improving the Arduino PID* code to my teensy codebase. The code will still need to be tested and debugged, which will be difficult without any actuator (i.e. servo) code implemented.
+
+Approximate Time Spent: 7 hours.
+
+## 31 July
+
+- I cleaned up the 6DoF model; making it more legible. I moved a copy of it to the Day 10 Deliverables folder.
+
+- I created a first draft Quat. Feedback controller in Simulink; still needs to be debugged however.
+
+- I cleaned up the repository and left it in more or less the state that it will be in when I present
+
+- I talkwed with Col Harris about options on how to take this 499 further and pursue more novel research, some very promising paths we can take!
+
+Approximate Time Spent: 4 hours.
